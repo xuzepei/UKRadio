@@ -20,6 +20,7 @@
 		09AB361F1ED41FBF00AB2A5F /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AB361D1ED41FBF00AB2A5F /* GTMBase64.m */; };
 		09AB36221ED434D600AB2A5F /* RCEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AB36211ED434D600AB2A5F /* RCEncryption.m */; };
 		09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */; };
+		09F88C671ED55C1B00BF688F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F88C661ED55C1B00BF688F /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		09AB36201ED434D600AB2A5F /* RCEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCEncryption.h; sourceTree = "<group>"; };
 		09AB36211ED434D600AB2A5F /* RCEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCEncryption.m; sourceTree = "<group>"; };
 		09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
+		09F88C651ED55C1B00BF688F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		09F88C661ED55C1B00BF688F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 		09AB361A1ED41FBF00AB2A5F /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				09F88C641ED55C1B00BF688F /* MBProgressHUD */,
 				09AB361B1ED41FBF00AB2A5F /* DES */,
 			);
 			path = ThirdParty;
@@ -120,6 +124,15 @@
 				09AB36211ED434D600AB2A5F /* RCEncryption.m */,
 			);
 			path = DES;
+			sourceTree = "<group>";
+		};
+		09F88C641ED55C1B00BF688F /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				09F88C651ED55C1B00BF688F /* MBProgressHUD.h */,
+				09F88C661ED55C1B00BF688F /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +210,7 @@
 				09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */,
 				097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */,
 				093F26BE1D94D887006556C4 /* AppDelegate.swift in Sources */,
+				09F88C671ED55C1B00BF688F /* MBProgressHUD.m in Sources */,
 				093F26C01D94D887006556C4 /* FirstViewController.swift in Sources */,
 				093349551ECD8B64008897B3 /* HttpRequest.swift in Sources */,
 				097E94611D98C1C700B25CE2 /* Tool.swift in Sources */,

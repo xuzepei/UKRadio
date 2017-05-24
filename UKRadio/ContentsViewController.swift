@@ -12,6 +12,7 @@ class ContentsViewController: UIViewController {
     
     var contents = [String]();
     @IBOutlet weak var contentsTableView: UITableView!
+    var indicator: MBProgressHUD? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,19 +44,24 @@ class ContentsViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    
+ 
     func requestFinished(dict: NSDictionary) {
+        
+        if let indicator = self.indicator {
+            indicator.hide(false)
+        }
         
         let jsonString = Tool.decrypt(dict.objectForKey("json") as! String)
         let result = Tool.parseToDictionary(jsonString)
-        
+
         print("Fuction:\(#function), result:\(result)")
     }
- 
 
 }
 
 extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contents.count
@@ -88,9 +94,11 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
         let urlString = "http://appdream.sinaapp.com/bbc/bbc_list.php?cate_id=6&page=1&isopenall=1"
         let request = HttpRequest()
         request.delegate = self
-        request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
+        let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
+        if b == true {
+           self.indicator = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+           self.indicator!.labelText = "Loading..."
+        }
+        
     }
-    
-
-    
 }

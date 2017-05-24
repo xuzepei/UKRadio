@@ -30,7 +30,8 @@ public class HttpRequest: NSObject{
     
         print("request-get:", urlString)
         
-        let urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
+        let urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        print("request-get2:", urlString)
         if urlString.characters.count == 0 || self.isRequesting {
             return false
         }
@@ -50,6 +51,17 @@ public class HttpRequest: NSObject{
         self.dataTask = session.dataTaskWithRequest(
             request, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) in
                 
+                if let requestError = error {
+                
+                    print("Http request error:", requestError.localizedDescription)
+                }
+                
+                if let httpURLResponse = response as? NSHTTPURLResponse {
+                    
+                    print("HTTP status code:", httpURLResponse.statusCode)
+                }
+                
+                
                 var jsonString = ""
                 
                 if let receivedData = data {
@@ -68,7 +80,11 @@ public class HttpRequest: NSObject{
                     if let token = self.token {
                         dict.addEntriesFromDictionary(token)
                     }
-                    self.delegate?.performSelector(self.resultSelector, withObject: dict)
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.delegate?.performSelector(self.resultSelector, withObject: dict)
+                    }
+                    
                 }
         })
         
@@ -81,7 +97,7 @@ public class HttpRequest: NSObject{
         
         print("request-post:", urlString)
         
-        let urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
+        let urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         if urlString.characters.count == 0 || self.isRequesting {
             return false
         }
@@ -104,6 +120,16 @@ public class HttpRequest: NSObject{
         let session = NSURLSession.sharedSession()
         self.dataTask = session.dataTaskWithRequest(
             request, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) in
+                
+                if let requestError = error {
+                    
+                    print("Http request error:", requestError.localizedDescription)
+                }
+                
+                if let httpURLResponse = response as? NSHTTPURLResponse {
+                    
+                    print("HTTP status code:", httpURLResponse.statusCode)
+                }
                 
                 var jsonString = ""
                 
