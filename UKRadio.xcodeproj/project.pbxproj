@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		093349551ECD8B64008897B3 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093349541ECD8B64008897B3 /* HttpRequest.swift */; };
 		093F26BE1D94D887006556C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F26BD1D94D887006556C4 /* AppDelegate.swift */; };
 		093F26C01D94D887006556C4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F26BF1D94D887006556C4 /* FirstViewController.swift */; };
 		093F26C21D94D887006556C4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F26C11D94D887006556C4 /* SecondViewController.swift */; };
 		093F26C51D94D887006556C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093F26C31D94D887006556C4 /* Main.storyboard */; };
 		093F26C71D94D887006556C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 093F26C61D94D887006556C4 /* Assets.xcassets */; };
 		093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093F26C81D94D887006556C4 /* LaunchScreen.storyboard */; };
+		097E94611D98C1C700B25CE2 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E94601D98C1C700B25CE2 /* Tool.swift */; };
+		097E94661D98C5D700B25CE2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 097E94651D98C5D700B25CE2 /* Reachability.m */; };
+		097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */; };
+		09AB361F1ED41FBF00AB2A5F /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AB361D1ED41FBF00AB2A5F /* GTMBase64.m */; };
+		09AB36221ED434D600AB2A5F /* RCEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AB36211ED434D600AB2A5F /* RCEncryption.m */; };
+		09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		093349541ECD8B64008897B3 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		093F26BA1D94D887006556C4 /* UKRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UKRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		093F26BD1D94D887006556C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		093F26BF1D94D887006556C4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +32,17 @@
 		093F26C61D94D887006556C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		093F26C91D94D887006556C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		093F26CB1D94D887006556C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		097E94601D98C1C700B25CE2 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		097E94631D98C5D600B25CE2 /* UKRadio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UKRadio-Bridging-Header.h"; sourceTree = "<group>"; };
+		097E94641D98C5D700B25CE2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		097E94651D98C5D700B25CE2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDefinitions.swift; sourceTree = "<group>"; };
+		09AB361C1ED41FBF00AB2A5F /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		09AB361D1ED41FBF00AB2A5F /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		09AB361E1ED41FBF00AB2A5F /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		09AB36201ED434D600AB2A5F /* RCEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCEncryption.h; sourceTree = "<group>"; };
+		09AB36211ED434D600AB2A5F /* RCEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCEncryption.m; sourceTree = "<group>"; };
+		09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +75,51 @@
 		093F26BC1D94D887006556C4 /* UKRadio */ = {
 			isa = PBXGroup;
 			children = (
+				097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */,
+				097E94631D98C5D600B25CE2 /* UKRadio-Bridging-Header.h */,
+				097E94621D98C1DC00B25CE2 /* Tool */,
 				093F26BD1D94D887006556C4 /* AppDelegate.swift */,
 				093F26BF1D94D887006556C4 /* FirstViewController.swift */,
 				093F26C11D94D887006556C4 /* SecondViewController.swift */,
+				09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */,
 				093F26C31D94D887006556C4 /* Main.storyboard */,
 				093F26C61D94D887006556C4 /* Assets.xcassets */,
 				093F26C81D94D887006556C4 /* LaunchScreen.storyboard */,
 				093F26CB1D94D887006556C4 /* Info.plist */,
+				09AB361A1ED41FBF00AB2A5F /* ThirdParty */,
 			);
 			path = UKRadio;
+			sourceTree = "<group>";
+		};
+		097E94621D98C1DC00B25CE2 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				097E94641D98C5D700B25CE2 /* Reachability.h */,
+				097E94651D98C5D700B25CE2 /* Reachability.m */,
+				097E94601D98C1C700B25CE2 /* Tool.swift */,
+				093349541ECD8B64008897B3 /* HttpRequest.swift */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
+		09AB361A1ED41FBF00AB2A5F /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				09AB361B1ED41FBF00AB2A5F /* DES */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		09AB361B1ED41FBF00AB2A5F /* DES */ = {
+			isa = PBXGroup;
+			children = (
+				09AB361C1ED41FBF00AB2A5F /* GTMBase64.h */,
+				09AB361D1ED41FBF00AB2A5F /* GTMBase64.m */,
+				09AB361E1ED41FBF00AB2A5F /* GTMDefines.h */,
+				09AB36201ED434D600AB2A5F /* RCEncryption.h */,
+				09AB36211ED434D600AB2A5F /* RCEncryption.m */,
+			);
+			path = DES;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +194,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				093F26C21D94D887006556C4 /* SecondViewController.swift in Sources */,
+				09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */,
+				097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */,
 				093F26BE1D94D887006556C4 /* AppDelegate.swift in Sources */,
 				093F26C01D94D887006556C4 /* FirstViewController.swift in Sources */,
+				093349551ECD8B64008897B3 /* HttpRequest.swift in Sources */,
+				097E94611D98C1C700B25CE2 /* Tool.swift in Sources */,
+				09AB36221ED434D600AB2A5F /* RCEncryption.m in Sources */,
+				09AB361F1ED41FBF00AB2A5F /* GTMBase64.m in Sources */,
+				097E94661D98C5D700B25CE2 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,10 +317,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UKRadio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.practice.UKRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -266,10 +332,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UKRadio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.practice.UKRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -292,6 +361,7 @@
 				093F26D01D94D887006556C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

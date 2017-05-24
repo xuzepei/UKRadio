@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UINavigationBar.appearance().barTintColor = GlobalDefinitions.navigationBarColor
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: GlobalDefinitions.navigationBarTitleColor, NSFontAttributeName: UIFont.boldSystemFontOfSize(22)]
+        UITabBar.appearance().tintColor = GlobalDefinitions.navigationBarColor
+        UITabBar.appearance().barTintColor = UIColor.blackColor()
+        
+        // set up your background color view
+        let colorView = UIView()
+        colorView.backgroundColor = GlobalDefinitions.tableViewCellSelectedColor
+        UITableViewCell.appearance().selectedBackgroundView = colorView
+        
         return true
     }
 
