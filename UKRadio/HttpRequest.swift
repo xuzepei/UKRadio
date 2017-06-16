@@ -23,7 +23,7 @@ public class HttpRequest: NSObject{
     var requestUrlString : String = ""
     var dataTask : NSURLSessionDataTask?
     var uploadTask : NSURLSessionUploadTask?
-    var delegate : AnyObject?
+    weak var delegate : AnyObject?
     
     
     func get(urlString : String, resultSelector : Selector, token : [String : AnyObject]?) -> Bool {
@@ -31,7 +31,7 @@ public class HttpRequest: NSObject{
         print("request-get:", urlString)
         
         let urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-        print("request-get2:", urlString)
+
         if urlString.characters.count == 0 || self.isRequesting {
             return false
         }
@@ -157,6 +157,68 @@ public class HttpRequest: NSObject{
         
         return true
         
+    }
+
+    
+    func downloadImage(urlString : String, token : [String : AnyObject]?, result: ((NSData?, NSDictionary?, NSError?) -> Void)?) -> Bool {
+    
+        print("downloadImage:", urlString)
+        
+        let urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+
+        if urlString.characters.count == 0 || self.isRequesting {
+            return false
+        }
+        
+        self.token = token
+        self.requestUrlString = urlString
+        
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: self.requestUrlString)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 20)
+        request.HTTPShouldHandleCookies = false
+        request.HTTPMethod = "GET"
+        
+        self.isRequesting = true
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        let session = NSURLSession.sharedSession()
+        self.dataTask = session.dataTaskWithRequest(
+            request, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) in
+                
+                if let requestError = error {
+                    
+                    print("Http request error:", requestError.localizedDescription)
+                }
+                
+                if let httpURLResponse = response as? NSHTTPURLResponse {
+                    
+                    print("HTTP status code:", httpURLResponse.statusCode)
+                }
+                
+                
+                let dict = NSMutableDictionary()
+
+                self.dataTask = nil
+                self.isRequesting = false
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                
+                if result != nil {
+                    
+                    if let token = self.token {
+                        dict.addEntriesFromDictionary(token)
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        
+                        result!(data, dict, error)
+                    }
+                    
+                }
+        })
+        
+        self.dataTask?.resume()
+        
+        return true
+    
     }
 
 }

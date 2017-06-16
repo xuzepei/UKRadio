@@ -43,6 +43,26 @@ class ContentsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "go_to_second" {
+        
+            segue.destinationViewController.title = "Test infinite scroll ad view"
+        }
+        
+        print("\(#function)")
+    }
+    
+    func updateContent() {
+    
+        let urlString = "http://appdream.sinaapp.com/bbc/bbc_list.php?cate_id=6&page=1&isopenall=1"
+        let request = HttpRequest()
+        request.delegate = self
+        let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
+        if b == true {
+           self.indicator = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+           self.indicator!.labelText = "Loading..."
+        }
+    
     }
  
     func requestFinished(dict: NSDictionary) {
@@ -56,11 +76,20 @@ class ContentsViewController: UIViewController {
 
         print("Fuction:\(#function), result:\(result)")
     }
+    
+    func getItemByIndex(index: Int) -> AnyObject? {
+        
+        if index >= 0  && index < self.contents.count {
+        
+            return self.contents[index]
+        }
+    
+        return nil
+    }
 
 }
 
 extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
-    
     
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,14 +120,16 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
     
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let urlString = "http://appdream.sinaapp.com/bbc/bbc_list.php?cate_id=6&page=1&isopenall=1"
-        let request = HttpRequest()
-        request.delegate = self
-        let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
-        if b == true {
-           self.indicator = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-           self.indicator!.labelText = "Loading..."
+        if let item = self.getItemByIndex(indexPath.row) as? String {
+        
+            let controller = InfiniteScrollAdViewTestViewController(nibName: nil, bundle: nil)
+            controller.hidesBottomBarWhenPushed = true
+            controller.title = item
+            self.navigationController!.pushViewController(controller, animated: true)
+        
         }
+        
+        //self .performSegueWithIdentifier("go_to_second", sender: nil)
         
     }
 }

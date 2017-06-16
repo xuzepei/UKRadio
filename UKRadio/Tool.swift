@@ -91,7 +91,11 @@ class Tool {
         return NSFileManager.defaultManager() .fileExistsAtPath(path)
     }
     
-    class func saveImage(imageData: NSData!, imageUrl: String!) -> Bool {
+    class func saveImage(imageData: NSData?, imageUrl: String!) -> Bool {
+        
+        if imageData == nil {
+            return false
+        }
         
         if imageUrl.characters.count <= 0 {
             return false
@@ -114,7 +118,7 @@ class Tool {
 //        }
         
         if let savePath = Tool.getImageLocalPath(imageUrl) {
-            return imageData.writeToFile(savePath, atomically: true)
+            return imageData!.writeToFile(savePath, atomically: true)
         }
         
         return false
