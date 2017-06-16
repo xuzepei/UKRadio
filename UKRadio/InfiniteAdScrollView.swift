@@ -101,6 +101,7 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         
         AD_WIDTH = frame.size.width
         AD_HEIGHT = frame.size.height
+        
         self.scrollView = UIScrollView(frame: CGRectMake(0, 0, AD_WIDTH, AD_HEIGHT))
         self.pageControl = UIPageControl(frame: CGRectMake(0, AD_HEIGHT - 16, AD_WIDTH, 16))
         self.pageControl.backgroundColor = UIColor.clearColor()
@@ -115,6 +116,7 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         self.scrollView.delegate = self
         self.scrollView.bouncesZoom = false
         self.scrollView.bounces = false
+        
         self.addSubview(self.scrollView)
         
         self.backgroundColor = UIColor.grayColor()
@@ -137,6 +139,10 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
     }
     
     func timerAction(timer: NSTimer) {
+        
+        if 0 == self.itemArray.count {
+            return;
+        }
     
         if self.pageControl.currentPage + 1 < self.itemArray.count {
         
