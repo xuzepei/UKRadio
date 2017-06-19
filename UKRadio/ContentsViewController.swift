@@ -19,9 +19,11 @@ class ContentsViewController: UIViewController {
         
         self.title = "Contents"
         
-        loadContents();
+        loadContents()
         contentsTableView.reloadData()
         // Do any additional setup after loading the view.
+        
+        updateContent()
     }
 
     override func didReceiveMemoryWarning() {

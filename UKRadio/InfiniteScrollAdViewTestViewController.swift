@@ -81,9 +81,7 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
                 }
                 
             }
-            
 
-        
         }
         
         print("Fuction:\(#function), result:\(result)")

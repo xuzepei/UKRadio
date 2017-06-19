@@ -4,6 +4,8 @@
 
 import UIKit
 
+let TIME_INTERVAL = 6
+
 @objc protocol AdViewProtocol {
     
     @objc optional func clickedAd(_ token: AnyObject)
@@ -134,8 +136,20 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         self.adViews[2].backgroundColor = UIColor.blue
 
         
-        self.timer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        startTimer()
         
+    }
+    
+    func startTimer() {
+    
+        if self.timer != nil {
+        
+            self.timer?.invalidate()
+            self.timer = nil
+        }
+        
+        self.timer = Timer.scheduledTimer(timeInterval: TimeInterval(TIME_INTERVAL), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    
     }
     
     func timerAction(_ timer: Timer) {
@@ -223,6 +237,13 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         self.scrollView.addSubview(adView)
      }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        if self.timer != nil {
+            self.timer?.invalidate();
+        }
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         let index = self.scrollView.contentOffset.x / AD_WIDTH
@@ -254,6 +275,8 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
             })
         
         }
+        
+        startTimer()
     }
     
     func goToIndex(_ index: Int) {
