@@ -9,28 +9,28 @@
 import UIKit
 
 @objc protocol HttpRequestProtocol {
-    optional func willStartHttpRequest(token : AnyObject)
-    optional func didFinishHttpRequest(token : AnyObject)
-    optional func didFailHttpRequest(token : AnyObject)
+    @objc optional func willStartHttpRequest(_ token : AnyObject)
+    @objc optional func didFinishHttpRequest(_ token : AnyObject)
+    @objc optional func didFailHttpRequest(_ token : AnyObject)
 }
 
-public class HttpRequest: NSObject{
+open class HttpRequest: NSObject{
 
     static let sharedInstance = HttpRequest()
     var isRequesting = false
-    var resultSelector : Selector = nil
+    var resultSelector : Selector? = nil
     var token : [String : AnyObject]?
     var requestUrlString : String = ""
-    var dataTask : NSURLSessionDataTask?
-    var uploadTask : NSURLSessionUploadTask?
+    var dataTask : URLSessionDataTask?
+    var uploadTask : URLSessionUploadTask?
     weak var delegate : AnyObject?
     
     
-    func get(urlString : String, resultSelector : Selector, token : [String : AnyObject]?) -> Bool {
+    func get(_ urlString : String, resultSelector : Selector, token : [String : AnyObject]?) -> Bool {
     
         print("request-get:", urlString)
         
-        let urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         if urlString.characters.count == 0 || self.isRequesting {
             return false
@@ -41,22 +41,23 @@ public class HttpRequest: NSObject{
         self.requestUrlString = urlString
     
         
-        let request = NSMutableURLRequest(URL: NSURL(string: self.requestUrlString)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 20)
-        request.HTTPShouldHandleCookies = false
-        request.HTTPMethod = "GET"
+        var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 20)
+        
+        request.httpShouldHandleCookies = false
+        request.httpMethod = "GET"
         
         self.isRequesting = true
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        let session = NSURLSession.sharedSession()
-        self.dataTask = session.dataTaskWithRequest(
-            request, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let session = URLSession.shared
+        self.dataTask = session.dataTask(
+            with: request, completionHandler: { (data : Data?, response : URLResponse?, error : Error?) in
                 
                 if let requestError = error {
                 
                     print("Http request error:", requestError.localizedDescription)
                 }
                 
-                if let httpURLResponse = response as? NSHTTPURLResponse {
+                if let httpURLResponse = response as? HTTPURLResponse {
                     
                     print("HTTP status code:", httpURLResponse.statusCode)
                 }
@@ -66,23 +67,23 @@ public class HttpRequest: NSObject{
                 
                 if let receivedData = data {
                 
-                    jsonString = String(data: receivedData, encoding: NSUTF8StringEncoding) ?? ""
+                    jsonString = String(data: receivedData, encoding: String.Encoding.utf8) ?? ""
                 }
 
                 self.dataTask = nil
                 self.isRequesting = false
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
-                if (self.delegate?.respondsToSelector(self.resultSelector)) != false {
+                if (self.delegate?.responds(to: self.resultSelector)) != false {
 
                     
                     let dict = NSMutableDictionary(dictionary: ["json" : jsonString])
                     if let token = self.token {
-                        dict.addEntriesFromDictionary(token)
+                        dict.addEntries(from: token)
                     }
                     
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.delegate?.performSelector(self.resultSelector, withObject: dict)
+                    DispatchQueue.main.async {
+                        self.delegate?.perform(self.resultSelector, with: dict)
                     }
                     
                 }
@@ -93,11 +94,11 @@ public class HttpRequest: NSObject{
         return true
     }
     
-    func post(urlString : String, resultSelector : Selector, token : [String : AnyObject]) -> Bool {
+    func post(_ urlString : String, resultSelector : Selector, token : [String : AnyObject]) -> Bool {
         
         print("request-post:", urlString)
         
-        let urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let urlString = urlString.addingPercentEscapes(using: String.Encoding.utf8)!
         if urlString.characters.count == 0 || self.isRequesting {
             return false
         }
@@ -107,26 +108,26 @@ public class HttpRequest: NSObject{
         self.requestUrlString = urlString
         
         
-        let request = NSMutableURLRequest(URL: NSURL(string: self.requestUrlString)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 20)
-        request.HTTPShouldHandleCookies = false
-        request.HTTPMethod = "POST"
+        var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 20)
+        request.httpShouldHandleCookies = false
+        request.httpMethod = "POST"
         
-        if let body = token["body"] as? NSData {
-            request.HTTPBody = body
+        if let body = token["body"] as? Data {
+            request.httpBody = body
         }
         
         self.isRequesting = true
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        let session = NSURLSession.sharedSession()
-        self.dataTask = session.dataTaskWithRequest(
-            request, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let session = URLSession.shared
+        self.dataTask = session.dataTask(
+            with: request, completionHandler: { (data : Data?, response : URLResponse?, error : Error?) in
                 
                 if let requestError = error {
                     
                     print("Http request error:", requestError.localizedDescription)
                 }
                 
-                if let httpURLResponse = response as? NSHTTPURLResponse {
+                if let httpURLResponse = response as? HTTPURLResponse {
                     
                     print("HTTP status code:", httpURLResponse.statusCode)
                 }
@@ -135,21 +136,21 @@ public class HttpRequest: NSObject{
                 
                 if let receivedData = data {
                     
-                    jsonString = String(data: receivedData, encoding: NSUTF8StringEncoding) ?? ""
+                    jsonString = String(data: receivedData, encoding: String.Encoding.utf8) ?? ""
                 }
                 
                 self.dataTask = nil
                 self.isRequesting = false
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
-                if (self.delegate?.respondsToSelector(self.resultSelector)) != false {
+                if (self.delegate?.responds(to: self.resultSelector)) != false {
                     
                     
                     let dict = NSMutableDictionary(dictionary: ["json" : jsonString])
                     if let token = self.token {
-                        dict.addEntriesFromDictionary(token)
+                        dict.addEntries(from: token)
                     }
-                    self.delegate?.performSelector(self.resultSelector, withObject: dict)
+                    self.delegate?.perform(self.resultSelector, with: dict)
                 }
         })
         
@@ -160,11 +161,11 @@ public class HttpRequest: NSObject{
     }
 
     
-    func downloadImage(urlString : String, token : [String : AnyObject]?, result: ((NSData?, NSDictionary?, NSError?) -> Void)?) -> Bool {
+    func downloadImage(_ urlString : String, token : [String : AnyObject]?, result: ((Data?, NSDictionary?, Error?) -> Void)?) -> Bool {
     
         print("downloadImage:", urlString)
         
-        let urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let urlString = urlString.addingPercentEscapes(using: String.Encoding.utf8)!
 
         if urlString.characters.count == 0 || self.isRequesting {
             return false
@@ -174,22 +175,22 @@ public class HttpRequest: NSObject{
         self.requestUrlString = urlString
         
         
-        let request = NSMutableURLRequest(URL: NSURL(string: self.requestUrlString)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 20)
-        request.HTTPShouldHandleCookies = false
-        request.HTTPMethod = "GET"
+        var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 20)
+        request.httpShouldHandleCookies = false
+        request.httpMethod = "GET"
         
         self.isRequesting = true
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        let session = NSURLSession.sharedSession()
-        self.dataTask = session.dataTaskWithRequest(
-            request, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let session = URLSession.shared
+        self.dataTask = session.dataTask(
+            with: request, completionHandler: { (data : Data?, response : URLResponse?, error : Error?) in
                 
                 if let requestError = error {
                     
                     print("Http request error:", requestError.localizedDescription)
                 }
                 
-                if let httpURLResponse = response as? NSHTTPURLResponse {
+                if let httpURLResponse = response as? HTTPURLResponse {
                     
                     print("HTTP status code:", httpURLResponse.statusCode)
                 }
@@ -199,15 +200,15 @@ public class HttpRequest: NSObject{
 
                 self.dataTask = nil
                 self.isRequesting = false
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
                 if result != nil {
                     
                     if let token = self.token {
-                        dict.addEntriesFromDictionary(token)
+                        dict.addEntries(from: token)
                     }
                     
-                    dispatch_async(dispatch_get_main_queue()) {
+                    DispatchQueue.main.async {
                         
                         result!(data, dict, error)
                     }

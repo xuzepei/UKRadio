@@ -14,7 +14,7 @@ class ImageLoader: NSObject {
     var requestingUrls = [String]()
     var requestFailedUrls = [String]()
     
-    func downloadImage(urlString : String, token : [String : AnyObject]?, result: ((String?, NSDictionary?, NSError?) -> Void)?) -> Void
+    func downloadImage(_ urlString : String, token : [String : AnyObject]?, result: ((String?, NSDictionary?, Error?) -> Void)?) -> Void
     {
         if requestingUrls.contains(urlString) {
             return
@@ -25,10 +25,10 @@ class ImageLoader: NSObject {
         }
         
         let request = HttpRequest()
-        let b = request.downloadImage(urlString, token: token, result: { (imageData: NSData?, token: NSDictionary?, error: NSError?) in
+        let b = request.downloadImage(urlString, token: token, result: { (imageData: Data?, token: NSDictionary?, error: Error?) in
             
-            if let index = self.requestingUrls.indexOf(urlString) {
-                self.requestingUrls.removeAtIndex(index)
+            if let index = self.requestingUrls.index(of: urlString) {
+                self.requestingUrls.remove(at: index)
             }
             
             if error != nil {
@@ -54,7 +54,7 @@ class ImageLoader: NSObject {
         } else {
         
             if result != nil {
-                result!(urlString, token, nil)
+                result!(urlString, token as! NSDictionary, nil)
             }
         }
     

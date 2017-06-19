@@ -29,18 +29,18 @@ extension FirstViewController: UICollectionViewDelegate {
 
 extension FirstViewController: UICollectionViewDataSource {
 
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("collection_cell_id", forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.yellowColor()
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell_id", for: indexPath)
+        cell.backgroundColor = UIColor.yellow
         return cell
         
     }

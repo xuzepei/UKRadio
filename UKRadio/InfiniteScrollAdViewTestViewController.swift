@@ -35,8 +35,8 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
     func initViewSize () {
     
         var rect = self.view.frame
-        rect.size.width = UIScreen.mainScreen().bounds.width
-        rect.size.height = UIScreen.mainScreen().bounds.height - self.navigationController!.navigationBar.frame.size.height
+        rect.size.width = UIScreen.main.bounds.width
+        rect.size.height = UIScreen.main.bounds.height - self.navigationController!.navigationBar.frame.size.height
         self.view.frame = rect;
         
     }
@@ -48,31 +48,31 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
         request.delegate = self
         let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
         if b == true {
-            self.indicator = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
             self.indicator!.labelText = "Loading..."
         }
         
     }
     
-    func requestFinished(dict: NSDictionary) {
+    func requestFinished(_ dict: NSDictionary) {
         
         if let indicator = self.indicator {
             indicator.hide(false)
         }
         
         //let jsonString = Tool.decrypt(dict.objectForKey("json") as! String)
-        let jsonString = dict.objectForKey("json") as! String
+        let jsonString = dict.object(forKey: "json") as! String
         let result = Tool.parseToDictionary(jsonString)
         
         if result != nil {
         
-            if let code = result!["code"] where code.isKindOfClass(NSNumber) && code.intValue == 200 {
+            if let code = result!["code"], code is NSNumber && code.int32Value == 200 {
                 
                 self.adItems.removeAll()
                 
                 if let data = result!["data"] as? [AnyObject] {
                 
-                    self.adItems.appendContentsOf(data)
+                    self.adItems.append(contentsOf: data)
                 }
                 
                 if self.adItems.count > 0 && self.adScrollView != nil {
@@ -94,7 +94,7 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
     
         if self.adScrollView == nil {
             
-            self.adScrollView = InfiniteAdScrollView(frame: CGRectMake(0, 0, self.view.bounds.width, 260))
+            self.adScrollView = InfiniteAdScrollView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 260))
             self.view.addSubview(self.adScrollView!)
         }
 

@@ -6,7 +6,7 @@ import UIKit
 
 @objc protocol AdViewProtocol {
     
-    optional func clickedAd(token: AnyObject)
+    @objc optional func clickedAd(_ token: AnyObject)
 }
 
 class AdView: UIView, AdViewProtocol {
@@ -22,14 +22,14 @@ class AdView: UIView, AdViewProtocol {
     
     }
 
-    func updateContent(item: AnyObject?) {
+    func updateContent(_ item: AnyObject?) {
     
         self.item = item as? NSDictionary
         self.image = nil
         
         if self.item != nil {
         
-            self.imageUrl = self.item!.objectForKey("picurl") as? String
+            self.imageUrl = self.item!.object(forKey: "picurl") as? String
             
             if let imageUrl = self.imageUrl {
             
@@ -41,7 +41,7 @@ class AdView: UIView, AdViewProtocol {
                 else {
                     
                     ImageLoader.sharedInstance.downloadImage(imageUrl, token: nil, result: { (url: String?, token:
-                        NSDictionary?, error: NSError?) in
+                        NSDictionary?, error: Error?) in
                         
                         if imageUrl == url && error == nil {
                         
@@ -59,13 +59,13 @@ class AdView: UIView, AdViewProtocol {
         
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
-        super.drawRect(rect)
+        super.draw(rect)
         
         if let image = self.image {
         
-            image.drawInRect(self.bounds)
+            image.draw(in: self.bounds)
         
         }
     }
@@ -81,7 +81,7 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
     var adViews = [AdView]()
     var scrollView: UIScrollView
     var pageControl: UIPageControl
-    var timer: NSTimer?
+    var timer: Timer?
     
     deinit {
     
@@ -102,14 +102,14 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         AD_WIDTH = frame.size.width
         AD_HEIGHT = frame.size.height
         
-        self.scrollView = UIScrollView(frame: CGRectMake(0, 0, AD_WIDTH, AD_HEIGHT))
-        self.pageControl = UIPageControl(frame: CGRectMake(0, AD_HEIGHT - 16, AD_WIDTH, 16))
-        self.pageControl.backgroundColor = UIColor.clearColor()
+        self.scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: AD_WIDTH, height: AD_HEIGHT))
+        self.pageControl = UIPageControl(frame: CGRect(x: 0, y: AD_HEIGHT - 16, width: AD_WIDTH, height: 16))
+        self.pageControl.backgroundColor = UIColor.clear
         super.init(frame: frame)
         
-        self.scrollView.contentSize = CGSizeMake(AD_WIDTH * 3, AD_HEIGHT)
-        self.scrollView.contentOffset = CGPointMake(AD_WIDTH, 0)
-        self.scrollView.pagingEnabled = true
+        self.scrollView.contentSize = CGSize(width: AD_WIDTH * 3, height: AD_HEIGHT)
+        self.scrollView.contentOffset = CGPoint(x: AD_WIDTH, y: 0)
+        self.scrollView.isPagingEnabled = true
         self.scrollView.showsVerticalScrollIndicator = false
         self.scrollView.showsHorizontalScrollIndicator = false
         self.scrollView.scrollsToTop = false
@@ -119,26 +119,26 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         
         self.addSubview(self.scrollView)
         
-        self.backgroundColor = UIColor.grayColor()
+        self.backgroundColor = UIColor.gray
         
         for i in 0..<3 {
         
-            let adView = AdView(frame: CGRectMake(AD_WIDTH * CGFloat(i), 0, AD_WIDTH, AD_HEIGHT))
+            let adView = AdView(frame: CGRect(x: AD_WIDTH * CGFloat(i), y: 0, width: AD_WIDTH, height: AD_HEIGHT))
             //adView.delegate = self
             self.adViews.append(adView)
         
         }
         
-        self.adViews[0].backgroundColor = UIColor.redColor()
-        self.adViews[1].backgroundColor = UIColor.greenColor()
-        self.adViews[2].backgroundColor = UIColor.blueColor()
+        self.adViews[0].backgroundColor = UIColor.red
+        self.adViews[1].backgroundColor = UIColor.green
+        self.adViews[2].backgroundColor = UIColor.blue
 
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(6, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
         
     }
     
-    func timerAction(timer: NSTimer) {
+    func timerAction(_ timer: Timer) {
         
         if 0 == self.itemArray.count {
             return;
@@ -158,17 +158,17 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         
     }
     
-    func updateContent(items: [AnyObject]?) {
+    func updateContent(_ items: [AnyObject]?) {
     
         self.itemArray.removeAllObjects()
         
         if items != nil {
-            self.itemArray.addObjectsFromArray(items!)
+            self.itemArray.addObjects(from: items!)
         }
         
         self.pageControl.numberOfPages = self.itemArray.count
         self.pageControl.currentPage = 0
-        self.pageControl.addTarget(self, action: #selector(changePage), forControlEvents: UIControlEvents.ValueChanged)
+        self.pageControl.addTarget(self, action: #selector(changePage), for: UIControlEvents.valueChanged)
         self.addSubview(self.pageControl)
         self.rearrageAdViews()
     }
@@ -186,7 +186,7 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         
         for subView in self.scrollView.subviews {
         
-            if subView.isKindOfClass(AdView) {
+            if subView.isKind(of: AdView.self) {
             
                 subView.removeFromSuperview()
             }
@@ -195,8 +195,8 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         
         //middle ad view
         var adView = self.adViews[1]
-        adView.updateContent(self.itemArray[self.pageControl.currentPage])
-        adView.frame = CGRectMake(AD_WIDTH, 0, AD_WIDTH, AD_HEIGHT)
+        adView.updateContent(self.itemArray[self.pageControl.currentPage] as AnyObject)
+        adView.frame = CGRect(x: AD_WIDTH, y: 0, width: AD_WIDTH, height: AD_HEIGHT)
         self.scrollView.addSubview(adView)
         
         //left ad view
@@ -205,8 +205,8 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         if index < 0 {
             index = self.itemArray.count - 1
         }
-        adView.updateContent(self.itemArray[index])
-        adView.frame = CGRectMake(0, 0, AD_WIDTH, AD_HEIGHT)
+        adView.updateContent(self.itemArray[index] as AnyObject)
+        adView.frame = CGRect(x: 0, y: 0, width: AD_WIDTH, height: AD_HEIGHT)
         self.scrollView.addSubview(adView)
         
         //right ad view
@@ -218,33 +218,33 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
             index = 0
         }
         
-        adView.updateContent(self.itemArray[index])
-        adView.frame = CGRectMake(AD_WIDTH*2, 0, AD_WIDTH, AD_HEIGHT)
+        adView.updateContent(self.itemArray[index] as AnyObject)
+        adView.frame = CGRect(x: AD_WIDTH*2, y: 0, width: AD_WIDTH, height: AD_HEIGHT)
         self.scrollView.addSubview(adView)
      }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         let index = self.scrollView.contentOffset.x / AD_WIDTH
         
         if index > 1 {
         
-            UIView.animateWithDuration(animationDuration, animations: { 
-                self.scrollView.contentOffset = CGPointMake(self.AD_WIDTH*2, 0)
+            UIView.animate(withDuration: animationDuration, animations: { 
+                self.scrollView.contentOffset = CGPoint(x: self.AD_WIDTH*2, y: 0)
                 }, completion: { (finished : Bool) in
                     
                     self.pageControl.currentPage = self.pageControl.currentPage + 1 < self.itemArray.count ? self.pageControl.currentPage + 1 : 0
                     
-                    self.scrollView.contentOffset = CGPointMake(self.AD_WIDTH*1, 0)
+                    self.scrollView.contentOffset = CGPoint(x: self.AD_WIDTH*1, y: 0)
                     
                     self.rearrageAdViews()
             })
         
         } else if index < 1 {
         
-            UIView.animateWithDuration(animationDuration, animations: { 
+            UIView.animate(withDuration: animationDuration, animations: { 
                 
-                self.scrollView.contentOffset = CGPointMake(0, 0)
+                self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
                 
                 }, completion: { (finished: Bool) in
                     
@@ -256,16 +256,16 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         }
     }
     
-    func goToIndex(index: Int) {
+    func goToIndex(_ index: Int) {
     
         self.pageControl.currentPage = index
         
-        UIView.animateWithDuration(animationDuration, animations: { 
-            self.scrollView.contentOffset = CGPointMake(self.AD_WIDTH*2, 0)
-        }) { (finished: Bool) in
-                self.scrollView.contentOffset = CGPointMake(self.AD_WIDTH*1, 0)
+        UIView.animate(withDuration: animationDuration, animations: { 
+            self.scrollView.contentOffset = CGPoint(x: self.AD_WIDTH*2, y: 0)
+        }, completion: { (finished: Bool) in
+                self.scrollView.contentOffset = CGPoint(x: self.AD_WIDTH*1, y: 0)
                 self.rearrageAdViews()
-        }
+        }) 
     
     }
     

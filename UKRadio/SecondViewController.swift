@@ -29,19 +29,19 @@ class SecondViewController: UIViewController {
         request.delegate = self
         let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
         if b == true {
-            self.indicator = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
             self.indicator!.labelText = "Loading..."
         }
         
     }
     
-    func requestFinished(dict: NSDictionary) {
+    func requestFinished(_ dict: NSDictionary) {
         
         if let indicator = self.indicator {
             indicator.hide(false)
         }
         
-        let jsonString = Tool.decrypt(dict.objectForKey("json") as! String)
+        let jsonString = Tool.decrypt(dict.object(forKey: "json") as! String)
         let result = Tool.parseToDictionary(jsonString)
         
         print("Fuction:\(#function), result:\(result)")

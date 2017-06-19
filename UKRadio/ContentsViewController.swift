@@ -40,13 +40,13 @@ class ContentsViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "go_to_second" {
         
-            segue.destinationViewController.title = "Test infinite scroll ad view"
+            segue.destination.title = "Test infinite scroll ad view"
         }
         
         print("\(#function)")
@@ -59,29 +59,29 @@ class ContentsViewController: UIViewController {
         request.delegate = self
         let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
         if b == true {
-           self.indicator = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+           self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
            self.indicator!.labelText = "Loading..."
         }
     
     }
  
-    func requestFinished(dict: NSDictionary) {
+    func requestFinished(_ dict: NSDictionary) {
         
         if let indicator = self.indicator {
             indicator.hide(false)
         }
         
-        let jsonString = Tool.decrypt(dict.objectForKey("json") as! String)
+        let jsonString = Tool.decrypt(dict.object(forKey: "json") as! String)
         let result = Tool.parseToDictionary(jsonString)
 
-        print("Fuction:\(#function), result:\(result)")
+        print("Fuction:\(#function), result:\(String(describing: result))")
     }
     
-    func getItemByIndex(index: Int) -> AnyObject? {
+    func getItemByIndex(_ index: Int) -> AnyObject? {
         
         if index >= 0  && index < self.contents.count {
         
-            return self.contents[index]
+            return self.contents[index] as AnyObject
         }
     
         return nil
@@ -92,22 +92,22 @@ class ContentsViewController: UIViewController {
 extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
     
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contents.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let cellId = "ContentsCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath)
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator;
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator;
         
         if indexPath.row < contents.count {
             cell.textLabel?.text = contents[indexPath.row]
         }
         
-        cell.selectionStyle = UITableViewCellSelectionStyle.Blue
-        cell.textLabel?.font = UIFont.systemFontOfSize(20)
+        cell.selectionStyle = UITableViewCellSelectionStyle.blue
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         if indexPath.row & 1 == 0 {
             cell.backgroundColor = UIColor(red: 227/255.0, green: 227/255.0, blue: 227/255.0, alpha: 227/255.0)
         }
@@ -116,9 +116,9 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if let item = self.getItemByIndex(indexPath.row) as? String {
         
