@@ -13,6 +13,7 @@
 		093F26C21D94D887006556C4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F26C11D94D887006556C4 /* SecondViewController.swift */; };
 		093F26C71D94D887006556C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 093F26C61D94D887006556C4 /* Assets.xcassets */; };
 		093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093F26C81D94D887006556C4 /* LaunchScreen.storyboard */; };
+		09593D191EF9060600241A13 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09593D181EF9060600241A13 /* HomeViewController.swift */; };
 		097E94611D98C1C700B25CE2 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E94601D98C1C700B25CE2 /* Tool.swift */; };
 		097E94661D98C5D700B25CE2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 097E94651D98C5D700B25CE2 /* Reachability.m */; };
 		097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */; };
@@ -23,6 +24,8 @@
 		09BDC67A1ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */; };
 		09BDC67C1ED6D00E00864DF7 /* InfiniteAdScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */; };
 		09DE715C1ED7DF7C0021B0BF /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE715B1ED7DF7C0021B0BF /* ImageLoader.swift */; };
+		09E790C91EF8D690004C769B /* FSPageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E790C51EF8D690004C769B /* FSPageContentView.m */; };
+		09E790CA1EF8D690004C769B /* FSSegmentTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E790C81EF8D690004C769B /* FSSegmentTitleView.m */; };
 		09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */; };
 		09F88C671ED55C1B00BF688F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F88C661ED55C1B00BF688F /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
@@ -36,6 +39,7 @@
 		093F26C61D94D887006556C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		093F26C91D94D887006556C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		093F26CB1D94D887006556C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09593D181EF9060600241A13 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		097E94601D98C1C700B25CE2 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		097E94631D98C5D600B25CE2 /* UKRadio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UKRadio-Bridging-Header.h"; sourceTree = "<group>"; };
 		097E94641D98C5D700B25CE2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -51,6 +55,11 @@
 		09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfiniteScrollAdViewTestViewController.xib; sourceTree = "<group>"; };
 		09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteAdScrollView.swift; sourceTree = "<group>"; };
 		09DE715B1ED7DF7C0021B0BF /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		09E790C41EF8D690004C769B /* FSPageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPageContentView.h; sourceTree = "<group>"; };
+		09E790C51EF8D690004C769B /* FSPageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPageContentView.m; sourceTree = "<group>"; };
+		09E790C61EF8D690004C769B /* FSScrollContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSScrollContentView.h; sourceTree = "<group>"; };
+		09E790C71EF8D690004C769B /* FSSegmentTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSegmentTitleView.h; sourceTree = "<group>"; };
+		09E790C81EF8D690004C769B /* FSSegmentTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSegmentTitleView.m; sourceTree = "<group>"; };
 		09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		09F88C651ED55C1B00BF688F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		09F88C661ED55C1B00BF688F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -91,6 +100,7 @@
 				097E94621D98C1DC00B25CE2 /* Tool */,
 				093F26BD1D94D887006556C4 /* AppDelegate.swift */,
 				093F26BF1D94D887006556C4 /* FirstViewController.swift */,
+				09593D181EF9060600241A13 /* HomeViewController.swift */,
 				09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */,
 				093F26C11D94D887006556C4 /* SecondViewController.swift */,
 				09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */,
@@ -120,6 +130,7 @@
 		09AB361A1ED41FBF00AB2A5F /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				09E790C31EF8D690004C769B /* FSScrollContentView */,
 				09F88C641ED55C1B00BF688F /* MBProgressHUD */,
 				09AB361B1ED41FBF00AB2A5F /* DES */,
 			);
@@ -136,6 +147,18 @@
 				09AB36211ED434D600AB2A5F /* RCEncryption.m */,
 			);
 			path = DES;
+			sourceTree = "<group>";
+		};
+		09E790C31EF8D690004C769B /* FSScrollContentView */ = {
+			isa = PBXGroup;
+			children = (
+				09E790C41EF8D690004C769B /* FSPageContentView.h */,
+				09E790C51EF8D690004C769B /* FSPageContentView.m */,
+				09E790C61EF8D690004C769B /* FSScrollContentView.h */,
+				09E790C71EF8D690004C769B /* FSSegmentTitleView.h */,
+				09E790C81EF8D690004C769B /* FSSegmentTitleView.m */,
+			);
+			path = FSScrollContentView;
 			sourceTree = "<group>";
 		};
 		09F88C641ED55C1B00BF688F /* MBProgressHUD */ = {
@@ -179,6 +202,7 @@
 				TargetAttributes = {
 					093F26B91D94D887006556C4 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 86WCPL8Z9L;
 						LastSwiftMigration = 0830;
 					};
 				};
@@ -223,10 +247,13 @@
 				09DE715C1ED7DF7C0021B0BF /* ImageLoader.swift in Sources */,
 				093F26C21D94D887006556C4 /* SecondViewController.swift in Sources */,
 				09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */,
+				09593D191EF9060600241A13 /* HomeViewController.swift in Sources */,
 				097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */,
 				09BDC6791ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift in Sources */,
+				09E790C91EF8D690004C769B /* FSPageContentView.m in Sources */,
 				093F26BE1D94D887006556C4 /* AppDelegate.swift in Sources */,
 				09F88C671ED55C1B00BF688F /* MBProgressHUD.m in Sources */,
+				09E790CA1EF8D690004C769B /* FSSegmentTitleView.m in Sources */,
 				093F26C01D94D887006556C4 /* FirstViewController.swift in Sources */,
 				093349551ECD8B64008897B3 /* HttpRequest.swift in Sources */,
 				097E94611D98C1C700B25CE2 /* Tool.swift in Sources */,
@@ -349,6 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				INFOPLIST_FILE = UKRadio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -365,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				INFOPLIST_FILE = UKRadio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

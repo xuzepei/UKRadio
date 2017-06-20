@@ -1,10 +1,8 @@
 //
 //  InfiniteScrollAdViewTestViewController.swift
-//  UKRadio
 //
 //  Created by xuzepei on 17/5/25.
-//  Copyright © 2017年 xuzepei. All rights reserved.
-//
+
 
 import UIKit
 
@@ -19,11 +17,13 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        self.view.backgroundColor = UIColor.white
+        
         self.initViewSize()
         
-        self.initAdScrollView()
+        //self.initAdScrollView()
         
-        self.updateContent()
+        //self.updateContent()
 
     }
 
@@ -40,6 +40,7 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
         self.view.frame = rect;
         
     }
+
     
     func updateContent() {
         
@@ -48,8 +49,6 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
         request.delegate = self
         let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
         if b == true {
-            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
-            self.indicator!.labelText = "Loading..."
         }
         
     }
@@ -84,7 +83,7 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
 
         }
         
-        print("Fuction:\(#function), result:\(result)")
+        print("Fuction:\(#function), result:\(String(describing: result))")
     }
     
     
@@ -109,4 +108,11 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
     }
     */
 
+}
+
+extension InfiniteScrollAdViewTestViewController: FSSegmentTitleViewDelegate {
+
+    func fsSegmentTitleView(_ titleView: FSSegmentTitleView!, start startIndex: Int, end endIndex: Int) {
+        print("\(#function)")
+    }
 }
