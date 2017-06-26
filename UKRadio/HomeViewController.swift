@@ -13,11 +13,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pageContentView: FSPageContentView!
     
     var titleView: FSSegmentTitleView? = nil
+    var navigationBarHeight: CGFloat = 0.0
+    var tabBarHeight: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.translatesAutoresizingMaskIntoConstraints = true
+        self.navigationBarHeight = self.navigationController!.navigationBar.frame.size.height
+        self.tabBarHeight = self.tabBarController!.tabBar.bounds.height
+        
         initViewSize()
         initSegmentView()
         initPageView()
@@ -32,7 +37,7 @@ class HomeViewController: UIViewController {
         
         var rect = self.view.frame
         rect.size.width = UIScreen.main.bounds.width
-        rect.size.height = UIScreen.main.bounds.height - self.navigationController!.navigationBar.frame.size.height
+        rect.size.height = UIScreen.main.bounds.height - self.navigationBarHeight
         self.view.frame = rect;
         
     }
@@ -49,20 +54,18 @@ class HomeViewController: UIViewController {
     func initPageView () {
         
         let firstVC = FirstViewController(nibName: nil, bundle: nil)
+        
+//        self.navigationController!.pushViewController(firstVC, animated: true)
         let secondVC = SecondViewController(nibName: nil, bundle: nil)
-        let thirdVC = UIViewController(nibName: nil, bundle: nil)
-        
-        //print("-------\(self.tabBarController!.tabBar.frame.size.height)")
-        
+
         self.pageContentView.translatesAutoresizingMaskIntoConstraints = true;
-        
         var rect = self.pageContentView.frame
-        rect.size.width = firstVC.view.bounds.width
-        rect.size.height = firstVC.view.bounds.height - self.navigationController!.navigationBar.frame.size.height - self.tabBarController!.tabBar.frame.size.height
+        rect.size.width = self.view.bounds.width
+        rect.size.height = self.view.bounds.height - self.tabBarHeight
         self.pageContentView.frame = rect;
 
 
-        self.pageContentView.updateContent([firstVC, secondVC, thirdVC], parentVC: self, delegate: self)
+        self.pageContentView.updateContent([firstVC, secondVC], parentVC: self, delegate: self)
         
     }
     

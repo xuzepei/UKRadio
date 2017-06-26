@@ -93,9 +93,18 @@ static NSString *collectionCellIdentifier = @"collectionCellIdentifier";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellIdentifier forIndexPath:indexPath];
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
+
     UIViewController *childVC = self.childsVCs[indexPath.item];
-    childVC.view.frame = cell.contentView.bounds;
+
+    //foo: Adjust the frame of childVC
+    CGRect rect = childVC.view.frame;
+    rect.origin.y = 25;
+    rect.size = cell.contentView.bounds.size;
+    rect.size.height = rect.size.height - 25;
+    childVC.view.frame = rect;
+    
     [cell.contentView addSubview:childVC.view];
+    
     return cell;
 }
 

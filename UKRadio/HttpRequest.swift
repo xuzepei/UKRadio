@@ -9,9 +9,9 @@
 import UIKit
 
 @objc protocol HttpRequestProtocol {
-    @objc optional func willStartHttpRequest(_ token : AnyObject)
-    @objc optional func didFinishHttpRequest(_ token : AnyObject)
-    @objc optional func didFailHttpRequest(_ token : AnyObject)
+    @objc optional func willStartHttpRequest(_ token : Any)
+    @objc optional func didFinishHttpRequest(_ token : Any)
+    @objc optional func didFailHttpRequest(_ token : Any)
 }
 
 open class HttpRequest: NSObject{
@@ -19,14 +19,21 @@ open class HttpRequest: NSObject{
     static let sharedInstance = HttpRequest()
     var isRequesting = false
     var resultSelector : Selector? = nil
-    var token : [String : AnyObject]?
+    var token : [String : Any]?
     var requestUrlString : String = ""
     var dataTask : URLSessionDataTask?
     var uploadTask : URLSessionUploadTask?
     weak var delegate : AnyObject?
     
+    override init() {
     
-    func get(_ urlString : String, resultSelector : Selector, token : [String : AnyObject]?) -> Bool {
+    }
+    
+    init(delegate: AnyObject?) {
+        self.delegate =  delegate
+    }
+    
+    func get(_ urlString : String, resultSelector : Selector, token : [String : Any]?) -> Bool {
     
         print("request-get:", urlString)
         
@@ -78,6 +85,9 @@ open class HttpRequest: NSObject{
 
                     
                     let dict = NSMutableDictionary(dictionary: ["json" : jsonString])
+                    if let receivedData = data {
+                        dict.setObject(receivedData, forKey: "data" as NSCopying)
+                    }
                     if let token = self.token {
                         dict.addEntries(from: token)
                     }
@@ -94,7 +104,7 @@ open class HttpRequest: NSObject{
         return true
     }
     
-    func post(_ urlString : String, resultSelector : Selector, token : [String : AnyObject]) -> Bool {
+    func post(_ urlString : String, resultSelector : Selector, token : [String : Any]) -> Bool {
         
         print("request-post:", urlString)
         
@@ -161,7 +171,7 @@ open class HttpRequest: NSObject{
     }
 
     
-    func downloadImage(_ urlString : String, token : [String : AnyObject]?, result: ((Data?, NSDictionary?, Error?) -> Void)?) -> Bool {
+    func downloadImage(_ urlString : String, token : [String : Any]?, result: ((Data?, NSDictionary?, Error?) -> Void)?) -> Bool {
     
         print("downloadImage:", urlString)
         

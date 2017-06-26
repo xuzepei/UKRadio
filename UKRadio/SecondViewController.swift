@@ -2,23 +2,18 @@
 //  SecondViewController.swift
 //  UKRadio
 //
-//  Created by xuzepei on 16/9/23.
-//  Copyright © 2016年 xuzepei. All rights reserved.
+//  Created by xuzepei on 2017/6/21.
+//  Copyright © 2017年 xuzepei. All rights reserved.
 //
 
 import UIKit
 
 class SecondViewController: UIViewController {
-    
-    var indicator: MBProgressHUD? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        self.view.backgroundColor = UIColor.green
-        
-        updateContent()
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,31 +21,15 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateContent() {
-        
-        let urlString = "http://appdream.sinaapp.com/bbc/bbc_list.php?cate_id=6&page=1&isopenall=1"
-        let request = HttpRequest()
-        request.delegate = self
-        let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
-        if b == true {
-            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
-            self.indicator!.labelText = "Loading..."
-        }
-        
-    }
-    
-    func requestFinished(_ dict: NSDictionary) {
-        
-        if let indicator = self.indicator {
-            indicator.hide(false)
-        }
-        
-        let jsonString = Tool.decrypt(dict.object(forKey: "json") as! String)
-        let result = Tool.parseToDictionary(jsonString)
-        
-        print("Fuction:\(#function), result:\(result)")
-    }
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
-
