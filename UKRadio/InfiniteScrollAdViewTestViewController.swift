@@ -59,8 +59,8 @@ class InfiniteScrollAdViewTestViewController: UIViewController {
             indicator.hide(false)
         }
         
-        //let jsonString = Tool.decrypt(dict.objectForKey("json") as! String)
-        let jsonString = dict.object(forKey: "json") as! String
+        //let jsonString = Tool.decrypt(dict.objectForKey("k_json") as! String)
+        let jsonString = dict.object(forKey: "k_json") as! String
         let result = Tool.parseToDictionary(jsonString)
         
         if result != nil {

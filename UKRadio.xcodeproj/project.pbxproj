@@ -33,9 +33,16 @@
 		095F7FA61EFCF7ED00727834 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 095F7F9B1EFCF7ED00727834 /* UIScrollView+MJRefresh.m */; };
 		095F7FA71EFCF7ED00727834 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 095F7F9D1EFCF7ED00727834 /* UIView+Extension.m */; };
 		095F7FAA1EFD029F00727834 /* RCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095F7FA91EFD029F00727834 /* RCWebViewController.m */; };
+		0960EE411F034520003AE26A /* VideoSubcatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960EE401F034520003AE26A /* VideoSubcatalogViewController.swift */; };
+		09681B701F009E9900DDD83E /* ContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09681B6F1F009E9900DDD83E /* ContentsTableViewCell.swift */; };
+		09681B721F00A7B200DDD83E /* SubcatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09681B711F00A7B200DDD83E /* SubcatalogViewController.swift */; };
+		097793321F01E4AB006126D8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097793301F01E4AB006126D8 /* WebViewController.swift */; };
+		097793331F01E4AB006126D8 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 097793311F01E4AB006126D8 /* WebViewController.xib */; };
 		097E94611D98C1C700B25CE2 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E94601D98C1C700B25CE2 /* Tool.swift */; };
 		097E94661D98C5D700B25CE2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 097E94651D98C5D700B25CE2 /* Reachability.m */; };
 		097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */; };
+		099CB9951F02014600470270 /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099CB9941F02014600470270 /* VideoListViewController.swift */; };
+		099CB9971F02023400470270 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099CB9961F02023400470270 /* VideoTableViewCell.swift */; };
 		09AB361F1ED41FBF00AB2A5F /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AB361D1ED41FBF00AB2A5F /* GTMBase64.m */; };
 		09AB36221ED434D600AB2A5F /* RCEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AB36211ED434D600AB2A5F /* RCEncryption.m */; };
 		09BDC6761ED6BF3300864DF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BDC6741ED6BF3300864DF7 /* Main.storyboard */; };
@@ -95,11 +102,18 @@
 		095F7F9D1EFCF7ED00727834 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		095F7FA81EFD029700727834 /* RCWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCWebViewController.h; sourceTree = "<group>"; };
 		095F7FA91EFD029F00727834 /* RCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCWebViewController.m; sourceTree = "<group>"; };
+		0960EE401F034520003AE26A /* VideoSubcatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSubcatalogViewController.swift; sourceTree = "<group>"; };
+		09681B6F1F009E9900DDD83E /* ContentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsTableViewCell.swift; sourceTree = "<group>"; };
+		09681B711F00A7B200DDD83E /* SubcatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubcatalogViewController.swift; sourceTree = "<group>"; };
+		097793301F01E4AB006126D8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		097793311F01E4AB006126D8 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		097E94601D98C1C700B25CE2 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		097E94631D98C5D600B25CE2 /* UKRadio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UKRadio-Bridging-Header.h"; sourceTree = "<group>"; };
 		097E94641D98C5D700B25CE2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		097E94651D98C5D700B25CE2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDefinitions.swift; sourceTree = "<group>"; };
+		099CB9941F02014600470270 /* VideoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
+		099CB9961F02023400470270 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		09AB361C1ED41FBF00AB2A5F /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		09AB361D1ED41FBF00AB2A5F /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		09AB361E1ED41FBF00AB2A5F /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -179,8 +193,10 @@
 			children = (
 				097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */,
 				097E94631D98C5D600B25CE2 /* UKRadio-Bridging-Header.h */,
-				097E94621D98C1DC00B25CE2 /* Tool */,
 				093F26BD1D94D887006556C4 /* AppDelegate.swift */,
+				097E94621D98C1DC00B25CE2 /* Tool */,
+				099CB9921F0200DB00470270 /* Basic */,
+				099CB9931F02012A00470270 /* Video */,
 				09593D181EF9060600241A13 /* HomeViewController.swift */,
 				09346CC31EF9F88200DDC6BE /* FirstViewController.swift */,
 				09346CC41EF9F88200DDC6BE /* FirstViewController.xib */,
@@ -188,7 +204,6 @@
 				093FCB531EFB6A9D000D89C8 /* ZiXunTableViewCell.xib */,
 				09346CC71EF9FDF500DDC6BE /* SecondViewController.swift */,
 				09346CC81EF9FDF500DDC6BE /* SecondViewController.xib */,
-				09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */,
 				09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */,
 				09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */,
 				093FCB4F1EFB53F4000D89C8 /* HttpParser.h */,
@@ -239,6 +254,28 @@
 				09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */,
 			);
 			name = Tool;
+			sourceTree = "<group>";
+		};
+		099CB9921F0200DB00470270 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */,
+				09681B711F00A7B200DDD83E /* SubcatalogViewController.swift */,
+				097793301F01E4AB006126D8 /* WebViewController.swift */,
+				097793311F01E4AB006126D8 /* WebViewController.xib */,
+				09681B6F1F009E9900DDD83E /* ContentsTableViewCell.swift */,
+			);
+			name = Basic;
+			sourceTree = "<group>";
+		};
+		099CB9931F02012A00470270 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				099CB9941F02014600470270 /* VideoListViewController.swift */,
+				099CB9961F02023400470270 /* VideoTableViewCell.swift */,
+				0960EE401F034520003AE26A /* VideoSubcatalogViewController.swift */,
+			);
+			name = Video;
 			sourceTree = "<group>";
 		};
 		09AB361A1ED41FBF00AB2A5F /* ThirdParty */ = {
@@ -349,6 +386,7 @@
 				09BDC6761ED6BF3300864DF7 /* Main.storyboard in Resources */,
 				09346CC61EF9F88200DDC6BE /* FirstViewController.xib in Resources */,
 				09346CCA1EF9FDF500DDC6BE /* SecondViewController.xib in Resources */,
+				097793331F01E4AB006126D8 /* WebViewController.xib in Resources */,
 				093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */,
 				093F26C71D94D887006556C4 /* Assets.xcassets in Resources */,
 				093FCB551EFB6A9D000D89C8 /* ZiXunTableViewCell.xib in Resources */,
@@ -366,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09346D2E1EFA49EA00DDC6BE /* TFHppleElement.m in Sources */,
+				097793321F01E4AB006126D8 /* WebViewController.swift in Sources */,
 				09DE715C1ED7DF7C0021B0BF /* ImageLoader.swift in Sources */,
 				09346D2F1EFA49EA00DDC6BE /* XPathQuery.m in Sources */,
 				09346CC91EF9FDF500DDC6BE /* SecondViewController.swift in Sources */,
@@ -373,7 +412,9 @@
 				09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */,
 				09593D191EF9060600241A13 /* HomeViewController.swift in Sources */,
 				097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */,
+				099CB9971F02023400470270 /* VideoTableViewCell.swift in Sources */,
 				09BDC6791ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift in Sources */,
+				09681B701F009E9900DDD83E /* ContentsTableViewCell.swift in Sources */,
 				095F7FA71EFCF7ED00727834 /* UIView+Extension.m in Sources */,
 				095F7FA11EFCF7ED00727834 /* MJRefreshConst.m in Sources */,
 				09E790C91EF8D690004C769B /* FSPageContentView.m in Sources */,
@@ -391,8 +432,11 @@
 				097E94661D98C5D700B25CE2 /* Reachability.m in Sources */,
 				095F7FAA1EFD029F00727834 /* RCWebViewController.m in Sources */,
 				095F7FA01EFCF7ED00727834 /* MJRefreshBaseView.m in Sources */,
+				0960EE411F034520003AE26A /* VideoSubcatalogViewController.swift in Sources */,
 				095F7FA21EFCF7ED00727834 /* MJRefreshFooterView.m in Sources */,
 				093FCB511EFB53F4000D89C8 /* HttpParser.m in Sources */,
+				099CB9951F02014600470270 /* VideoListViewController.swift in Sources */,
+				09681B721F00A7B200DDD83E /* SubcatalogViewController.swift in Sources */,
 				095F7FA31EFCF7ED00727834 /* MJRefreshHeaderView.m in Sources */,
 				09BDC67C1ED6D00E00864DF7 /* InfiniteAdScrollView.swift in Sources */,
 			);

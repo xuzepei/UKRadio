@@ -1,15 +1,11 @@
 //
-//  ContentsViewController.swift
-//  UKRadio
-//
-//  Created by xuzepei on 17/4/26.
-//  Copyright © 2017年 xuzepei. All rights reserved.
-//
+//  VideoListViewController.swift
+
 
 import UIKit
 
-class ContentsViewController: UIViewController {
-    
+class VideoListViewController: UIViewController {
+
     @IBOutlet weak var tableView: UITableView!
     var indicator: MBProgressHUD? = nil
     var itemArray = [[String : Any]]()
@@ -17,7 +13,7 @@ class ContentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Contents"
+        self.title = "视频教程"
         
         initTableView()
         loadContents()
@@ -30,15 +26,15 @@ class ContentsViewController: UIViewController {
     
     func initTableView() {
         
-        self.tableView.addHeader(withTarget: self, action: #selector(ContentsViewController.loadContents))
+        self.tableView.addHeader(withTarget: self, action: #selector(VideoListViewController.loadContents))
     }
     
     func loadContents() {
         
-        let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getBaseMainList&BigID=21"
+        let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getVideoMainList&BigID=21"
         
         let request = HttpRequest(delegate: self)
-        let b = request.post(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
+        let b = request.post(urlString, resultSelector: #selector(VideoListViewController.requestFinished(_:)), token: nil)
         
         if b == true {
             self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -105,7 +101,7 @@ class ContentsViewController: UIViewController {
     
 }
 
-extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
+extension VideoListViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,19 +109,21 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
+        return 90.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellId = "contents_cell"
+        let cellId = "video_cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator;
         
         let item = itemArray[indexPath.row]
         
-        if let temp =  cell as? ContentsTableViewCell {
-            temp.textLabel?.text = item["title"] as? String
+        if let temp =  cell as? VideoTableViewCell {
+            //temp.textLabel?.text = item["title"] as? String
+            
+            temp.updateContent(item: item)
         }
         
         //cell.selectionStyle = UITableViewCellSelectionStyle.gray
@@ -167,6 +165,6 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
         
         //self .performSegueWithIdentifier("go_to_second", sender: nil)
         
-    }
-    
+}
+
 }

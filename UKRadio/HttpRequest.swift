@@ -84,9 +84,9 @@ open class HttpRequest: NSObject{
                 if (self.delegate?.responds(to: self.resultSelector)) != false {
 
                     
-                    let dict = NSMutableDictionary(dictionary: ["json" : jsonString])
+                    let dict = NSMutableDictionary(dictionary: ["k_json" : jsonString])
                     if let receivedData = data {
-                        dict.setObject(receivedData, forKey: "data" as NSCopying)
+                        dict.setObject(receivedData, forKey: "k_data" as NSCopying)
                     }
                     if let token = self.token {
                         dict.addEntries(from: token)
@@ -104,7 +104,7 @@ open class HttpRequest: NSObject{
         return true
     }
     
-    func post(_ urlString : String, resultSelector : Selector, token : [String : Any]) -> Bool {
+    func post(_ urlString : String, resultSelector : Selector, token : [String : Any]?) -> Bool {
         
         print("request-post:", urlString)
         
@@ -122,7 +122,7 @@ open class HttpRequest: NSObject{
         request.httpShouldHandleCookies = false
         request.httpMethod = "POST"
         
-        if let body = token["body"] as? Data {
+        if let body = token?["k_body"] as? Data {
             request.httpBody = body
         }
         
@@ -156,11 +156,17 @@ open class HttpRequest: NSObject{
                 if (self.delegate?.responds(to: self.resultSelector)) != false {
                     
                     
-                    let dict = NSMutableDictionary(dictionary: ["json" : jsonString])
+                    let dict = NSMutableDictionary(dictionary: ["k_json" : jsonString])
+                    if let receivedData = data {
+                        dict.setObject(receivedData, forKey: "k_data" as NSCopying)
+                    }
                     if let token = self.token {
                         dict.addEntries(from: token)
                     }
-                    self.delegate?.perform(self.resultSelector, with: dict)
+                    
+                    DispatchQueue.main.async {
+                        self.delegate?.perform(self.resultSelector, with: dict)
+                    }
                 }
         })
         
@@ -175,7 +181,7 @@ open class HttpRequest: NSObject{
     
         print("downloadImage:", urlString)
         
-        let urlString = urlString.addingPercentEscapes(using: String.Encoding.utf8)!
+        let urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         if urlString.characters.count == 0 || self.isRequesting {
             return false

@@ -95,11 +95,11 @@ class FirstViewController: UIViewController {
             indicator.hide(false)
         }
         
-        let json = dict.object(forKey: "json") as! String
+        let json = dict.object(forKey: "k_json") as! String
         
         if json.characters.count == 0
         {
-            let data: Data? = dict.object(forKey: "data") as? Data
+            let data: Data? = dict.object(forKey: "k_data") as? Data
             
             if data != nil {
             

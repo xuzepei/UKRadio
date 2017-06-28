@@ -1,28 +1,22 @@
 //
-//  ContentsViewController.swift
-//  UKRadio
-//
-//  Created by xuzepei on 17/4/26.
-//  Copyright © 2017年 xuzepei. All rights reserved.
-//
+//  SubcatalogViewController.swift
+
 
 import UIKit
 
-class ContentsViewController: UIViewController {
+class SubcatalogViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var indicator: MBProgressHUD? = nil
     var itemArray = [[String : Any]]()
-    
+    var item: [String : Any]? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Contents"
-        
+
         initTableView()
-        loadContents()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -30,15 +24,25 @@ class ContentsViewController: UIViewController {
     
     func initTableView() {
         
-        self.tableView.addHeader(withTarget: self, action: #selector(ContentsViewController.loadContents))
+        self.tableView.addHeader(withTarget: self, action: #selector(SubcatalogViewController.headerRefresh))
     }
     
-    func loadContents() {
+    func headerRefresh() {
+        loadContents(item: self.item)
+    }
+    
+    func loadContents(item: [String: Any]?) {
         
-        let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getBaseMainList&BigID=21"
+        self.item = item
+        self.title = self.item?["title"] as? String
+        let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getBaseList&BigID=21"
+        
+        let gid = self.item?["id"] ?? ""
+        let bodyString = "gid=\(gid)"
+        let token = ["k_body": bodyString.data(using: String.Encoding.utf8)]
         
         let request = HttpRequest(delegate: self)
-        let b = request.post(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
+        let b = request.post(urlString, resultSelector: #selector(SubcatalogViewController.requestFinished(_:)), token: token)
         
         if b == true {
             self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -80,32 +84,39 @@ class ContentsViewController: UIViewController {
     }
     
     
-    // MARK: - Navigation
     
+    // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         
-        
-        if segue.destination is SubcatalogViewController {
+        if segue.destination is WebViewController {
             
             if let selectedCell = sender as? UITableViewCell {
                 
                 let indexPath = self.tableView.indexPath(for: selectedCell)!
                 if let item = self.getItemByIndex(indexPath.row) as? [String: Any] {
-                    let temp = segue.destination as! SubcatalogViewController
-                    temp.loadContents(item: item)
+                    let temp = segue.destination as! WebViewController
+                    
+                    if let gid = item["id"] as? String {
+                    let url = "http://www.gembo.cn/app/3d/show_edu_content.php?id=\(gid)"
+                        
+                        let title = item["title"] as? String ?? "Python"
+
+                        temp.hidesBottomBarWhenPushed = true
+                        temp.updateContent(url, title: title)
+                    }
+
                 }
             }
         }
-        
-        //print("\(#function)")
+       
     }
     
+
 }
 
-extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
+extension SubcatalogViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -146,27 +157,18 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let item = self.getItemByIndex(indexPath.row) {
-            
-            //            if let url = item["url"] as? String {
-            //
-            //                if let temp = RCWebViewController(true) {
-            //                    temp.hidesBottomBarWhenPushed = true
-            //                    temp.updateContent(url, title: "游戏资讯")
-            //                    self.navigationController!.pushViewController(temp, animated: true)
-            //                }
-            //            }
-            //            RCWebViewController* temp = [[RCWebViewController alloc] init:YES];
-            //            temp.hidesBottomBarWhenPushed = YES;
-            //            [temp updateContent:urlString title:self.titleLabel.text];
-            //
-            //            UINavigationController* naviController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-            //            [naviController pushViewController:temp animated:YES];
-            
-        }
-        
-        //self .performSegueWithIdentifier("go_to_second", sender: nil)
-        
+//        if let item = self.getItemByIndex(indexPath.row) {
+//            
+//            if let gid = item["id"] as? String {
+//                let url = "http://www.gembo.cn/app/3d/show_edu_content.php?id=\(gid)"
+//                let title = item["title"] as? String ?? "Python"
+//                if let temp = RCWebViewController(true) {
+//                    temp.hidesBottomBarWhenPushed = true
+//                    temp.updateContent(url, title: title, fromLocal: true)
+//                    self.navigationController!.pushViewController(temp, animated: true)
+//                }
+//            }
+//        }
     }
     
 }
