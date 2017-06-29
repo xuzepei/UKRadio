@@ -48,7 +48,7 @@ open class HttpRequest: NSObject{
         self.requestUrlString = urlString
     
         
-        var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 20)
+        var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 5)
         
         request.httpShouldHandleCookies = false
         request.httpMethod = "GET"
@@ -118,7 +118,7 @@ open class HttpRequest: NSObject{
         self.requestUrlString = urlString
         
         
-        var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 20)
+        var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 5)
         request.httpShouldHandleCookies = false
         request.httpMethod = "POST"
         
@@ -191,7 +191,7 @@ open class HttpRequest: NSObject{
         self.requestUrlString = urlString
         
         
-        var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 20)
+        var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 5)
         request.httpShouldHandleCookies = false
         request.httpMethod = "GET"
         

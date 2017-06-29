@@ -13,10 +13,21 @@ class VideoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "视频教程"
-        
         initTableView()
         loadContents()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.title = "视频教程"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        self.title = nil
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,13 +95,13 @@ class VideoListViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         
-        if segue.destination is SubcatalogViewController {
+        if segue.destination is VideoSubcatalogViewController {
             
             if let selectedCell = sender as? UITableViewCell {
                 
                 let indexPath = self.tableView.indexPath(for: selectedCell)!
                 if let item = self.getItemByIndex(indexPath.row) as? [String: Any] {
-                    let temp = segue.destination as! SubcatalogViewController
+                    let temp = segue.destination as! VideoSubcatalogViewController
                     temp.loadContents(item: item)
                 }
             }

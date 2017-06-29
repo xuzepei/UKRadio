@@ -13,12 +13,30 @@ class WebViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     var urlString: String = ""
+    var titleString: String? = nil;
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.updateContent(self.urlString, title: self.title)
         indicator.tintColor = UIColor.green
+        
+        //indicator.color = UIColor.black
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(VideoWebViewController.refresh))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.title = self.titleString
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        self.title = nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,9 +55,18 @@ class WebViewController: UIViewController {
     }
     */
     
+    func refresh () {
+        
+        if let temp = self.webView {
+            temp.loadRequest(URLRequest(url: URL(string: self.urlString)!))
+        }
+    }
+    
     func updateContent(_ url: String, title: String?) {
     
         self.urlString = url
+        self.titleString = title;
+        
         if self.urlString.characters.count == 0 {
             return
         }
@@ -63,7 +90,7 @@ extension WebViewController: UIWebViewDelegate {
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool
     {
         if let url = request.url?.absoluteString {
-            if let range = url.lowercased().range(of: "doubleclick") {
+            if url.lowercased().range(of: "doubleclick") != nil {
                 
                 print("@@@@@@@@@@:",url)
                 return false

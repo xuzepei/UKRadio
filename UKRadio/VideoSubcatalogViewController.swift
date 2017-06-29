@@ -21,6 +21,21 @@ class VideoSubcatalogViewController: UIViewController {
         initTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let item = self.item {
+            self.title = item["title"] as? String
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        self.title = nil
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -94,17 +109,16 @@ class VideoSubcatalogViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.destination is WebViewController {
+        if segue.destination is VideoUrlViewController {
             
             if let selectedCell = sender as? UITableViewCell {
                 
                 let indexPath = self.tableView.indexPath(for: selectedCell)!
                 if let item = self.getItemByIndex(indexPath.row) as? [String: Any] {
-                    let temp = segue.destination as! WebViewController
+                    let temp = segue.destination as! VideoUrlViewController
                     
-                    if let gid = item["id"] as? String {
-                        let url = "http://www.gembo.cn/app/3d/show_edu_content.php?id=\(gid)"
-                        
+                    if let url = item["url"] as? String {
+
                         let title = item["title"] as? String ?? "Python"
                         
                         temp.hidesBottomBarWhenPushed = true
@@ -133,14 +147,17 @@ extension VideoSubcatalogViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellId = "video_catalog_cell"
+        let cellId = "video_subcatalog_cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator;
         
         let item = itemArray[indexPath.row]
         
         if let temp =  cell as? UITableViewCell {
-            temp.textLabel?.text = item["title"] as? String
+            
+            var text = item["title"] as? String
+            text = text?.replacingOccurrences(of: " ", with: "")
+            temp.textLabel?.text = text
         }
         
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)

@@ -17,10 +17,23 @@ class ContentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Contents"
+        
         
         initTableView()
         loadContents()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.title = "基础知识"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+
+        super.viewWillDisappear(animated)
+        
+        self.title = nil
     }
     
     override func didReceiveMemoryWarning() {

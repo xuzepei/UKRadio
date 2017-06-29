@@ -111,4 +111,51 @@
     return nil;
 }
 
+- (NSArray*)parseForVideo:(NSString*)httpString
+{
+    if(0 == httpString.length)
+        return nil;
+    
+    NSData* data = [httpString dataUsingEncoding:NSUnicodeStringEncoding];
+    TFHpple* hpple = [TFHpple hppleWithHTMLData:data];
+    if(hpple)
+    {
+        NSString* queryString = @"//a";
+        NSArray *nodes = [hpple searchWithXPathQuery:queryString];
+        
+        NSMutableArray* array = [NSMutableArray new];
+        int i = 1;
+        for (TFHppleElement *element in nodes) {
+            
+            NSString* link = [element objectForKey:@"href"];
+            
+            NSString* text = element.content;
+            
+            if([link rangeOfString:@".youku.com"].location != NSNotFound)
+            {
+                NSRange range = [link rangeOfString:@"url="];
+                if(range.location != NSNotFound)
+                    link = [link substringFromIndex:range.location + range.length];
+                
+                
+//                if(0 == text.length)
+//                {
+//                    text = @"新连接";
+//                }
+                
+                text = [NSString stringWithFormat:@"视频地址%d",i];
+                
+                [array addObject:@{@"url": link, @"text": text}];
+                
+                i++;
+            }
+            
+        }
+        
+        return array;
+    }
+    
+    return nil;
+}
+
 @end
