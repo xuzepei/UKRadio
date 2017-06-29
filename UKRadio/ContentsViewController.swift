@@ -27,6 +27,16 @@ class ContentsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.title = "基础知识"
+        
+        if let bannerView = Tool.getBannerAd() {
+        
+            bannerView.translatesAutoresizingMaskIntoConstraints = true
+            var rect = bannerView.frame
+            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            rect.origin.y = (self.tabBarController?.tabBar.frame.origin.y)! - rect.size.height
+            bannerView.frame = rect
+        
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -158,27 +168,6 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        if let item = self.getItemByIndex(indexPath.row) {
-            
-            //            if let url = item["url"] as? String {
-            //
-            //                if let temp = RCWebViewController(true) {
-            //                    temp.hidesBottomBarWhenPushed = true
-            //                    temp.updateContent(url, title: "游戏资讯")
-            //                    self.navigationController!.pushViewController(temp, animated: true)
-            //                }
-            //            }
-            //            RCWebViewController* temp = [[RCWebViewController alloc] init:YES];
-            //            temp.hidesBottomBarWhenPushed = YES;
-            //            [temp updateContent:urlString title:self.titleLabel.text];
-            //
-            //            UINavigationController* naviController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-            //            [naviController pushViewController:temp animated:YES];
-            
-        }
-        
-        //self .performSegueWithIdentifier("go_to_second", sender: nil)
         
     }
     

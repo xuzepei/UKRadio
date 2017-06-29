@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class Tool {
     
@@ -152,6 +153,56 @@ class Tool {
     class func decrypt(_ encryptedString : String!) -> String? {
         
         return RCEncryption.decryptUseDES(encryptedString, key: GlobalDefinitions.secretKey)
+    }
+    
+    
+    class func getBannerAd() -> UIView? {
+    
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+        
+            return appDelegate.bannerView
+        }
+        
+        return nil
+    }
+    
+    class func getInterstitial() -> GADInterstitial? {
+        
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            
+            return appDelegate.interstitial
+        }
+        
+        return nil
+    }
+    
+    class func recordLaunchTimes() -> Int {
+    
+        var times = 0
+        if let number = UserDefaults.standard.object(forKey: "launch_times") as? NSNumber {
+        
+            times = number.intValue + 1
+        }
+        else
+        {
+            times = 1
+        }
+        
+        UserDefaults.standard.set(times, forKey: "launch_times")
+        UserDefaults.standard.synchronize()
+        return times
+    }
+    
+    class func recordRate() {
+        UserDefaults.standard.set(true, forKey: "is_rated")
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func isRated() -> Bool {
+        
+        return UserDefaults.standard.bool(forKey: "is_rated")
     }
     
 }

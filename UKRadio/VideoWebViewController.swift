@@ -28,6 +28,16 @@ class VideoWebViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.title = self.titleString
+        
+        if let bannerView = Tool.getBannerAd() {
+            
+            bannerView.translatesAutoresizingMaskIntoConstraints = true
+            var rect = bannerView.frame
+            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
+            bannerView.frame = rect
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

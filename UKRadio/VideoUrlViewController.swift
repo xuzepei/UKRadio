@@ -33,6 +33,16 @@ class VideoUrlViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.title = self.titleString
+        
+        if let bannerView = Tool.getBannerAd() {
+            
+            bannerView.translatesAutoresizingMaskIntoConstraints = true
+            var rect = bannerView.frame
+            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
+            bannerView.frame = rect
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -149,20 +159,10 @@ class VideoUrlViewController: UIViewController {
     
     @IBAction func clickedButton(_ sender: Any) {
         
-        //        if let button = sender as? UIButton {
-        //
-        //            let tag = button.tag - 110
-        //            if tag < self.itemArray.count {
-        //
-        //                if let url = self.itemArray[tag]["url"] {
-        //
-        //                    let temp = WebViewController(nibName: nil, bundle: nil)
-        //                    temp.updateContent(url, title: self.title)
-        //                    self.navigationController?.pushViewController(temp, animated: true)
-        //                }
-        //            }
-        //        }
-        //    }
+        if Tool.getInterstitial()?.isReady == true {
+        
+            Tool.getInterstitial()?.present(fromRootViewController: self)
+        }
     }
     
 }

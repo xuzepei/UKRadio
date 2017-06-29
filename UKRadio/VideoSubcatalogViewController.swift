@@ -27,6 +27,16 @@ class VideoSubcatalogViewController: UIViewController {
         if let item = self.item {
             self.title = item["title"] as? String
         }
+        
+        if let bannerView = Tool.getBannerAd() {
+            
+            bannerView.translatesAutoresizingMaskIntoConstraints = true
+            var rect = bannerView.frame
+            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            rect.origin.y = (self.tabBarController?.tabBar.frame.origin.y)! - rect.size.height
+            bannerView.frame = rect
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

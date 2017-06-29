@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var bannerView: GADBannerView? = nil;
+    var bannerView: GADBannerView? = nil
+    var interstitial: GADInterstitial? = nil
+    var needShowInterstitial = false
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -42,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         colorView.backgroundColor = UIColor.color("#00901c")//GlobalDefinitions.tableViewCellSelectedColor
         UITableViewCell.appearance().selectedBackgroundView = colorView
         
-        requestBannerAd()
         
         return true
     }
@@ -55,6 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        self.needShowInterstitial = true
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -63,6 +66,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        //Request Ads
+        requestBannerAd()
+        requestInterstitial()
+        
+        //Rate
+        let times = Tool.recordLaunchTimes()
+        if times % 20 == 0 && Tool.isRated() == false {
+        
+            self.needShowInterstitial = false
+            
+            let alertView = UIAlertView(title: "感谢您的使用", message: "程序猿很苦逼，请到AppStore给一个5星好评, 支持一下，不甚感激！", delegate: self, cancelButtonTitle: "残忍拒绝", otherButtonTitles: "欣然接受")
+            alertView.show()
+        }
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -71,33 +89,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func requestBannerAd() {
     
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            self.bannerView = GADBannerView(adSize: kGADAdSizeLeaderboard)
-        } else {
-            self.bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        if nil == self.bannerView {
+        
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                self.bannerView = GADBannerView(adSize: kGADAdSizeLeaderboard)
+            } else {
+                self.bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+            }
         }
         
         self.bannerView?.delegate = self
-        self.bannerView?.adUnitID = "ca-app-pub-3940256099942544/2934735716"  //ca-app-pub-3940256099942544/4411468910
+        self.bannerView?.adUnitID = "ca-app-pub-3940256099942544/2934735716"  //
         
         self.bannerView?.rootViewController = UIApplication.shared.delegate?.window??.rootViewController
         self.bannerView?.load(GADRequest())
     }
+    
+    func requestInterstitial() {
+        
+        self.interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        self.interstitial?.delegate = self
+        self.interstitial?.load(GADRequest())
+    }
 }
 
-extension AppDelegate: GADBannerViewDelegate {
+extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstitialDelegate {
+    
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+    
+        if (buttonIndex != alertView.cancelButtonIndex)
+        {
+            print("go to appstore")
+            Tool.recordRate()
+            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1011130848")!)
+        }
+    
+    }
 
     /// Tells the delegate an ad request loaded an ad.
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("adViewDidReceiveAd")
         
-        UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+        if nil == bannerView.superview {
+            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+        }
     }
     
     /// Tells the delegate an ad request failed.
     func adView(_ bannerView: GADBannerView,
                 didFailToReceiveAdWithError error: GADRequestError) {
         print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        
+        self.perform(#selector(AppDelegate.requestBannerAd), with: nil, afterDelay: 10)
+    }
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("interstitialDidReceiveAd")
+        
+        if self.needShowInterstitial == true && ad.isReady == true {
+        
+            self.needShowInterstitial = false
+            ad.present(fromRootViewController: (UIApplication.shared.delegate?.window??.rootViewController)!)
+        
+        }
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        
+        self.perform(#selector(AppDelegate.requestInterstitial), with: nil, afterDelay: 10)
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        
+        self.requestInterstitial()
     }
 
 }

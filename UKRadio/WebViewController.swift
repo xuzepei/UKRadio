@@ -13,7 +13,8 @@ class WebViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     var urlString: String = ""
-    var titleString: String? = nil;
+    var titleString: String? = nil
+    var timer: Timer? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,34 @@ class WebViewController: UIViewController {
         //indicator.color = UIColor.black
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(VideoWebViewController.refresh))
+        
+        
+        Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(WebViewController.showAdTimer), userInfo: nil, repeats: false)
+    }
+    
+    func showAdTimer() {
+        
+        if Tool.getInterstitial()?.isReady == true {
+            
+            Tool.getInterstitial()?.present(fromRootViewController: self)
+        }
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.title = self.titleString
+        
+        if let bannerView = Tool.getBannerAd() {
+            
+            bannerView.translatesAutoresizingMaskIntoConstraints = true
+            var rect = bannerView.frame
+            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
+            bannerView.frame = rect
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -37,6 +60,9 @@ class WebViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         self.title = nil
+        
+        self.timer?.invalidate()
+        self.timer = nil
     }
 
     override func didReceiveMemoryWarning() {
