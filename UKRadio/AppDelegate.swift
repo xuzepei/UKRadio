@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
-        GADMobileAds.configure(withApplicationID: "YOUR_ADMOB_APP_ID")
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-1207330468801232~2402219186")
         
         UINavigationBar.appearance().barTintColor = GlobalDefinitions.navigationBarColor
         UINavigationBar.appearance().tintColor = UIColor.color("#fdfefa")//UIColor.white
@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.bannerView?.delegate = self
-        self.bannerView?.adUnitID = "ca-app-pub-3940256099942544/2934735716"  //
+        self.bannerView?.adUnitID = "ca-app-pub-1207330468801232/3878952383"  //
         
         self.bannerView?.rootViewController = UIApplication.shared.delegate?.window??.rootViewController
         self.bannerView?.load(GADRequest())
@@ -107,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func requestInterstitial() {
         
-        self.interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        self.interstitial = GADInterstitial(adUnitID: "ca-app-pub-1207330468801232/5355685581")
         self.interstitial?.delegate = self
         self.interstitial?.load(GADRequest())
     }
@@ -121,7 +121,7 @@ extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstiti
         {
             print("go to appstore")
             Tool.recordRate()
-            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1011130848")!)
+            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1254034178")!)
         }
     
     }

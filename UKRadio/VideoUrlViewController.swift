@@ -157,12 +157,18 @@ class VideoUrlViewController: UIViewController {
         }
     }
     
-    @IBAction func clickedButton(_ sender: Any) {
-        
+    func showInterstitial() {
+    
         if Tool.getInterstitial()?.isReady == true {
-        
+            
             Tool.getInterstitial()?.present(fromRootViewController: self)
         }
+    
+    }
+    
+    @IBAction func clickedButton(_ sender: Any) {
+        
+        showInterstitial()
     }
     
 }

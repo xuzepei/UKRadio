@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--基础知识-->
         <scene sceneID="0VE-ud-eh5">
             <objects>
                 <navigationController id="v6f-X1-oZm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="HSM-9o-M7q"/>
+                    <tabBarItem key="tabBarItem" title="基础知识" image="tab_item_0" id="HSM-9o-M7q"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="v8b-oj-YbH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -578,6 +578,7 @@
     </scenes>
     <resources>
         <image name="link_button" width="200" height="33"/>
+        <image name="tab_item_0" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="u6x-Eh-0R3"/>
