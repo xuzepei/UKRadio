@@ -35,7 +35,8 @@ class VideoTableViewCell: UITableViewCell {
         
         
         self.titleLabel.text = self.item!["title"] as? String
-        self.videoImageView.image = nil
+        
+        self.videoImageView.image = Tool.isOpenAll() ? UIImage(named: "logo") : nil
         
         if let imageUrl = self.item!["icon"] as? String, imageUrl.characters.count > 0{
             if let image = Tool.getImageFromLocal(imageUrl) {

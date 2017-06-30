@@ -11,4 +11,6 @@
 #import "HttpParser.h"
 #import "MJRefresh.h"
 #import "RCWebViewController.h"
+#import "UMMobClick/MobClick.h"
+#import "UIView+Toast.h"
 

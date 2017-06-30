@@ -14,14 +14,25 @@ class VideoWebViewController: UIViewController {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     var urlString: String = ""
     var titleString: String? = nil;
+    var timer: Timer? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.updateContent(self.urlString, title: self.title)
-        //indicator.tintColor = UIColor.green
-        
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(VideoWebViewController.refresh))
+        
+        self.timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(VideoWebViewController.showAdTimer), userInfo: nil, repeats: false)
+    }
+    
+    func showAdTimer() {
+        
+        if Tool.getInterstitial()?.isReady == true {
+            
+            Tool.getInterstitial()?.present(fromRootViewController: self)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +56,8 @@ class VideoWebViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         self.title = nil
+        self.timer?.invalidate()
+        self.timer = nil
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,6 +75,39 @@ class VideoWebViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func initToolBar() {
+//        UIBarButtonItem* fixedSpaceItem0 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+//            target:nil
+//            action:nil];
+//        fixedSpaceItem0.width = 180;
+//        
+//        UIBarButtonItem* fixedSpaceItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+//            target:nil
+//            action:nil];
+//        fixedSpaceItem1.width = 50;
+//        
+//        
+//        //        UIBarButtonItem* refreshItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+//        //                                                                                     target:self
+//        //                                                                                     action:@selector(clickRefreshItem:)];
+//        
+//        self.backwardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"browse_backward"]
+//            style:UIBarButtonItemStylePlain
+//            target:self
+//            action:@selector(clickBackwardItem:)];
+//        _backwardItem.enabled = NO;
+//        
+//        self.forwardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"browse_forward"]
+//            style:UIBarButtonItemStylePlain
+//            target:self
+//            action:@selector(clickForwardItem:)];
+//        
+//        _forwardItem.enabled = NO;
+//        
+//        [_toolbar setItems:[NSArray arrayWithObjects: /*refreshItem,*/fixedSpaceItem0,_backwardItem,fixedSpaceItem1,_forwardItem,nil]
+//            animated: NO];
+    }
     
     func refresh () {
     
@@ -96,11 +142,11 @@ class VideoWebViewController: UIViewController {
 extension VideoWebViewController: UIWebViewDelegate {
     
     
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool
-    {
-        //print("@@@@@@@@@@:",request.url?.absoluteString)
-        return true
-    }
+//    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool
+//    {
+//        //print("@@@@@@@@@@:",request.url?.absoluteString)
+//        return true
+//    }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
         self.indicator?.startAnimating()

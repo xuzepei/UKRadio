@@ -43,7 +43,7 @@ class ContentsViewController: UIViewController {
 
         super.viewWillDisappear(animated)
         
-        self.title = nil
+        //self.title = nil
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,7 +89,10 @@ class ContentsViewController: UIViewController {
             }
             
             self.tableView.reloadData()
+            return;
         }
+        
+        Tool.toast(message: "列表加载失败，请下拉刷新！")
     }
     
     func getItemByIndex(_ index: Int) -> AnyObject? {

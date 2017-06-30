@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4rZ-lz-1zk">
+    <device id="ipad10_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="IrT-3q-GR3">
+            <objects>
+                <viewController id="4rZ-lz-1zk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NcB-TM-sKJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="hfm-zo-Bmw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ciq-EX-DqK">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Python 教程" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGi-Fe-6Fk">
+                                <rect key="frame" x="138" y="496" width="559.5" height="121"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="101"/>
+                                <color key="textColor" red="0.21664717789999999" green="0.72972267869999996" blue="0.56608748440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iGi-Fe-6Fk" firstAttribute="centerX" secondItem="ciq-EX-DqK" secondAttribute="centerX" id="3CZ-kf-Zv2"/>
+                            <constraint firstItem="iGi-Fe-6Fk" firstAttribute="centerY" secondItem="ciq-EX-DqK" secondAttribute="centerY" id="WMq-ux-jDW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yd6-CW-EIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-165.46762589928059" y="25.899280575539571"/>
+        </scene>
+    </scenes>
+</document>

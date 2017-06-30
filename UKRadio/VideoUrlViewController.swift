@@ -168,7 +168,7 @@ class VideoUrlViewController: UIViewController {
     
     @IBAction func clickedButton(_ sender: Any) {
         
-        showInterstitial()
+        //showInterstitial()
     }
     
 }

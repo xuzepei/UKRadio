@@ -39,6 +39,7 @@
                     <connections>
                         <segue destination="v6f-X1-oZm" kind="relationship" relationship="viewControllers" id="7tC-3E-zKu"/>
                         <segue destination="kcL-27-ben" kind="relationship" relationship="viewControllers" id="FW1-vV-W3M"/>
+                        <segue destination="pNf-BP-JZe" kind="relationship" relationship="viewControllers" id="igv-A9-XFL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOk-KY-vj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,11 +140,142 @@
             </objects>
             <point key="canvasLocation" x="182" y="-3244"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--学习资源-->
+        <scene sceneID="YSw-Hs-Odk">
+            <objects>
+                <tableViewController id="yAJ-jW-K4u" customClass="WebSiteTableViewController" customModule="UKRadio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ctB-5A-WtZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="website_cell" textLabel="2oL-LG-g5H" style="IBUITableViewCellStyleDefault" id="Cmk-Wb-S7H">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cmk-Wb-S7H" id="bls-cV-Se6">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2oL-LG-g5H">
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="nVe-Vl-5Kl" kind="show" id="OKE-5Q-qbD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yAJ-jW-K4u" id="QH7-gw-sRD"/>
+                            <outlet property="delegate" destination="yAJ-jW-K4u" id="D1R-fD-oAK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="学习资源" id="Wur-aX-Bv2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rRL-Up-VBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="182" y="-812"/>
+        </scene>
+        <!--Web Site View Controller-->
+        <scene sceneID="M6h-x9-XWM">
+            <objects>
+                <viewController id="nVe-Vl-5Kl" customClass="WebSiteViewController" customModule="UKRadio" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HRa-Zk-eTJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="7P9-ee-Fb8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z8b-nm-LGC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gro-nz-Odu">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Wur-Wu-Duh"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="GiT-xf-UgK"/>
+                                    <barButtonItem enabled="NO" image="browse_backward" id="nQ6-Vq-mo3">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="clickedBarButtonItem:" destination="nVe-Vl-5Kl" id="f0g-eX-LUL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Ip1-mZ-JFI"/>
+                                    <barButtonItem enabled="NO" image="browse_forward.png" id="j2D-jN-aqZ">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="clickedBarButtonItem:" destination="nVe-Vl-5Kl" id="kHM-zA-0fC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8wx-sN-Mth">
+                                <rect key="frame" x="16" y="591" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8O-G8-bFe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="nVe-Vl-5Kl" id="Ebw-nX-ESx"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gro-nz-Odu" firstAttribute="leading" secondItem="z8b-nm-LGC" secondAttribute="leading" id="Fsl-Gz-15n"/>
+                            <constraint firstAttribute="bottom" secondItem="gro-nz-Odu" secondAttribute="bottom" id="MJm-k8-gbV"/>
+                            <constraint firstAttribute="trailing" secondItem="gro-nz-Odu" secondAttribute="trailing" id="T3j-XJ-daR"/>
+                            <constraint firstItem="gro-nz-Odu" firstAttribute="top" secondItem="u8O-G8-bFe" secondAttribute="bottom" id="ZQj-iD-WpJ"/>
+                            <constraint firstAttribute="trailing" secondItem="u8O-G8-bFe" secondAttribute="trailing" id="au3-3m-3sy"/>
+                            <constraint firstItem="u8O-G8-bFe" firstAttribute="leading" secondItem="z8b-nm-LGC" secondAttribute="leading" id="lsO-Rr-g6W"/>
+                            <constraint firstItem="7P9-ee-Fb8" firstAttribute="top" secondItem="8wx-sN-Mth" secondAttribute="bottom" constant="12" id="qKv-BE-xaB"/>
+                            <constraint firstItem="8wx-sN-Mth" firstAttribute="leading" secondItem="z8b-nm-LGC" secondAttribute="leadingMargin" id="s44-Uw-QtA"/>
+                            <constraint firstItem="u8O-G8-bFe" firstAttribute="top" secondItem="HRa-Zk-eTJ" secondAttribute="bottom" id="ySZ-cQ-SLB"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backwardButton" destination="nQ6-Vq-mo3" id="HpW-0i-Esc"/>
+                        <outlet property="forwardButton" destination="j2D-jN-aqZ" id="1uE-Oa-qI5"/>
+                        <outlet property="indicator" destination="8wx-sN-Mth" id="DCf-xf-mfo"/>
+                        <outlet property="toolbar" destination="gro-nz-Odu" id="GnL-OU-psw"/>
+                        <outlet property="webView" destination="u8O-G8-bFe" id="QrS-Ck-SOm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Jg-dz-ArT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997.60000000000002" y="-813.64317841079469"/>
+        </scene>
+        <!--学习资源-->
+        <scene sceneID="6is-tc-HEJ">
+            <objects>
+                <navigationController id="pNf-BP-JZe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="学习资源" image="tab_item_2" id="rSc-8Y-2ch"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aNH-M9-gYs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yAJ-jW-K4u" kind="relationship" relationship="rootViewController" id="Dxb-de-1xB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yav-jN-eWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-788" y="-813"/>
+        </scene>
+        <!--视频教程-->
         <scene sceneID="psC-Ak-yly">
             <objects>
                 <navigationController id="kcL-27-ben" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="Abp-P3-HfQ"/>
+                    <tabBarItem key="tabBarItem" title="视频教程" image="tab_video" id="Abp-P3-HfQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FQk-7M-STe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -577,8 +709,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="browse_backward" width="19" height="17"/>
+        <image name="browse_forward.png" width="19" height="17"/>
         <image name="link_button" width="200" height="33"/>
         <image name="tab_item_0" width="16" height="16"/>
+        <image name="tab_item_2" width="16" height="16"/>
+        <image name="tab_video" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="u6x-Eh-0R3"/>

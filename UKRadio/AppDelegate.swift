@@ -21,7 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
+
+        //UMeng
+        UMAnalyticsConfig.sharedInstance().appKey = "5955af228f4a9d721d000ec5"
+        UMAnalyticsConfig.sharedInstance().channelId = "App Store"
+        MobClick.setLogEnabled(true)
+        MobClick.setCrashReportEnabled(true)
+        MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
+
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1207330468801232~2402219186")
         
         UINavigationBar.appearance().barTintColor = GlobalDefinitions.navigationBarColor
@@ -41,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // set up your background color view
         let colorView = UIView()
-        colorView.backgroundColor = UIColor.color("#00901c")//GlobalDefinitions.tableViewCellSelectedColor
+        colorView.backgroundColor = UIColor.color("#24c180")//GlobalDefinitions.tableViewCellSelectedColor
         UITableViewCell.appearance().selectedBackgroundView = colorView
         
         

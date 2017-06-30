@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0910CE581F05D78D00893C19 /* LaunchScreen~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0910CE571F05D78D00893C19 /* LaunchScreen~ipad.storyboard */; };
+		0910CE5B1F05E50800893C19 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0910CE5A1F05E50800893C19 /* UMMobClick.framework */; };
+		0910CE5D1F05E75600893C19 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0910CE5C1F05E75600893C19 /* CoreTelephony.framework */; };
+		0910CE5F1F05E76200893C19 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0910CE5E1F05E76200893C19 /* libz.tbd */; };
+		0910CE621F05E78500893C19 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0910CE601F05E78500893C19 /* libsqlite3.0.tbd */; };
+		0910CE631F05E78500893C19 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0910CE611F05E78500893C19 /* libsqlite3.tbd */; };
+		0910CE671F05EA3C00893C19 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CE661F05EA3C00893C19 /* UIView+Toast.m */; };
+		0910CE6A1F05F61C00893C19 /* WebSiteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910CE691F05F61C00893C19 /* WebSiteTableViewController.swift */; };
+		0910CE721F0624AC00893C19 /* WebSiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910CE701F0624AC00893C19 /* WebSiteViewController.swift */; };
 		093349551ECD8B64008897B3 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093349541ECD8B64008897B3 /* HttpRequest.swift */; };
 		09346CC51EF9F88200DDC6BE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09346CC31EF9F88200DDC6BE /* FirstViewController.swift */; };
 		09346CC61EF9F88200DDC6BE /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09346CC41EF9F88200DDC6BE /* FirstViewController.xib */; };
@@ -61,6 +70,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0910CE571F05D78D00893C19 /* LaunchScreen~ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen~ipad.storyboard"; sourceTree = "<group>"; };
+		0910CE5A1F05E50800893C19 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
+		0910CE5C1F05E75600893C19 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0910CE5E1F05E76200893C19 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0910CE601F05E78500893C19 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		0910CE611F05E78500893C19 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		0910CE651F05EA3C00893C19 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		0910CE661F05EA3C00893C19 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		0910CE691F05F61C00893C19 /* WebSiteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSiteTableViewController.swift; sourceTree = "<group>"; };
+		0910CE701F0624AC00893C19 /* WebSiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSiteViewController.swift; sourceTree = "<group>"; };
 		093349541ECD8B64008897B3 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		09346CC31EF9F88200DDC6BE /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		09346CC41EF9F88200DDC6BE /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
@@ -147,6 +166,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0910CE621F05E78500893C19 /* libsqlite3.0.tbd in Frameworks */,
+				0910CE631F05E78500893C19 /* libsqlite3.tbd in Frameworks */,
+				0910CE5F1F05E76200893C19 /* libz.tbd in Frameworks */,
+				0910CE5D1F05E75600893C19 /* CoreTelephony.framework in Frameworks */,
+				0910CE5B1F05E50800893C19 /* UMMobClick.framework in Frameworks */,
 				09D8B8191F04DE09009919E5 /* GoogleMobileAds.framework in Frameworks */,
 				09346D311EFA4A1900DDC6BE /* libxml2.2.tbd in Frameworks */,
 			);
@@ -155,9 +179,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0910CE591F05E50800893C19 /* umsdk_4.2.4 */ = {
+			isa = PBXGroup;
+			children = (
+				0910CE5A1F05E50800893C19 /* UMMobClick.framework */,
+			);
+			path = umsdk_4.2.4;
+			sourceTree = "<group>";
+		};
+		0910CE641F05EA3C00893C19 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				0910CE651F05EA3C00893C19 /* UIView+Toast.h */,
+				0910CE661F05EA3C00893C19 /* UIView+Toast.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		0910CE681F05F5F800893C19 /* Sites */ = {
+			isa = PBXGroup;
+			children = (
+				0910CE691F05F61C00893C19 /* WebSiteTableViewController.swift */,
+				0910CE701F0624AC00893C19 /* WebSiteViewController.swift */,
+			);
+			name = Sites;
+			sourceTree = "<group>";
+		};
 		09346D1D1EFA446E00DDC6BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0910CE601F05E78500893C19 /* libsqlite3.0.tbd */,
+				0910CE611F05E78500893C19 /* libsqlite3.tbd */,
+				0910CE5E1F05E76200893C19 /* libz.tbd */,
+				0910CE5C1F05E75600893C19 /* CoreTelephony.framework */,
 				09346D301EFA4A1900DDC6BE /* libxml2.2.tbd */,
 				09346D241EFA449600DDC6BE /* UIKit.framework */,
 				09346D221EFA449000DDC6BE /* libstdc++.tbd */,
@@ -206,6 +260,7 @@
 				097E94621D98C1DC00B25CE2 /* Tool */,
 				099CB9921F0200DB00470270 /* Basic */,
 				099CB9931F02012A00470270 /* Video */,
+				0910CE681F05F5F800893C19 /* Sites */,
 				09593D181EF9060600241A13 /* HomeViewController.swift */,
 				09346CC31EF9F88200DDC6BE /* FirstViewController.swift */,
 				09346CC41EF9F88200DDC6BE /* FirstViewController.xib */,
@@ -219,6 +274,7 @@
 				093FCB501EFB53F4000D89C8 /* HttpParser.m */,
 				093F26C61D94D887006556C4 /* Assets.xcassets */,
 				093F26C81D94D887006556C4 /* LaunchScreen.storyboard */,
+				0910CE571F05D78D00893C19 /* LaunchScreen~ipad.storyboard */,
 				09BDC6741ED6BF3300864DF7 /* Main.storyboard */,
 				093F26CB1D94D887006556C4 /* Info.plist */,
 				09AB361A1ED41FBF00AB2A5F /* ThirdParty */,
@@ -292,6 +348,8 @@
 		09AB361A1ED41FBF00AB2A5F /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				0910CE641F05EA3C00893C19 /* Toast */,
+				0910CE591F05E50800893C19 /* umsdk_4.2.4 */,
 				09D8B8161F04DE09009919E5 /* GoogleMobileAdsSdkiOS-7.21.0 */,
 				095F7F8B1EFCF7ED00727834 /* MJRefresh */,
 				09346D261EFA49EA00DDC6BE /* Hpple */,
@@ -376,7 +434,7 @@
 				TargetAttributes = {
 					093F26B91D94D887006556C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = P7FW4U6W4G;
+						DevelopmentTeam = 86WCPL8Z9L;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -407,6 +465,7 @@
 			files = (
 				09BDC6761ED6BF3300864DF7 /* Main.storyboard in Resources */,
 				09346CC61EF9F88200DDC6BE /* FirstViewController.xib in Resources */,
+				0910CE581F05D78D00893C19 /* LaunchScreen~ipad.storyboard in Resources */,
 				09D8B81A1F04DE09009919E5 /* README.txt in Resources */,
 				09346CCA1EF9FDF500DDC6BE /* SecondViewController.xib in Resources */,
 				097793331F01E4AB006126D8 /* WebViewController.xib in Resources */,
@@ -447,14 +506,17 @@
 				095F7FA51EFCF7ED00727834 /* UIScrollView+Extension.m in Sources */,
 				09346CC51EF9F88200DDC6BE /* FirstViewController.swift in Sources */,
 				09E790CA1EF8D690004C769B /* FSSegmentTitleView.m in Sources */,
+				0910CE671F05EA3C00893C19 /* UIView+Toast.m in Sources */,
 				093349551ECD8B64008897B3 /* HttpRequest.swift in Sources */,
 				097E94611D98C1C700B25CE2 /* Tool.swift in Sources */,
 				09346D2D1EFA49EA00DDC6BE /* TFHpple.m in Sources */,
 				09AB36221ED434D600AB2A5F /* RCEncryption.m in Sources */,
+				0910CE6A1F05F61C00893C19 /* WebSiteTableViewController.swift in Sources */,
 				09AB361F1ED41FBF00AB2A5F /* GTMBase64.m in Sources */,
 				093FCB541EFB6A9D000D89C8 /* ZiXunTableViewCell.swift in Sources */,
 				097E94661D98C5D700B25CE2 /* Reachability.m in Sources */,
 				095F7FAA1EFD029F00727834 /* RCWebViewController.m in Sources */,
+				0910CE721F0624AC00893C19 /* WebSiteViewController.swift in Sources */,
 				095F7FA01EFCF7ED00727834 /* MJRefreshBaseView.m in Sources */,
 				0960EE411F034520003AE26A /* VideoSubcatalogViewController.swift in Sources */,
 				095F7FA21EFCF7ED00727834 /* MJRefreshFooterView.m in Sources */,
@@ -580,13 +642,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.21.0",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/umsdk_4.2.4",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;
@@ -613,13 +676,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.21.0",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/umsdk_4.2.4",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;

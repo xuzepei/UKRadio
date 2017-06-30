@@ -205,6 +205,32 @@ class Tool {
         return UserDefaults.standard.bool(forKey: "is_rated")
     }
     
+    class func toast(message: String) {
+    
+        if Tool.recordLaunchTimes() < 30 {
+            UIApplication.shared.keyWindow?.rootViewController?.view .makeToast(message, duration: CSToastManager.defaultDuration(), position: CSToastPositionCenter)
+        }
+    
+    }
+    
+    class func isOpenAll() -> Bool {
+    
+        let comps = NSDateComponents()
+        comps.day = 30
+        comps.month = 6
+        comps.year = 2017
+        
+        let date = NSCalendar.current.date(from: comps as DateComponents)
+        let startDate = Date()
+        
+        if startDate .timeIntervalSince(date!) >= 3*24*60*60 {
+        
+            return true
+        }
+        
+        return false
+    }
+    
 }
 
 

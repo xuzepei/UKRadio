@@ -20,14 +20,11 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
 
         self.updateContent(self.urlString, title: self.title)
-        indicator.tintColor = UIColor.green
-        
-        //indicator.color = UIColor.black
-        
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(VideoWebViewController.refresh))
         
         
-        Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(WebViewController.showAdTimer), userInfo: nil, repeats: false)
+        self.timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(WebViewController.showAdTimer), userInfo: nil, repeats: false)
     }
     
     func showAdTimer() {
@@ -60,7 +57,6 @@ class WebViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         self.title = nil
-        
         self.timer?.invalidate()
         self.timer = nil
     }
