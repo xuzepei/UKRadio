@@ -216,14 +216,14 @@ class Tool {
     class func isOpenAll() -> Bool {
     
         let comps = NSDateComponents()
-        comps.day = 30
-        comps.month = 6
+        comps.day = 2
+        comps.month = 7
         comps.year = 2017
         
         let date = NSCalendar.current.date(from: comps as DateComponents)
         let startDate = Date()
         
-        if startDate .timeIntervalSince(date!) >= 3*24*60*60 {
+        if startDate .timeIntervalSince(date!) >= 5*24*60*60 {
         
             return true
         }
