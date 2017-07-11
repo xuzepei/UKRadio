@@ -1,14 +1,18 @@
 //
-//  ZiXunTableViewCell.swift
-
+//  ChuZhuangTableViewCell.swift
+//  UKRadio
+//
+//  Created by xuzepei on 2017/7/11.
+//  Copyright © 2017年 xuzepei. All rights reserved.
+//
 
 import UIKit
 
-class ZiXunTableViewCell: UITableViewCell {
-    
-    var item : [String : String]? = nil
+class ChuZhuangTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var zixunImageView: UIImageView!
+    var item : [String : String]? = nil
+    
+    @IBOutlet weak var customizedImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -16,12 +20,12 @@ class ZiXunTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -40,17 +44,17 @@ class ZiXunTableViewCell: UITableViewCell {
         self.titleLabel.numberOfLines = 0
         self.titleLabel.sizeToFit()
         
-        self.zixunImageView.image = nil;
+        self.customizedImageView.image = nil;
         
         if let imageUrl = self.item!["image_url"] {
             if let image = Tool.getImageFromLocal(imageUrl) {
-                self.zixunImageView.image = image
+                self.customizedImageView.image = image
             } else {
-            
+                
                 ImageLoader.sharedInstance.downloadImage(imageUrl, token: nil, result: { (url:String?, token: NSDictionary?, error: Error?) in
                     
                     if nil == error {
-                        self.zixunImageView.image = Tool.getImageFromLocal(imageUrl)
+                        self.customizedImageView.image = Tool.getImageFromLocal(imageUrl)
                     }
                 })
             }

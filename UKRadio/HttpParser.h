@@ -13,5 +13,9 @@
 + (HttpParser*)sharedInstace;
 - (NSArray*)parse:(NSString*)httpString;
 - (NSArray*)parseForVideo:(NSString*)httpString;
+- (NSArray*)parseForGongLue:(NSString*)httpString;
+- (NSString*)parseForGongLueDetail:(NSString*)httpString;
+- (NSArray*)parseForChuZhuang:(NSString*)httpString;
+- (NSString*)parseForChuZhuangDetail:(NSString*)httpString;
 
 @end

@@ -98,9 +98,9 @@ static NSString *collectionCellIdentifier = @"collectionCellIdentifier";
 
     //foo: Adjust the frame of childVC
     CGRect rect = childVC.view.frame;
-    rect.origin.y = 25;
+    rect.origin.y = -10;
     rect.size = cell.contentView.bounds.size;
-    rect.size.height = rect.size.height - 25;
+    rect.size.height = rect.size.height - 20;
     childVC.view.frame = rect;
     
     [cell.contentView addSubview:childVC.view];

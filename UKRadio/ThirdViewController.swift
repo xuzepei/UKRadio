@@ -1,28 +1,28 @@
 //
-//  FirstViewController.swift
+//  ThirdViewController.swift
 //  UKRadio
 //
-//  Created by xuzepei on 2017/6/21.
+//  Created by xuzepei on 2017/7/11.
 //  Copyright © 2017年 xuzepei. All rights reserved.
 //
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class ThirdViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var indicator: MBProgressHUD? = nil
     var itemArray = [[String : String]]()
     var page = 0;
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initTableView()
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,10 +34,10 @@ class FirstViewController: UIViewController {
         //self.tableView.estimatedRowHeight = 89
         //self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.tableView.register(UINib(nibName: "ZiXunTableViewCell", bundle: nil), forCellReuseIdentifier: "zixun_cell")
+        self.tableView.register(UINib(nibName: "ChuZhuangTableViewCell", bundle: nil), forCellReuseIdentifier: "chuzhuang_cell")
         
-        self.tableView.addHeader(withTarget: self, action: #selector(FirstViewController.headerRefresh))
-        self.tableView.addFooter(withTarget: self, action: #selector(FirstViewController.footerRefresh))
+        self.tableView.addHeader(withTarget: self, action: #selector(ThirdViewController.headerRefresh))
+        self.tableView.addFooter(withTarget: self, action: #selector(ThirdViewController.footerRefresh))
         
         self.tableView.headerBeginRefreshing();
     }
@@ -59,21 +59,21 @@ class FirstViewController: UIViewController {
         var urlString = "";
         var token:[String: Any]! = nil;
         if self.page < 1 {
-            urlString = "http://news.4399.com/gonglue/wzlm/zixun/"
+            urlString = "http://www.18183.com/yxzjol/yx/cz/list_14112_1.html"
             token = ["type": "update"]
         } else {
-            urlString = "http://news.4399.com/gonglue/wzlm/zixun/" + "44038-\(self.page+1).html"
+            urlString = "http://www.18183.com/yxzjol/yx/cz/list_14112_" + "\(self.page+1).html"
             token = ["type": "more"]
         }
         
         let request = HttpRequest(delegate: self)
-        let b = request.get(urlString, resultSelector: #selector(FirstViewController.requestFinished(_:)), token: token)
+        let b = request.get(urlString, resultSelector: #selector(ThirdViewController.requestFinished(_:)), token: token)
         
         if b == true {
             self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
             self.indicator!.labelText = "Loading..."
         }
-    
+        
     }
     
     func requestFinished(_ dict: NSDictionary) {
@@ -85,38 +85,30 @@ class FirstViewController: UIViewController {
             indicator.hide(false)
         }
         
-        //let json = dict.object(forKey: "k_json") as! String
-        //if json.characters.count == 0
-        //{
-            let data: Data? = dict.object(forKey: "k_data") as? Data
-            
-            if data != nil {
-            
-                let gbkEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
-                let htmlString = String(data: data!, encoding: String.Encoding(rawValue: gbkEncoding)) ?? ""
+        let htmlString = dict.object(forKey: "k_json") as! String
+        if htmlString.characters.count != 0
+        {
+            if let array = HttpParser.sharedInstace().parse(forChuZhuang: htmlString) as? [[String : String]] {
                 
-                if let array = HttpParser.sharedInstace().parse(htmlString) as? [[String : String]] {
-                
-                    if let type = dict.object(forKey: "type") as? String {
-                        if type == "update" {
-                            self.itemArray.removeAll()
-                            self.itemArray = array
-                            self.page = 1;
-                        }
-                        else
-                        {
-                            self.itemArray += array
-                            self.page += 1;
-                        }
+                if let type = dict.object(forKey: "type") as? String {
+                    if type == "update" {
+                        self.itemArray.removeAll()
+                        self.itemArray = array
+                        self.page = 1;
+                    }
+                    else
+                    {
+                        self.itemArray += array
+                        self.page += 1;
                     }
                 }
-                
-                self.tableView.reloadData()
-
             }
-        //}
-    }
+            
+            self.tableView.reloadData()
+        }
     
+    }
+
     func getItemByIndex(_ index: Int) -> AnyObject? {
         
         if index >= 0  && index < self.itemArray.count {
@@ -136,10 +128,10 @@ class FirstViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-
+    
 }
 
-extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
+extension ThirdViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -152,13 +144,13 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellId = "zixun_cell"
+        let cellId = "chuzhuang_cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator;
         
         let item = itemArray[indexPath.row]
         
-        if let temp =  cell as? ZiXunTableViewCell {
+        if let temp =  cell as? ChuZhuangTableViewCell {
             temp.updateContent(item: item)
         }
         
@@ -183,8 +175,8 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
         if let item = self.getItemByIndex(indexPath.row) {
             
             if let url = item["url"] as? String {
-            
-                let temp = RCWebViewController()
+                
+                let temp = ChuZhuangWebViewController()
                 temp.hidesBottomBarWhenPushed = true
                 temp.updateContent(url, title: "游戏资讯")
                 self.navigationController!.pushViewController(temp, animated: true)
@@ -193,4 +185,3 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
-

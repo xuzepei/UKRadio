@@ -54,18 +54,18 @@ class HomeViewController: UIViewController {
     func initPageView () {
         
         let firstVC = FirstViewController(nibName: nil, bundle: nil)
-        
-//        self.navigationController!.pushViewController(firstVC, animated: true)
         let secondVC = SecondViewController(nibName: nil, bundle: nil)
+        let thirdVC = ThirdViewController(nibName: nil, bundle: nil)
 
         self.pageContentView.translatesAutoresizingMaskIntoConstraints = true;
         var rect = self.pageContentView.frame
+        rect.origin.y = self.navigationBarHeight + 20
         rect.size.width = self.view.bounds.width
         rect.size.height = self.view.bounds.height - self.tabBarHeight
         self.pageContentView.frame = rect;
 
 
-        self.pageContentView.updateContent([firstVC, secondVC], parentVC: self, delegate: self)
+        self.pageContentView.updateContent([firstVC, secondVC, thirdVC], parentVC: self, delegate: self)
         
     }
     

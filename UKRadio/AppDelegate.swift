@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UMAnalyticsConfig.sharedInstance().channelId = "App Store"
         MobClick.setLogEnabled(true)
         MobClick.setCrashReportEnabled(true)
-        MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
+        //MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
 
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1207330468801232~2402219186")
         
@@ -75,8 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
         //Request Ads
-        requestBannerAd()
-        requestInterstitial()
+        //requestBannerAd()
+        //requestInterstitial()
         
         //Rate
         let times = Tool.recordLaunchTimes()

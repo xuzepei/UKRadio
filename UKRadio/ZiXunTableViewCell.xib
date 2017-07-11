@@ -13,41 +13,45 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="zixun_cell" rowHeight="95" id="KGk-i7-Jjw" customClass="ZiXunTableViewCell" customModule="UKRadio" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yXd-n3-F9M">
-                        <rect key="frame" x="8" y="13" width="95" height="67"/>
+                        <rect key="frame" x="8" y="13" width="120" height="92"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="95" id="PRD-66-gdr"/>
-                            <constraint firstAttribute="height" constant="67" id="QhN-WN-z93"/>
+                            <constraint firstAttribute="width" constant="120" id="PRD-66-gdr"/>
+                            <constraint firstAttribute="height" constant="92" id="QhN-WN-z93"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelsfsdfsfsdfsdfsdfsfsfdsfsfsdf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reL-RZ-hDc">
-                        <rect key="frame" x="111" y="10" width="189" height="38.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelsfsdfsfsdfsdfsdfsfsfdsfsfsdf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reL-RZ-hDc">
+                        <rect key="frame" x="136" y="13" width="176" height="67"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="67" id="Ubm-AW-PVN"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DS-wS-aeH">
-                        <rect key="frame" x="111" y="64" width="189" height="17"/>
+                        <rect key="frame" x="136" y="88" width="176" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="topMargin" secondItem="reL-RZ-hDc" secondAttribute="top" constant="-2" id="9cm-t2-rZk"/>
                     <constraint firstItem="yXd-n3-F9M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="FYl-qi-Vqa"/>
                     <constraint firstItem="0DS-wS-aeH" firstAttribute="leading" secondItem="yXd-n3-F9M" secondAttribute="trailing" constant="8" id="Jfd-D8-lgJ"/>
                     <constraint firstItem="yXd-n3-F9M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="LOU-IP-DYf"/>
                     <constraint firstItem="reL-RZ-hDc" firstAttribute="leading" secondItem="yXd-n3-F9M" secondAttribute="trailing" constant="8" id="NtJ-xV-UzW"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="reL-RZ-hDc" secondAttribute="trailing" constant="12" id="XKu-yG-B5O"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="0DS-wS-aeH" secondAttribute="bottom" constant="5.5" id="ioX-1k-wxc"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="0DS-wS-aeH" secondAttribute="trailing" constant="12" id="rIi-VH-trr"/>
+                    <constraint firstItem="0DS-wS-aeH" firstAttribute="top" secondItem="reL-RZ-hDc" secondAttribute="bottom" constant="8" id="P4S-Ib-oq0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="reL-RZ-hDc" secondAttribute="trailing" id="XKu-yG-B5O"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="0DS-wS-aeH" secondAttribute="bottom" constant="6.5" id="ioX-1k-wxc"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0DS-wS-aeH" secondAttribute="trailing" id="rIi-VH-trr"/>
+                    <constraint firstItem="reL-RZ-hDc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="sZJ-er-dw5"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -55,7 +59,7 @@
                 <outlet property="titleLabel" destination="reL-RZ-hDc" id="hqO-O7-ohS"/>
                 <outlet property="zixunImageView" destination="yXd-n3-F9M" id="URG-QF-OXU"/>
             </connections>
-            <point key="canvasLocation" x="25" y="77.5"/>
+            <point key="canvasLocation" x="25" y="77"/>
         </tableViewCell>
     </objects>
 </document>

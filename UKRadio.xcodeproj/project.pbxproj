@@ -66,7 +66,19 @@
 		09E790C91EF8D690004C769B /* FSPageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E790C51EF8D690004C769B /* FSPageContentView.m */; };
 		09E790CA1EF8D690004C769B /* FSSegmentTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E790C81EF8D690004C769B /* FSSegmentTitleView.m */; };
 		09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */; };
+		09EE10061F132834002EC29D /* RCWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09EE10041F132834002EC29D /* RCWebViewController.xib */; };
+		09F83F9F1F1349F4000CD1ED /* GongLueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F83F9D1F1349F4000CD1ED /* GongLueTableViewCell.swift */; };
+		09F83FA01F1349F4000CD1ED /* GongLueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F83F9E1F1349F4000CD1ED /* GongLueTableViewCell.xib */; };
+		09F83FA31F135E60000CD1ED /* GongLueWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F83FA11F135E60000CD1ED /* GongLueWebViewController.swift */; };
+		09F83FA41F135E60000CD1ED /* GongLueWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F83FA21F135E60000CD1ED /* GongLueWebViewController.xib */; };
+		09F83FB41F137154000CD1ED /* my.css in Resources */ = {isa = PBXBuildFile; fileRef = 09F83FB31F137154000CD1ED /* my.css */; };
 		09F88C671ED55C1B00BF688F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F88C661ED55C1B00BF688F /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		09FD2BCB1F14B06700B021E4 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD2BC91F14B06700B021E4 /* ThirdViewController.swift */; };
+		09FD2BCC1F14B06700B021E4 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FD2BCA1F14B06700B021E4 /* ThirdViewController.xib */; };
+		09FD2BCF1F14B0ED00B021E4 /* ChuZhuangTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD2BCD1F14B0ED00B021E4 /* ChuZhuangTableViewCell.swift */; };
+		09FD2BD01F14B0ED00B021E4 /* ChuZhuangTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FD2BCE1F14B0ED00B021E4 /* ChuZhuangTableViewCell.xib */; };
+		09FD2BD31F14CCBF00B021E4 /* ChuZhuangWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD2BD11F14CCBF00B021E4 /* ChuZhuangWebViewController.swift */; };
+		09FD2BD41F14CCBF00B021E4 /* ChuZhuangWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FD2BD21F14CCBF00B021E4 /* ChuZhuangWebViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,8 +169,20 @@
 		09E790C71EF8D690004C769B /* FSSegmentTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSegmentTitleView.h; sourceTree = "<group>"; };
 		09E790C81EF8D690004C769B /* FSSegmentTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSegmentTitleView.m; sourceTree = "<group>"; };
 		09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
+		09EE10041F132834002EC29D /* RCWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCWebViewController.xib; sourceTree = "<group>"; };
+		09F83F9D1F1349F4000CD1ED /* GongLueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongLueTableViewCell.swift; sourceTree = "<group>"; };
+		09F83F9E1F1349F4000CD1ED /* GongLueTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GongLueTableViewCell.xib; sourceTree = "<group>"; };
+		09F83FA11F135E60000CD1ED /* GongLueWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongLueWebViewController.swift; sourceTree = "<group>"; };
+		09F83FA21F135E60000CD1ED /* GongLueWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GongLueWebViewController.xib; sourceTree = "<group>"; };
+		09F83FB31F137154000CD1ED /* my.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = my.css; sourceTree = "<group>"; };
 		09F88C651ED55C1B00BF688F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		09F88C661ED55C1B00BF688F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		09FD2BC91F14B06700B021E4 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		09FD2BCA1F14B06700B021E4 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
+		09FD2BCD1F14B0ED00B021E4 /* ChuZhuangTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChuZhuangTableViewCell.swift; sourceTree = "<group>"; };
+		09FD2BCE1F14B0ED00B021E4 /* ChuZhuangTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChuZhuangTableViewCell.xib; sourceTree = "<group>"; };
+		09FD2BD11F14CCBF00B021E4 /* ChuZhuangWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChuZhuangWebViewController.swift; sourceTree = "<group>"; };
+		09FD2BD21F14CCBF00B021E4 /* ChuZhuangWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChuZhuangWebViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,13 +285,7 @@
 				099CB9921F0200DB00470270 /* Basic */,
 				099CB9931F02012A00470270 /* Video */,
 				0910CE681F05F5F800893C19 /* Sites */,
-				09593D181EF9060600241A13 /* HomeViewController.swift */,
-				09346CC31EF9F88200DDC6BE /* FirstViewController.swift */,
-				09346CC41EF9F88200DDC6BE /* FirstViewController.xib */,
-				093FCB521EFB6A9D000D89C8 /* ZiXunTableViewCell.swift */,
-				093FCB531EFB6A9D000D89C8 /* ZiXunTableViewCell.xib */,
-				09346CC71EF9FDF500DDC6BE /* SecondViewController.swift */,
-				09346CC81EF9FDF500DDC6BE /* SecondViewController.xib */,
+				09F83FB51F13749E000CD1ED /* Home */,
 				09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */,
 				09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */,
 				093FCB4F1EFB53F4000D89C8 /* HttpParser.h */,
@@ -277,6 +295,7 @@
 				0910CE571F05D78D00893C19 /* LaunchScreen~ipad.storyboard */,
 				09BDC6741ED6BF3300864DF7 /* Main.storyboard */,
 				093F26CB1D94D887006556C4 /* Info.plist */,
+				09F83FB31F137154000CD1ED /* my.css */,
 				09AB361A1ED41FBF00AB2A5F /* ThirdParty */,
 			);
 			path = UKRadio;
@@ -311,6 +330,7 @@
 			children = (
 				095F7FA81EFD029700727834 /* RCWebViewController.h */,
 				095F7FA91EFD029F00727834 /* RCWebViewController.m */,
+				09EE10041F132834002EC29D /* RCWebViewController.xib */,
 				097E94641D98C5D700B25CE2 /* Reachability.h */,
 				097E94651D98C5D700B25CE2 /* Reachability.m */,
 				097E94601D98C1C700B25CE2 /* Tool.swift */,
@@ -393,6 +413,17 @@
 			path = FSScrollContentView;
 			sourceTree = "<group>";
 		};
+		09F83FB51F13749E000CD1ED /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				09593D181EF9060600241A13 /* HomeViewController.swift */,
+				09FD2BC81F14B04100B021E4 /* ChuZhuang */,
+				09FD2BC71F14B02A00B021E4 /* GongLue */,
+				09FD2BC61F14B01000B021E4 /* ZiXun */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		09F88C641ED55C1B00BF688F /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +431,43 @@
 				09F88C661ED55C1B00BF688F /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		09FD2BC61F14B01000B021E4 /* ZiXun */ = {
+			isa = PBXGroup;
+			children = (
+				09346CC31EF9F88200DDC6BE /* FirstViewController.swift */,
+				09346CC41EF9F88200DDC6BE /* FirstViewController.xib */,
+				093FCB521EFB6A9D000D89C8 /* ZiXunTableViewCell.swift */,
+				093FCB531EFB6A9D000D89C8 /* ZiXunTableViewCell.xib */,
+			);
+			name = ZiXun;
+			sourceTree = "<group>";
+		};
+		09FD2BC71F14B02A00B021E4 /* GongLue */ = {
+			isa = PBXGroup;
+			children = (
+				09346CC71EF9FDF500DDC6BE /* SecondViewController.swift */,
+				09346CC81EF9FDF500DDC6BE /* SecondViewController.xib */,
+				09F83F9D1F1349F4000CD1ED /* GongLueTableViewCell.swift */,
+				09F83F9E1F1349F4000CD1ED /* GongLueTableViewCell.xib */,
+				09F83FA11F135E60000CD1ED /* GongLueWebViewController.swift */,
+				09F83FA21F135E60000CD1ED /* GongLueWebViewController.xib */,
+			);
+			name = GongLue;
+			sourceTree = "<group>";
+		};
+		09FD2BC81F14B04100B021E4 /* ChuZhuang */ = {
+			isa = PBXGroup;
+			children = (
+				09FD2BC91F14B06700B021E4 /* ThirdViewController.swift */,
+				09FD2BCA1F14B06700B021E4 /* ThirdViewController.xib */,
+				09FD2BCD1F14B0ED00B021E4 /* ChuZhuangTableViewCell.swift */,
+				09FD2BCE1F14B0ED00B021E4 /* ChuZhuangTableViewCell.xib */,
+				09FD2BD11F14CCBF00B021E4 /* ChuZhuangWebViewController.swift */,
+				09FD2BD21F14CCBF00B021E4 /* ChuZhuangWebViewController.xib */,
+			);
+			name = ChuZhuang;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,7 +502,7 @@
 				TargetAttributes = {
 					093F26B91D94D887006556C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2699D9JM3T;
+						DevelopmentTeam = 6F5K77MS8G;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
@@ -463,15 +531,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09FD2BD41F14CCBF00B021E4 /* ChuZhuangWebViewController.xib in Resources */,
 				09BDC6761ED6BF3300864DF7 /* Main.storyboard in Resources */,
+				09FD2BD01F14B0ED00B021E4 /* ChuZhuangTableViewCell.xib in Resources */,
 				09346CC61EF9F88200DDC6BE /* FirstViewController.xib in Resources */,
 				0910CE581F05D78D00893C19 /* LaunchScreen~ipad.storyboard in Resources */,
+				09FD2BCC1F14B06700B021E4 /* ThirdViewController.xib in Resources */,
+				09F83FA01F1349F4000CD1ED /* GongLueTableViewCell.xib in Resources */,
 				09D8B81A1F04DE09009919E5 /* README.txt in Resources */,
 				09346CCA1EF9FDF500DDC6BE /* SecondViewController.xib in Resources */,
 				097793331F01E4AB006126D8 /* WebViewController.xib in Resources */,
 				093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */,
 				093F26C71D94D887006556C4 /* Assets.xcassets in Resources */,
+				09EE10061F132834002EC29D /* RCWebViewController.xib in Resources */,
 				093FCB551EFB6A9D000D89C8 /* ZiXunTableViewCell.xib in Resources */,
+				09F83FB41F137154000CD1ED /* my.css in Resources */,
+				09F83FA41F135E60000CD1ED /* GongLueWebViewController.xib in Resources */,
 				09BDC67A1ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib in Resources */,
 				095F7F9F1EFCF7ED00727834 /* MJRefresh.bundle in Resources */,
 				095F7FA41EFCF7ED00727834 /* more@2x.png in Resources */,
@@ -513,17 +588,22 @@
 				09AB36221ED434D600AB2A5F /* RCEncryption.m in Sources */,
 				0910CE6A1F05F61C00893C19 /* WebSiteTableViewController.swift in Sources */,
 				09AB361F1ED41FBF00AB2A5F /* GTMBase64.m in Sources */,
+				09FD2BD31F14CCBF00B021E4 /* ChuZhuangWebViewController.swift in Sources */,
+				09FD2BCF1F14B0ED00B021E4 /* ChuZhuangTableViewCell.swift in Sources */,
 				093FCB541EFB6A9D000D89C8 /* ZiXunTableViewCell.swift in Sources */,
 				097E94661D98C5D700B25CE2 /* Reachability.m in Sources */,
+				09FD2BCB1F14B06700B021E4 /* ThirdViewController.swift in Sources */,
 				095F7FAA1EFD029F00727834 /* RCWebViewController.m in Sources */,
 				0910CE721F0624AC00893C19 /* WebSiteViewController.swift in Sources */,
 				095F7FA01EFCF7ED00727834 /* MJRefreshBaseView.m in Sources */,
 				0960EE411F034520003AE26A /* VideoSubcatalogViewController.swift in Sources */,
 				095F7FA21EFCF7ED00727834 /* MJRefreshFooterView.m in Sources */,
+				09F83FA31F135E60000CD1ED /* GongLueWebViewController.swift in Sources */,
 				093FCB511EFB53F4000D89C8 /* HttpParser.m in Sources */,
 				099CB9951F02014600470270 /* VideoListViewController.swift in Sources */,
 				0960EE451F038042003AE26A /* VideoUrlViewController.swift in Sources */,
 				09681B721F00A7B200DDD83E /* SubcatalogViewController.swift in Sources */,
+				09F83F9F1F1349F4000CD1ED /* GongLueTableViewCell.swift in Sources */,
 				095F7FA31EFCF7ED00727834 /* MJRefreshHeaderView.m in Sources */,
 				09BDC67C1ED6D00E00864DF7 /* InfiniteAdScrollView.swift in Sources */,
 			);
@@ -642,9 +722,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 2699D9JM3T;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6F5K77MS8G;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -664,8 +744,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.pythonlearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "052414dc-17e9-4926-982e-5af37771647a";
-				PROVISIONING_PROFILE_SPECIFIER = python_dis;
+				PROVISIONING_PROFILE = "a8f80a3c-7ed3-4edc-9259-974b6c48f358";
+				PROVISIONING_PROFILE_SPECIFIER = "Sky Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -678,9 +758,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 2699D9JM3T;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6F5K77MS8G;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -700,8 +780,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.pythonlearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "052414dc-17e9-4926-982e-5af37771647a";
-				PROVISIONING_PROFILE_SPECIFIER = python_dis;
+				PROVISIONING_PROFILE = "a8f80a3c-7ed3-4edc-9259-974b6c48f358";
+				PROVISIONING_PROFILE_SPECIFIER = "Sky Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
