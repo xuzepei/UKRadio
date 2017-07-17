@@ -338,7 +338,30 @@
     if(0 == httpString.length)
         return nil;
     
-    NSRange range = [httpString rangeOfString:@"<div class=\"arc-body\">"];
+//    <h1 class="arc-h1-tit">王者荣耀芈月重做出装推荐 六神装团战爆炸输出 </h1>
+//    <p class="arc-other">
+//    <span>18183</span>
+//    <span>天堂梦境</span>
+//    <span>2017-06-20 </span>
+//    <span class="shareBox bdsharebuttonbox">
+    
+    NSString* title = @"";
+    NSRange range = [httpString rangeOfString:@"<h1 class=\"arc-h1-tit\">"];
+    if(range.location != NSNotFound)
+    {
+        httpString = [httpString substringFromIndex:range.location];
+        range = [httpString rangeOfString:@"<span class=\"shareBox bdsharebuttonbox\">"];
+        if(range.location != NSNotFound)
+        {
+            title = [httpString substringToIndex:range.location];
+            if(title.length)
+            {
+                title = [NSString stringWithFormat:@"%@<hr>",title];
+            }
+        }
+    }
+    
+    range = [httpString rangeOfString:@"<div class=\"arc-body\">"];
     if(range.location != NSNotFound)
     {
         httpString = [httpString substringFromIndex:range.location];
@@ -362,7 +385,75 @@
     httpString = [httpString stringByReplacingOccurrencesOfString:@"//img.18183.com" withString:@"http://img.18183.com"];
     httpString = [httpString stringByReplacingOccurrencesOfString:@"http:http:" withString:@"http:"];
     
-    return [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"my.css\"/></head><body>%@<br><br><br><br></body></html>",httpString];
+    return [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"my.css\"/></head><body>%@%@<br><br><br><br></body></html>",title,httpString];
+}
+
+- (NSArray*)parseForHeros:(NSString*)httpString
+{
+    if(0 == httpString.length)
+        return nil;
+    
+    NSData* data = [httpString dataUsingEncoding:NSUnicodeStringEncoding];
+    TFHpple* hpple = [TFHpple hppleWithHTMLData:data];
+    if(hpple)
+    {
+        NSString* queryString = @"//ul[@class='plist2 cf ulList']";
+        NSArray *nodes = [hpple searchWithXPathQuery:queryString];
+        
+        NSMutableArray* array0 = [NSMutableArray new];
+        for (TFHppleElement *element in nodes) {
+            
+            NSMutableArray* array1 = [NSMutableArray new];
+            NSArray* tags_li = [element childrenWithTagName:@"li"];
+            for(TFHppleElement* tag_li in tags_li)
+            {
+                NSString* href = nil;
+                NSString* image_url = nil;
+                NSString* name = nil;
+                NSArray* tags_a = [tag_li childrenWithTagName:@"a"];
+                if([tags_a count])
+                {
+                    TFHppleElement* tag_a = [tags_a lastObject];
+                    href = [tag_a objectForKey:@"href"];
+                    name = tag_a.content;
+                    
+                    NSArray* tags_img = [tag_a childrenWithTagName:@"img"];
+                    if([tags_img count])
+                    {
+                        TFHppleElement* tag_img = [tags_img lastObject];
+                        image_url = [tag_img objectForKey:@"src"];
+                        if(0 == image_url.length)
+                            image_url = [tag_img objectForKey:@"lz_src"];
+                    }
+                    
+                    NSMutableDictionary* dict = [NSMutableDictionary new];
+                    if(image_url.length)
+                        [dict setObject:image_url forKey:@"image_url"];
+                    if(name.length)
+                        [dict setObject:name forKey:@"name"];
+                    
+                    if([href hasPrefix:@"http://"] || [href hasPrefix:@"https://"])
+                        [dict setObject:href forKey:@"url"];
+                    
+                    if(image_url.length && href.length)
+                        [array1 addObject:dict];
+                    else
+                    {
+                        NSLog(@"%@",dict);
+                    }
+                }
+                
+            }
+            
+            [array0 addObject:array1];
+            
+        }
+        
+        return array0;
+    }
+    
+    return nil;
+
 }
 
 @end

@@ -43,6 +43,9 @@ class GongLueTableViewCell: UITableViewCell {
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = true
         self.titleLabel.numberOfLines = 0
         self.titleLabel.sizeToFit()
+        var rect = self.titleLabel.frame;
+        rect.size.width = self.bounds.size.width - 170
+        self.titleLabel.frame = rect;
         
         self.customizedImageView.image = nil;
         

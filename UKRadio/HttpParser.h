@@ -17,5 +17,6 @@
 - (NSString*)parseForGongLueDetail:(NSString*)httpString;
 - (NSArray*)parseForChuZhuang:(NSString*)httpString;
 - (NSString*)parseForChuZhuangDetail:(NSString*)httpString;
+- (NSArray*)parseForHeros:(NSString*)httpString;
 
 @end

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collection_cell" id="gTV-IL-0wX" customClass="HeroCollectionViewCell" customModule="UKRadio" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ek5-a2-2Ri">
+                        <rect key="frame" x="4" y="40" width="42" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="CPr-dL-8LG"/>
+                            <constraint firstAttribute="height" constant="20" id="wJv-Kx-vsE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="1" green="0.59569858149999999" blue="0.2061484771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ek5-a2-2Ri" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="2Ix-S2-pSX"/>
+                <constraint firstAttribute="bottom" secondItem="ek5-a2-2Ri" secondAttribute="bottom" id="8zd-IH-tZx"/>
+                <constraint firstAttribute="trailing" secondItem="ek5-a2-2Ri" secondAttribute="trailing" constant="4" id="Q9M-ee-C3H"/>
+            </constraints>
+            <size key="customSize" width="102" height="87"/>
+            <connections>
+                <outlet property="textLabel" destination="ek5-a2-2Ri" id="YlF-On-j9u"/>
+            </connections>
+            <point key="canvasLocation" x="51" y="70.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

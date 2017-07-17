@@ -44,6 +44,15 @@ class Tool {
         alert.show()
     }
     
+    class func isPad() -> Bool {
+        
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+            return true
+        }
+        
+        return false
+    }
+    
     //MARK: - Parser
     class func parseToDictionary(_ jsonString:String?) -> [String:AnyObject]? {
         
