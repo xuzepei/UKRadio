@@ -25,7 +25,7 @@ class HeroCollectionViewController: UIViewController, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.blue
+        //self.view.backgroundColor = UIColor.blue
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -110,7 +110,7 @@ class HeroCollectionViewController: UIViewController, UICollectionViewDelegate, 
             
             if let item = self.getItemByIndex(indexPath.row) {
             
-                mycell .updateContent(imageUrl: nil, name: item["name"])
+                mycell .updateContent(item: item)
 
             }
         }

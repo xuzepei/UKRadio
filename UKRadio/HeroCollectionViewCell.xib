@@ -28,19 +28,27 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t3J-Lb-z5h">
+                        <rect key="frame" x="5" y="4" width="40" height="36"/>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="1" green="0.59569858149999999" blue="0.2061484771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ek5-a2-2Ri" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="2Ix-S2-pSX"/>
                 <constraint firstAttribute="bottom" secondItem="ek5-a2-2Ri" secondAttribute="bottom" id="8zd-IH-tZx"/>
+                <constraint firstItem="t3J-Lb-z5h" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="BBt-4w-mIN"/>
                 <constraint firstAttribute="trailing" secondItem="ek5-a2-2Ri" secondAttribute="trailing" constant="4" id="Q9M-ee-C3H"/>
+                <constraint firstItem="ek5-a2-2Ri" firstAttribute="top" secondItem="t3J-Lb-z5h" secondAttribute="bottom" id="VVd-MY-436"/>
+                <constraint firstItem="t3J-Lb-z5h" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="Zci-Ma-zYT"/>
+                <constraint firstAttribute="trailing" secondItem="t3J-Lb-z5h" secondAttribute="trailing" constant="5" id="den-9b-T7c"/>
             </constraints>
             <size key="customSize" width="102" height="87"/>
             <connections>
+                <outlet property="imageView" destination="t3J-Lb-z5h" id="hKk-wl-3BH"/>
                 <outlet property="textLabel" destination="ek5-a2-2Ri" id="YlF-On-j9u"/>
             </connections>
-            <point key="canvasLocation" x="51" y="70.5"/>
+            <point key="canvasLocation" x="51" y="70"/>
         </collectionViewCell>
     </objects>
 </document>

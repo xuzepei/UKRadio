@@ -30,6 +30,18 @@ class HerosViewController: UIViewController {
         updateContentForHeros()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.title = "英雄"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.title = nil
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -112,7 +124,7 @@ class HerosViewController: UIViewController {
 
     func initSegmentView () {
         
-        self.titleView = FSSegmentTitleView(frame: CGRect(x: 20, y: 0, width: self.view.bounds.size.width - 40, height: 30), titles:["全部", "坦克", "战士", "刺客", "法师", "射手", "辅助"], delegate: self, indicatorType: FSIndicatorType(rawValue: 0))
+        self.titleView = FSSegmentTitleView(frame: CGRect(x: 20, y: 0, width: self.view.bounds.size.width - 40, height: 30), titles:["全部", "坦克", "战士", "刺客", "法师", "射手", "辅助"], delegate: self, indicatorType: FSIndicatorTypeNone)
         self.titleView?.titleFont = UIFont.systemFont(ofSize: 14)
         self.titleView?.titleSelectFont = UIFont.systemFont(ofSize: 16)
         self.view.addSubview(self.titleView!)
@@ -133,7 +145,7 @@ class HerosViewController: UIViewController {
         
         self.pageContentView.translatesAutoresizingMaskIntoConstraints = true;
         var rect = self.pageContentView.frame
-        rect.origin.y = 30
+        rect.origin.y = 0
         rect.size.width = self.view.bounds.width
         rect.size.height = self.view.bounds.height - self.tabBarHeight
         self.pageContentView.frame = rect;
