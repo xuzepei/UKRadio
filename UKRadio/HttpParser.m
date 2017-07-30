@@ -456,4 +456,71 @@
 
 }
 
+- (NSArray*)parseForZhuangBei:(NSString*)httpString
+{
+    if(0 == httpString.length)
+        return nil;
+    
+    NSData* data = [httpString dataUsingEncoding:NSUnicodeStringEncoding];
+    TFHpple* hpple = [TFHpple hppleWithHTMLData:data];
+    if(hpple)
+    {
+        NSString* queryString = @"//ul[@class='plist3 cf ulList']";
+        NSArray *nodes = [hpple searchWithXPathQuery:queryString];
+        
+        NSMutableArray* array0 = [NSMutableArray new];
+        for (TFHppleElement *element in nodes) {
+            
+            NSMutableArray* array1 = [NSMutableArray new];
+            NSArray* tags_li = [element childrenWithTagName:@"li"];
+            for(TFHppleElement* tag_li in tags_li)
+            {
+                NSString* href = nil;
+                NSString* image_url = nil;
+                NSString* name = nil;
+                NSArray* tags_a = [tag_li childrenWithTagName:@"a"];
+                if([tags_a count])
+                {
+                    TFHppleElement* tag_a = [tags_a lastObject];
+                    href = [tag_a objectForKey:@"href"];
+                    name = tag_a.content;
+                    
+                    NSArray* tags_img = [tag_a childrenWithTagName:@"img"];
+                    if([tags_img count])
+                    {
+                        TFHppleElement* tag_img = [tags_img lastObject];
+                        image_url = [tag_img objectForKey:@"src"];
+                        if(0 == image_url.length)
+                            image_url = [tag_img objectForKey:@"lz_src"];
+                    }
+                    
+                    NSMutableDictionary* dict = [NSMutableDictionary new];
+                    if(image_url.length)
+                        [dict setObject:image_url forKey:@"image_url"];
+                    if(name.length)
+                        [dict setObject:name forKey:@"name"];
+                    
+                    if([href hasPrefix:@"http://"] || [href hasPrefix:@"https://"])
+                        [dict setObject:href forKey:@"url"];
+                    
+                    if(image_url.length && href.length)
+                        [array1 addObject:dict];
+                    else
+                    {
+                        NSLog(@"%@",dict);
+                    }
+                }
+                
+            }
+            
+            [array0 addObject:array1];
+            
+        }
+        
+        return array0;
+    }
+    
+    return nil;
+}
+
 @end

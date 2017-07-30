@@ -25,6 +25,9 @@
 		09346D2E1EFA49EA00DDC6BE /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 09346D2A1EFA49EA00DDC6BE /* TFHppleElement.m */; };
 		09346D2F1EFA49EA00DDC6BE /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 09346D2C1EFA49EA00DDC6BE /* XPathQuery.m */; };
 		09346D311EFA4A1900DDC6BE /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 09346D301EFA4A1900DDC6BE /* libxml2.2.tbd */; };
+		093EC8D21F278BC700CD3462 /* ZhuangBeiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EC8D11F278BC700CD3462 /* ZhuangBeiViewController.swift */; };
+		093EC8D51F278FE400CD3462 /* ZhuangBeiCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EC8D31F278FE400CD3462 /* ZhuangBeiCollectionViewController.swift */; };
+		093EC8D61F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 093EC8D41F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib */; };
 		093F26BE1D94D887006556C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F26BD1D94D887006556C4 /* AppDelegate.swift */; };
 		093F26C71D94D887006556C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 093F26C61D94D887006556C4 /* Assets.xcassets */; };
 		093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093F26C81D94D887006556C4 /* LaunchScreen.storyboard */; };
@@ -113,6 +116,9 @@
 		09346D2B1EFA49EA00DDC6BE /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		09346D2C1EFA49EA00DDC6BE /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		09346D301EFA4A1900DDC6BE /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		093EC8D11F278BC700CD3462 /* ZhuangBeiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZhuangBeiViewController.swift; sourceTree = "<group>"; };
+		093EC8D31F278FE400CD3462 /* ZhuangBeiCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZhuangBeiCollectionViewController.swift; sourceTree = "<group>"; };
+		093EC8D41F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhuangBeiCollectionViewController.xib; sourceTree = "<group>"; };
 		093F26BA1D94D887006556C4 /* UKRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UKRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		093F26BD1D94D887006556C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		093F26C61D94D887006556C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -268,6 +274,16 @@
 			path = Hpple;
 			sourceTree = "<group>";
 		};
+		093EC8D01F278B2E00CD3462 /* ZhuangBei */ = {
+			isa = PBXGroup;
+			children = (
+				093EC8D11F278BC700CD3462 /* ZhuangBeiViewController.swift */,
+				093EC8D31F278FE400CD3462 /* ZhuangBeiCollectionViewController.swift */,
+				093EC8D41F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib */,
+			);
+			name = ZhuangBei;
+			sourceTree = "<group>";
+		};
 		093F26B11D94D887006556C4 = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +313,7 @@
 				0910CE681F05F5F800893C19 /* Sites */,
 				09F83FB51F13749E000CD1ED /* Home */,
 				09A092A91F1C4EAF00F2372C /* Heros */,
+				093EC8D01F278B2E00CD3462 /* ZhuangBei */,
 				09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */,
 				09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */,
 				093FCB4F1EFB53F4000D89C8 /* HttpParser.h */,
@@ -568,6 +585,7 @@
 				09346CCA1EF9FDF500DDC6BE /* SecondViewController.xib in Resources */,
 				097793331F01E4AB006126D8 /* WebViewController.xib in Resources */,
 				093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */,
+				093EC8D61F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib in Resources */,
 				093F26C71D94D887006556C4 /* Assets.xcassets in Resources */,
 				09EE10061F132834002EC29D /* RCWebViewController.xib in Resources */,
 				09F83FB41F137154000CD1ED /* my.css in Resources */,
@@ -593,6 +611,7 @@
 				09346CC91EF9FDF500DDC6BE /* SecondViewController.swift in Sources */,
 				095F7FA61EFCF7ED00727834 /* UIScrollView+MJRefresh.m in Sources */,
 				09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */,
+				093EC8D21F278BC700CD3462 /* ZhuangBeiViewController.swift in Sources */,
 				09593D191EF9060600241A13 /* HomeViewController.swift in Sources */,
 				097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */,
 				099CB9971F02023400470270 /* VideoTableViewCell.swift in Sources */,
@@ -605,6 +624,7 @@
 				09F88C671ED55C1B00BF688F /* MBProgressHUD.m in Sources */,
 				095F7FA51EFCF7ED00727834 /* UIScrollView+Extension.m in Sources */,
 				09346CC51EF9F88200DDC6BE /* FirstViewController.swift in Sources */,
+				093EC8D51F278FE400CD3462 /* ZhuangBeiCollectionViewController.swift in Sources */,
 				09E790CA1EF8D690004C769B /* FSSegmentTitleView.m in Sources */,
 				0910CE671F05EA3C00893C19 /* UIView+Toast.m in Sources */,
 				093349551ECD8B64008897B3 /* HttpRequest.swift in Sources */,

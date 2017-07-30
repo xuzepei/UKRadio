@@ -18,5 +18,6 @@
 - (NSArray*)parseForChuZhuang:(NSString*)httpString;
 - (NSString*)parseForChuZhuangDetail:(NSString*)httpString;
 - (NSArray*)parseForHeros:(NSString*)httpString;
+- (NSArray*)parseForZhuangBei:(NSString*)httpString;
 
 @end
