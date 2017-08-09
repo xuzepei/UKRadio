@@ -20,7 +20,7 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         
         initTableView()
-        
+        updateContent()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,7 +39,7 @@ class SecondViewController: UIViewController {
         self.tableView.addHeader(withTarget: self, action: #selector(SecondViewController.headerRefresh))
         self.tableView.addFooter(withTarget: self, action: #selector(SecondViewController.footerRefresh))
         
-        self.tableView.headerBeginRefreshing();
+        //self.tableView.headerBeginRefreshing();
     }
     
     func headerRefresh() {

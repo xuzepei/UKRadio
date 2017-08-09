@@ -168,7 +168,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     
 //    NSArray* array = @[@"header",@"srcmenuwp",@"gamehbtn mt15 head-wp",@"area tit4",@"area tit6",@"banner",@"area tit7",@"area tit5",@"area tit8",@"area tit9",@"area tit12",@"footwp ftinner"];
     
-    NSArray* array = @[@"BAIDU_DUP_fp_wrapper",@"header",@"banner",@"top-gg",@"main-title",@"zhengwen-tit",@"adsbygoogle",@"xgwz",@"wz-gg2",@"game-zq",@"",@"",@"",@"",@"",@"",@"",@"wz-rt",@"footer",@"BAIDU_SSP__wrapper_939636_0",@"fx"];
+    NSArray* array = @[@"srcmenuwp",@"gamehbtn mt15 head-wp",@"BAIDU_DUP_fp_wrapper",@"header",@"banner",@"top-gg",@"main-title",@"zhengwen-tit",@"adsbygoogle",@"xgwz",@"wz-gg2",@"game-zq",@"",@"",@"",@"",@"",@"",@"",@"wz-rt",@"footer",@"BAIDU_SSP__wrapper_939636_0",@"fx"];
     
     
     for(NSString* className in array)

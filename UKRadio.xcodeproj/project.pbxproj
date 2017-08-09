@@ -50,6 +50,33 @@
 		09681B701F009E9900DDD83E /* ContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09681B6F1F009E9900DDD83E /* ContentsTableViewCell.swift */; };
 		09681B721F00A7B200DDD83E /* SubcatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09681B711F00A7B200DDD83E /* SubcatalogViewController.swift */; };
 		0971ED171F15B5A3003AF39A /* ZiXunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0971ED161F15B5A3003AF39A /* ZiXunTableViewCell.xib */; };
+		097751C21F3AD86000058CAC /* ToolsSectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097751C11F3AD86000058CAC /* ToolsSectionHeaderReusableView.swift */; };
+		097751C41F3AE9B000058CAC /* ToolsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097751C31F3AE9B000058CAC /* ToolsCollectionViewCell.swift */; };
+		097751DF1F3AF94700058CAC /* cjgl.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751C61F3AF94700058CAC /* cjgl.png */; };
+		097751E01F3AF94700058CAC /* ditujiexi.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751C71F3AF94700058CAC /* ditujiexi.png */; };
+		097751E11F3AF94700058CAC /* dwdjjs.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751C81F3AF94700058CAC /* dwdjjs.png */; };
+		097751E21F3AF94700058CAC /* fuwen.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751C91F3AF94700058CAC /* fuwen.png */; };
+		097751E31F3AF94700058CAC /* gamevideo.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751CA1F3AF94700058CAC /* gamevideo.png */; };
+		097751E41F3AF94700058CAC /* jnkszjb.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751CB1F3AF94700058CAC /* jnkszjb.png */; };
+		097751E51F3AF94700058CAC /* jwkszjb.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751CC1F3AF94700058CAC /* jwkszjb.png */; };
+		097751E61F3AF94700058CAC /* kengdie.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751CD1F3AF94700058CAC /* kengdie.png */; };
+		097751E71F3AF94700058CAC /* kjxxsd.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751CE1F3AF94700058CAC /* kjxxsd.png */; };
+		097751E81F3AF94700058CAC /* kxqm.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751CF1F3AF94700058CAC /* kxqm.png */; };
+		097751E91F3AF94700058CAC /* mfyxhq.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D01F3AF94700058CAC /* mfyxhq.png */; };
+		097751EA1F3AF94700058CAC /* mwsjsx.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D11F3AF94700058CAC /* mwsjsx.png */; };
+		097751EB1F3AF94700058CAC /* paiqi.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D21F3AF94700058CAC /* paiqi.png */; };
+		097751EC1F3AF94700058CAC /* pifupaiqi.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D31F3AF94700058CAC /* pifupaiqi.png */; };
+		097751ED1F3AF94700058CAC /* praise@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D41F3AF94700058CAC /* praise@3x.png */; };
+		097751EE1F3AF94700058CAC /* shuyujieshi.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D51F3AF94700058CAC /* shuyujieshi.png */; };
+		097751EF1F3AF94700058CAC /* ttyx.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D61F3AF94700058CAC /* ttyx.png */; };
+		097751F01F3AF94700058CAC /* xinshouguodu.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D71F3AF94700058CAC /* xinshouguodu.png */; };
+		097751F11F3AF94700058CAC /* xinshoutuijian.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D81F3AF94700058CAC /* xinshoutuijian.png */; };
+		097751F21F3AF94700058CAC /* yingxiongjinjie.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751D91F3AF94700058CAC /* yingxiongjinjie.png */; };
+		097751F31F3AF94700058CAC /* zbsx.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751DA1F3AF94700058CAC /* zbsx.png */; };
+		097751F41F3AF94700058CAC /* zdhyzdb.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751DB1F3AF94700058CAC /* zdhyzdb.png */; };
+		097751F51F3AF94700058CAC /* zdjs.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751DC1F3AF94700058CAC /* zdjs.png */; };
+		097751F61F3AF94700058CAC /* zhuangbei.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751DD1F3AF94700058CAC /* zhuangbei.png */; };
+		097751F71F3AF94700058CAC /* zmmzb.png in Resources */ = {isa = PBXBuildFile; fileRef = 097751DE1F3AF94700058CAC /* zmmzb.png */; };
 		097793321F01E4AB006126D8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097793301F01E4AB006126D8 /* WebViewController.swift */; };
 		097793331F01E4AB006126D8 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 097793311F01E4AB006126D8 /* WebViewController.xib */; };
 		097E94611D98C1C700B25CE2 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E94601D98C1C700B25CE2 /* Tool.swift */; };
@@ -87,6 +114,7 @@
 		09FD2BD01F14B0ED00B021E4 /* ChuZhuangTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FD2BCE1F14B0ED00B021E4 /* ChuZhuangTableViewCell.xib */; };
 		09FD2BD31F14CCBF00B021E4 /* ChuZhuangWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD2BD11F14CCBF00B021E4 /* ChuZhuangWebViewController.swift */; };
 		09FD2BD41F14CCBF00B021E4 /* ChuZhuangWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FD2BD21F14CCBF00B021E4 /* ChuZhuangWebViewController.xib */; };
+		09FFF9EC1F39A0E6007148A0 /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFF9EB1F39A0E6007148A0 /* ToolsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +181,33 @@
 		09681B6F1F009E9900DDD83E /* ContentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsTableViewCell.swift; sourceTree = "<group>"; };
 		09681B711F00A7B200DDD83E /* SubcatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubcatalogViewController.swift; sourceTree = "<group>"; };
 		0971ED161F15B5A3003AF39A /* ZiXunTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZiXunTableViewCell.xib; sourceTree = "<group>"; };
+		097751C11F3AD86000058CAC /* ToolsSectionHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsSectionHeaderReusableView.swift; sourceTree = "<group>"; };
+		097751C31F3AE9B000058CAC /* ToolsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsCollectionViewCell.swift; sourceTree = "<group>"; };
+		097751C61F3AF94700058CAC /* cjgl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjgl.png; sourceTree = "<group>"; };
+		097751C71F3AF94700058CAC /* ditujiexi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ditujiexi.png; sourceTree = "<group>"; };
+		097751C81F3AF94700058CAC /* dwdjjs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwdjjs.png; sourceTree = "<group>"; };
+		097751C91F3AF94700058CAC /* fuwen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fuwen.png; sourceTree = "<group>"; };
+		097751CA1F3AF94700058CAC /* gamevideo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamevideo.png; sourceTree = "<group>"; };
+		097751CB1F3AF94700058CAC /* jnkszjb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jnkszjb.png; sourceTree = "<group>"; };
+		097751CC1F3AF94700058CAC /* jwkszjb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jwkszjb.png; sourceTree = "<group>"; };
+		097751CD1F3AF94700058CAC /* kengdie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kengdie.png; sourceTree = "<group>"; };
+		097751CE1F3AF94700058CAC /* kjxxsd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kjxxsd.png; sourceTree = "<group>"; };
+		097751CF1F3AF94700058CAC /* kxqm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kxqm.png; sourceTree = "<group>"; };
+		097751D01F3AF94700058CAC /* mfyxhq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mfyxhq.png; sourceTree = "<group>"; };
+		097751D11F3AF94700058CAC /* mwsjsx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mwsjsx.png; sourceTree = "<group>"; };
+		097751D21F3AF94700058CAC /* paiqi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paiqi.png; sourceTree = "<group>"; };
+		097751D31F3AF94700058CAC /* pifupaiqi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pifupaiqi.png; sourceTree = "<group>"; };
+		097751D41F3AF94700058CAC /* praise@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "praise@3x.png"; sourceTree = "<group>"; };
+		097751D51F3AF94700058CAC /* shuyujieshi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuyujieshi.png; sourceTree = "<group>"; };
+		097751D61F3AF94700058CAC /* ttyx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ttyx.png; sourceTree = "<group>"; };
+		097751D71F3AF94700058CAC /* xinshouguodu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinshouguodu.png; sourceTree = "<group>"; };
+		097751D81F3AF94700058CAC /* xinshoutuijian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinshoutuijian.png; sourceTree = "<group>"; };
+		097751D91F3AF94700058CAC /* yingxiongjinjie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yingxiongjinjie.png; sourceTree = "<group>"; };
+		097751DA1F3AF94700058CAC /* zbsx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zbsx.png; sourceTree = "<group>"; };
+		097751DB1F3AF94700058CAC /* zdhyzdb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zdhyzdb.png; sourceTree = "<group>"; };
+		097751DC1F3AF94700058CAC /* zdjs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zdjs.png; sourceTree = "<group>"; };
+		097751DD1F3AF94700058CAC /* zhuangbei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhuangbei.png; sourceTree = "<group>"; };
+		097751DE1F3AF94700058CAC /* zmmzb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zmmzb.png; sourceTree = "<group>"; };
 		097793301F01E4AB006126D8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		097793311F01E4AB006126D8 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		097E94601D98C1C700B25CE2 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
@@ -199,6 +254,7 @@
 		09FD2BCE1F14B0ED00B021E4 /* ChuZhuangTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChuZhuangTableViewCell.xib; sourceTree = "<group>"; };
 		09FD2BD11F14CCBF00B021E4 /* ChuZhuangWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChuZhuangWebViewController.swift; sourceTree = "<group>"; };
 		09FD2BD21F14CCBF00B021E4 /* ChuZhuangWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChuZhuangWebViewController.xib; sourceTree = "<group>"; };
+		09FFF9EB1F39A0E6007148A0 /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,10 +370,14 @@
 				09F83FB51F13749E000CD1ED /* Home */,
 				09A092A91F1C4EAF00F2372C /* Heros */,
 				093EC8D01F278B2E00CD3462 /* ZhuangBei */,
+				09FFF9EB1F39A0E6007148A0 /* ToolsViewController.swift */,
+				097751C11F3AD86000058CAC /* ToolsSectionHeaderReusableView.swift */,
+				097751C31F3AE9B000058CAC /* ToolsCollectionViewCell.swift */,
 				09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */,
 				09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */,
 				093FCB4F1EFB53F4000D89C8 /* HttpParser.h */,
 				093FCB501EFB53F4000D89C8 /* HttpParser.m */,
+				097751C51F3AF94700058CAC /* images */,
 				093F26C61D94D887006556C4 /* Assets.xcassets */,
 				093F26C81D94D887006556C4 /* LaunchScreen.storyboard */,
 				0910CE571F05D78D00893C19 /* LaunchScreen~ipad.storyboard */,
@@ -351,6 +411,38 @@
 				095F7F9D1EFCF7ED00727834 /* UIView+Extension.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		097751C51F3AF94700058CAC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				097751C61F3AF94700058CAC /* cjgl.png */,
+				097751C71F3AF94700058CAC /* ditujiexi.png */,
+				097751C81F3AF94700058CAC /* dwdjjs.png */,
+				097751C91F3AF94700058CAC /* fuwen.png */,
+				097751CA1F3AF94700058CAC /* gamevideo.png */,
+				097751CB1F3AF94700058CAC /* jnkszjb.png */,
+				097751CC1F3AF94700058CAC /* jwkszjb.png */,
+				097751CD1F3AF94700058CAC /* kengdie.png */,
+				097751CE1F3AF94700058CAC /* kjxxsd.png */,
+				097751CF1F3AF94700058CAC /* kxqm.png */,
+				097751D01F3AF94700058CAC /* mfyxhq.png */,
+				097751D11F3AF94700058CAC /* mwsjsx.png */,
+				097751D21F3AF94700058CAC /* paiqi.png */,
+				097751D31F3AF94700058CAC /* pifupaiqi.png */,
+				097751D41F3AF94700058CAC /* praise@3x.png */,
+				097751D51F3AF94700058CAC /* shuyujieshi.png */,
+				097751D61F3AF94700058CAC /* ttyx.png */,
+				097751D71F3AF94700058CAC /* xinshouguodu.png */,
+				097751D81F3AF94700058CAC /* xinshoutuijian.png */,
+				097751D91F3AF94700058CAC /* yingxiongjinjie.png */,
+				097751DA1F3AF94700058CAC /* zbsx.png */,
+				097751DB1F3AF94700058CAC /* zdhyzdb.png */,
+				097751DC1F3AF94700058CAC /* zdjs.png */,
+				097751DD1F3AF94700058CAC /* zhuangbei.png */,
+				097751DE1F3AF94700058CAC /* zmmzb.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		097E94621D98C1DC00B25CE2 /* Tool */ = {
@@ -571,28 +663,53 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				097751EC1F3AF94700058CAC /* pifupaiqi.png in Resources */,
 				09A092B31F1C5EB400F2372C /* HeroCollectionViewController.xib in Resources */,
 				09FD2BD41F14CCBF00B021E4 /* ChuZhuangWebViewController.xib in Resources */,
+				097751E41F3AF94700058CAC /* jnkszjb.png in Resources */,
 				09BDC6761ED6BF3300864DF7 /* Main.storyboard in Resources */,
+				097751E51F3AF94700058CAC /* jwkszjb.png in Resources */,
 				09FD2BD01F14B0ED00B021E4 /* ChuZhuangTableViewCell.xib in Resources */,
 				0971ED171F15B5A3003AF39A /* ZiXunTableViewCell.xib in Resources */,
 				09346CC61EF9F88200DDC6BE /* FirstViewController.xib in Resources */,
 				0910CE581F05D78D00893C19 /* LaunchScreen~ipad.storyboard in Resources */,
+				097751F31F3AF94700058CAC /* zbsx.png in Resources */,
+				097751F51F3AF94700058CAC /* zdjs.png in Resources */,
+				097751EA1F3AF94700058CAC /* mwsjsx.png in Resources */,
+				097751E21F3AF94700058CAC /* fuwen.png in Resources */,
+				097751F41F3AF94700058CAC /* zdhyzdb.png in Resources */,
+				097751EE1F3AF94700058CAC /* shuyujieshi.png in Resources */,
 				09FD2BCC1F14B06700B021E4 /* ThirdViewController.xib in Resources */,
 				09F83FA01F1349F4000CD1ED /* GongLueTableViewCell.xib in Resources */,
+				097751ED1F3AF94700058CAC /* praise@3x.png in Resources */,
 				09D8B81A1F04DE09009919E5 /* README.txt in Resources */,
+				097751E61F3AF94700058CAC /* kengdie.png in Resources */,
+				097751F61F3AF94700058CAC /* zhuangbei.png in Resources */,
+				097751F71F3AF94700058CAC /* zmmzb.png in Resources */,
 				09A092B71F1C645000F2372C /* HeroCollectionViewCell.xib in Resources */,
 				09346CCA1EF9FDF500DDC6BE /* SecondViewController.xib in Resources */,
+				097751DF1F3AF94700058CAC /* cjgl.png in Resources */,
+				097751E31F3AF94700058CAC /* gamevideo.png in Resources */,
 				097793331F01E4AB006126D8 /* WebViewController.xib in Resources */,
+				097751E91F3AF94700058CAC /* mfyxhq.png in Resources */,
 				093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */,
 				093EC8D61F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib in Resources */,
+				097751E71F3AF94700058CAC /* kjxxsd.png in Resources */,
 				093F26C71D94D887006556C4 /* Assets.xcassets in Resources */,
 				09EE10061F132834002EC29D /* RCWebViewController.xib in Resources */,
+				097751F01F3AF94700058CAC /* xinshouguodu.png in Resources */,
 				09F83FB41F137154000CD1ED /* my.css in Resources */,
 				09F83FA41F135E60000CD1ED /* GongLueWebViewController.xib in Resources */,
 				09BDC67A1ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib in Resources */,
+				097751F21F3AF94700058CAC /* yingxiongjinjie.png in Resources */,
 				095F7F9F1EFCF7ED00727834 /* MJRefresh.bundle in Resources */,
+				097751E81F3AF94700058CAC /* kxqm.png in Resources */,
 				095F7FA41EFCF7ED00727834 /* more@2x.png in Resources */,
+				097751E01F3AF94700058CAC /* ditujiexi.png in Resources */,
+				097751E11F3AF94700058CAC /* dwdjjs.png in Resources */,
+				097751EB1F3AF94700058CAC /* paiqi.png in Resources */,
+				097751EF1F3AF94700058CAC /* ttyx.png in Resources */,
+				097751F11F3AF94700058CAC /* xinshoutuijian.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +728,7 @@
 				09346CC91EF9FDF500DDC6BE /* SecondViewController.swift in Sources */,
 				095F7FA61EFCF7ED00727834 /* UIScrollView+MJRefresh.m in Sources */,
 				09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */,
+				097751C41F3AE9B000058CAC /* ToolsCollectionViewCell.swift in Sources */,
 				093EC8D21F278BC700CD3462 /* ZhuangBeiViewController.swift in Sources */,
 				09593D191EF9060600241A13 /* HomeViewController.swift in Sources */,
 				097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */,
@@ -623,6 +741,7 @@
 				093F26BE1D94D887006556C4 /* AppDelegate.swift in Sources */,
 				09F88C671ED55C1B00BF688F /* MBProgressHUD.m in Sources */,
 				095F7FA51EFCF7ED00727834 /* UIScrollView+Extension.m in Sources */,
+				09FFF9EC1F39A0E6007148A0 /* ToolsViewController.swift in Sources */,
 				09346CC51EF9F88200DDC6BE /* FirstViewController.swift in Sources */,
 				093EC8D51F278FE400CD3462 /* ZhuangBeiCollectionViewController.swift in Sources */,
 				09E790CA1EF8D690004C769B /* FSSegmentTitleView.m in Sources */,
@@ -652,6 +771,7 @@
 				0960EE451F038042003AE26A /* VideoUrlViewController.swift in Sources */,
 				09681B721F00A7B200DDD83E /* SubcatalogViewController.swift in Sources */,
 				09F83F9F1F1349F4000CD1ED /* GongLueTableViewCell.swift in Sources */,
+				097751C21F3AD86000058CAC /* ToolsSectionHeaderReusableView.swift in Sources */,
 				095F7FA31EFCF7ED00727834 /* MJRefreshHeaderView.m in Sources */,
 				09BDC67C1ED6D00E00864DF7 /* InfiniteAdScrollView.swift in Sources */,
 			);

@@ -20,7 +20,7 @@ class ThirdViewController: UIViewController {
         super.viewDidLoad()
         
         initTableView()
-        
+        updateContent()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,7 +39,7 @@ class ThirdViewController: UIViewController {
         self.tableView.addHeader(withTarget: self, action: #selector(ThirdViewController.headerRefresh))
         self.tableView.addFooter(withTarget: self, action: #selector(ThirdViewController.footerRefresh))
         
-        self.tableView.headerBeginRefreshing();
+        //self.tableView.headerBeginRefreshing();
     }
     
     func headerRefresh() {

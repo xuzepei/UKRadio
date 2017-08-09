@@ -104,7 +104,7 @@ open class HttpRequest: NSObject{
         return true
     }
     
-    func post(_ urlString : String, resultSelector : Selector, token : [String : Any]?) -> Bool {
+    func post(_ urlString : String, body : Any, resultSelector : Selector, token : [String : Any]?) -> Bool {
         
         print("request-post:", urlString)
         
@@ -121,9 +121,11 @@ open class HttpRequest: NSObject{
         var request = URLRequest(url: URL(string: self.requestUrlString)!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 5)
         request.httpShouldHandleCookies = false
         request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("Gok/2.0 (iPhone; iOS 10.2; Scale/2.00)", forHTTPHeaderField: "User-Agent")
         
-        if let body = token?["k_body"] as? Data {
-            request.httpBody = body
+        if let tempBody = body as? Data {
+            request.httpBody = tempBody
         }
         
         self.isRequesting = true

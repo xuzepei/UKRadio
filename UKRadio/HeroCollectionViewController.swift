@@ -14,7 +14,7 @@ class HeroCollectionViewController: UIViewController, UICollectionViewDelegate, 
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
-    var itemArray:[[String: String]]? = nil;
+    var itemArray:[[String: String]]? = nil
     
     func updateCotent(itemArray: [[String: String]]?) {
     

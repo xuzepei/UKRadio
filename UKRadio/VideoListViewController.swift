@@ -44,13 +44,13 @@ class VideoListViewController: UIViewController {
         
         let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getVideoMainList&BigID=21"
         
-        let request = HttpRequest(delegate: self)
-        let b = request.post(urlString, resultSelector: #selector(VideoListViewController.requestFinished(_:)), token: nil)
-        
-        if b == true {
-            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
-            self.indicator!.labelText = "Loading..."
-        }
+//        let request = HttpRequest(delegate: self)
+//        let b = request.post(urlString, resultSelector: #selector(VideoListViewController.requestFinished(_:)), token: nil)
+//        
+//        if b == true {
+//            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+//            self.indicator!.labelText = "Loading..."
+//        }
     }
     
     func requestFinished(_ dict: NSDictionary) {

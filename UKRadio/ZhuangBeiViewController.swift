@@ -39,7 +39,7 @@ class ZhuangBeiViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.title = nil
+        self.navigationItem.title = ""
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,7 +105,7 @@ class ZhuangBeiViewController: UIViewController {
     
     func initSegmentView () {
         
-        self.titleView = FSSegmentTitleView(frame: CGRect(x: 20, y: 0, width: self.view.bounds.size.width - 40, height: 30), titles:["全部", "攻击", "法术", "防御", "移动", "打野"], delegate: self, indicatorType: FSIndicatorTypeNone)
+        self.titleView = FSSegmentTitleView(frame: CGRect(x: 20, y: self.navigationBarHeight + 20, width: self.view.bounds.size.width - 40, height: 30), titles:["全部", "攻击", "法术", "防御", "移动", "打野"], delegate: self, indicatorType: FSIndicatorTypeNone)
         self.titleView?.titleFont = UIFont.systemFont(ofSize: 14)
         self.titleView?.titleSelectFont = UIFont.systemFont(ofSize: 16)
         self.view.addSubview(self.titleView!)
@@ -126,9 +126,9 @@ class ZhuangBeiViewController: UIViewController {
         
         self.pageContentView.translatesAutoresizingMaskIntoConstraints = true;
         var rect = self.pageContentView.frame
-        rect.origin.y = 0
+        rect.origin.y = self.navigationBarHeight + 20
         rect.size.width = self.view.bounds.width
-        rect.size.height = self.view.bounds.height - self.tabBarHeight
+        rect.size.height = self.view.bounds.height - self.tabBarHeight - 30
         self.pageContentView.frame = rect;
         
         self.zbVCs = vcs

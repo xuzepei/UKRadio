@@ -66,13 +66,13 @@ class SubcatalogViewController: UIViewController {
         let bodyString = "gid=\(gid)"
         let token = ["k_body": bodyString.data(using: String.Encoding.utf8)]
         
-        let request = HttpRequest(delegate: self)
-        let b = request.post(urlString, resultSelector: #selector(SubcatalogViewController.requestFinished(_:)), token: token)
-        
-        if b == true {
-            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
-            self.indicator!.labelText = "Loading..."
-        }
+//        let request = HttpRequest(delegate: self)
+//        let b = request.post(urlString, resultSelector: #selector(SubcatalogViewController.requestFinished(_:)), token: token)
+//        
+//        if b == true {
+//            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+//            self.indicator!.labelText = "Loading..."
+//        }
     }
     
     func requestFinished(_ dict: NSDictionary) {

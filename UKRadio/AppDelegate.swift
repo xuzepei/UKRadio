@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().barTintColor = GlobalDefinitions.navigationBarColor
         UINavigationBar.appearance().tintColor = UIColor.color("#fdfefa")//UIColor.white
+        //UINavigationBar.appearance().isTranslucent = false
         
         //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: GlobalDefinitions.navigationBarTitleColor, NSFontAttributeName: UIFont.boldSystemFont(ofSize: 22)]
         UITabBar.appearance().tintColor = GlobalDefinitions.navigationBarColor

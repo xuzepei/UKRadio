@@ -20,7 +20,8 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         
         initTableView()
-
+        
+        updateContent()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +40,7 @@ class FirstViewController: UIViewController {
         self.tableView.addHeader(withTarget: self, action: #selector(FirstViewController.headerRefresh))
         self.tableView.addFooter(withTarget: self, action: #selector(FirstViewController.footerRefresh))
         
-        self.tableView.headerBeginRefreshing();
+        //self.tableView.headerBeginRefreshing();
     }
     
     func headerRefresh() {
@@ -187,6 +188,7 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
                 let temp = RCWebViewController()
                 temp.hidesBottomBarWhenPushed = true
                 temp.updateContent(url, title: "游戏资讯")
+                //self.navigationController?.navigationBar.isTranslucent = false
                 self.navigationController!.pushViewController(temp, animated: true)
             }
             

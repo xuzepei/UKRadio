@@ -19,5 +19,6 @@
 - (NSString*)parseForChuZhuangDetail:(NSString*)httpString;
 - (NSArray*)parseForHeros:(NSString*)httpString;
 - (NSArray*)parseForZhuangBei:(NSString*)httpString;
+- (NSDictionary*)parseForTools:(NSString*)jsonString;
 
 @end
