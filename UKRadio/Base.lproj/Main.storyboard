@@ -422,18 +422,28 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njI-HZ-tfX">
-                                            <rect key="frame" x="8" y="2" width="398" height="26"/>
+                                            <rect key="frame" x="34" y="2" width="372" height="26"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="praise.png" translatesAutoresizingMaskIntoConstraints="NO" id="uR9-Dk-Tc0">
+                                            <rect key="frame" x="8" y="5" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="Q6h-Rl-HdV"/>
+                                                <constraint firstAttribute="height" constant="20" id="TCB-9r-T1P"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.94173277415742307" green="0.95105686103026876" blue="0.95105686103026876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="njI-HZ-tfX" firstAttribute="top" secondItem="vWm-iU-ICT" secondAttribute="topMargin" constant="-6" id="3gS-qx-lKX"/>
+                                        <constraint firstAttribute="bottom" secondItem="uR9-Dk-Tc0" secondAttribute="bottom" constant="5" id="DKX-34-pxq"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="njI-HZ-tfX" secondAttribute="bottom" constant="-6" id="HoK-EG-XP1"/>
                                         <constraint firstItem="njI-HZ-tfX" firstAttribute="trailing" secondItem="vWm-iU-ICT" secondAttribute="trailingMargin" id="Y1K-fs-Oyz"/>
-                                        <constraint firstItem="njI-HZ-tfX" firstAttribute="leading" secondItem="vWm-iU-ICT" secondAttribute="leadingMargin" id="aUv-Vy-ON3"/>
+                                        <constraint firstItem="njI-HZ-tfX" firstAttribute="leading" secondItem="vWm-iU-ICT" secondAttribute="leadingMargin" constant="26" id="aUv-Vy-ON3"/>
+                                        <constraint firstItem="uR9-Dk-Tc0" firstAttribute="top" secondItem="vWm-iU-ICT" secondAttribute="top" constant="5" id="cXN-Hj-fKe"/>
+                                        <constraint firstItem="uR9-Dk-Tc0" firstAttribute="leading" secondItem="vWm-iU-ICT" secondAttribute="leading" constant="8" id="jH4-fu-ltZ"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="title" destination="njI-HZ-tfX" id="iLJ-ai-LeF"/>
@@ -926,6 +936,7 @@
         <image name="browse_backward" width="19" height="17"/>
         <image name="browse_forward.png" width="19" height="17"/>
         <image name="link_button" width="200" height="33"/>
+        <image name="praise.png" width="14" height="14"/>
         <image name="tab_item_0" width="25" height="25"/>
         <image name="tab_item_2" width="25" height="25"/>
     </resources>

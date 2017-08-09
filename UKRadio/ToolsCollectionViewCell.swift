@@ -17,4 +17,10 @@ class ToolsCollectionViewCell: UICollectionViewCell {
         self.iconView.layer.cornerRadius = 10
         self.iconView.layer.masksToBounds = true;
     }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            self.contentView.backgroundColor = isHighlighted ? UIColor(white: 217.0/255.0, alpha: 1.0) : UIColor.white
+        }
+    }
 }
