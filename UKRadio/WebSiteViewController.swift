@@ -29,7 +29,7 @@ class WebSiteViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(WebSiteViewController.refresh))
         
         
-        self.timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(WebSiteViewController.showAdTimer), userInfo: nil, repeats: false)
+        self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(WebSiteViewController.showAdTimer), userInfo: nil, repeats: false)
     }
     
     func showAdTimer() {
@@ -50,9 +50,10 @@ class WebSiteViewController: UIViewController {
             
             bannerView.translatesAutoresizingMaskIntoConstraints = true
             var rect = bannerView.frame
-            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
-            rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height - 44
+            rect.origin.x = (UIScreen.main.bounds.size.width - rect.size.width)/2.0
+            rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
             bannerView.frame = rect
+            self.view .addSubview(bannerView)
             
         }
     }

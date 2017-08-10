@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 
-class Tool {
+@objc class Tool: NSObject {
     
     static let sharedInstance = Tool()
     

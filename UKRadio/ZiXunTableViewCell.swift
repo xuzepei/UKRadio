@@ -6,7 +6,7 @@ import UIKit
 
 class ZiXunTableViewCell: UITableViewCell {
     
-    var item : [String : String]? = nil
+    var item : [String : Any]? = nil
 
     @IBOutlet weak var zixunImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,7 +24,7 @@ class ZiXunTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateContent(item: [String : String]?)
+    func updateContent(item: [String : Any]?)
     {
         self.item = item
         
@@ -32,8 +32,8 @@ class ZiXunTableViewCell: UITableViewCell {
             return
         }
         
-        self.titleLabel.text = self.item!["name"]
-        self.dateLabel.text = self.item!["date"]
+        self.titleLabel.text = self.item!["title"] as? String
+        self.dateLabel.text = self.item!["cTime"] as? String
         
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = true
         self.titleLabel.numberOfLines = 0
@@ -44,7 +44,7 @@ class ZiXunTableViewCell: UITableViewCell {
         
         self.zixunImageView.image = nil;
         
-        if let imageUrl = self.item!["image_url"] {
+        if let imageUrl = self.item!["imgUrl"] as? String{
             if let image = Tool.getImageFromLocal(imageUrl) {
                 self.zixunImageView.image = image
             } else {

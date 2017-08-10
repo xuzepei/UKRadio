@@ -173,11 +173,9 @@ class ToolsViewController: UIViewController, UICollectionViewDataSource, UIColle
                 
                 mycell.name.text = item["recommendName"] as? String
                 
-                if let type = item["type"] as? String {
-                
-                    if type == "videos" {
-                        mycell.name.text = "视频广告"
-                    }
+                if let url = item["recommendUrl"] as? String, url.characters.count > 0{
+                }else {
+                    mycell.name.text = "视频广告"
                 }
 
             }

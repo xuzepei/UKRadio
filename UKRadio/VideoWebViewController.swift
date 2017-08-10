@@ -44,9 +44,10 @@ class VideoWebViewController: UIViewController {
             
             bannerView.translatesAutoresizingMaskIntoConstraints = true
             var rect = bannerView.frame
-            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            rect.origin.x = (UIScreen.main.bounds.size.width - rect.size.width)/2.0
             rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
             bannerView.frame = rect
+            self.view .addSubview(bannerView)
             
         }
     }

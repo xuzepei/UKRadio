@@ -3,6 +3,8 @@
 
 
 #import "RCWebViewController.h"
+#import "UKRadio-Swift.h"
+
 
 @interface RCWebViewController ()
 
@@ -53,6 +55,23 @@
         self.toolbar.hidden = YES;
     
     [self updateContent:self.urlString title:self.title];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIView* bannerView = [Tool getBannerAd];
+    if(bannerView)
+    {
+        bannerView.translatesAutoresizingMaskIntoConstraints = YES;
+        CGRect rect = bannerView.frame;
+        CGSize screenSize = [UIScreen mainScreen].bounds.size;
+        rect.origin.x = (screenSize.width - rect.size.width)/2.0;
+        rect.origin.y = screenSize.height - rect.size.height - 44;
+        bannerView.frame = rect;
+        [self.view addSubview:bannerView];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,7 +14,7 @@
         <scene sceneID="5ff-tY-Glb">
             <objects>
                 <navigationController id="EPP-5G-AGB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="攻略" id="CBw-nj-JVM"/>
+                    <tabBarItem key="tabBarItem" title="攻略" image="chess.png" id="CBw-nj-JVM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1h9-SC-Aau">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -31,7 +31,7 @@
         <scene sceneID="0VE-ud-eh5">
             <objects>
                 <navigationController id="v6f-X1-oZm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="英雄" image="tab_item_0" id="HSM-9o-M7q"/>
+                    <tabBarItem key="tabBarItem" title="英雄" image="hero.png" id="HSM-9o-M7q"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v8b-oj-YbH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -310,7 +310,7 @@
         <scene sceneID="6is-tc-HEJ">
             <objects>
                 <navigationController id="pNf-BP-JZe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="装备" image="tab_item_2" id="rSc-8Y-2ch"/>
+                    <tabBarItem key="tabBarItem" title="装备" image="equipment.png" id="rSc-8Y-2ch"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aNH-M9-gYs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -327,7 +327,7 @@
         <scene sceneID="psC-Ak-yly">
             <objects>
                 <navigationController id="kcL-27-ben" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="工具" image="tab_item_2" id="Abp-P3-HfQ"/>
+                    <tabBarItem key="tabBarItem" title="工具" image="tools.png" id="Abp-P3-HfQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FQk-7M-STe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -532,7 +532,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TGS-4s-1AY" id="qIY-as-CZk">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="89.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sb9-Hh-gh3">
@@ -857,7 +857,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="SWT-9N-W2c" kind="show" id="0Eq-SK-QNa"/>
+                                            <segue destination="SWT-9N-W2c" kind="show" identifier="go_to_webview_controller" id="0Eq-SK-QNa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -935,10 +935,12 @@
     <resources>
         <image name="browse_backward" width="19" height="17"/>
         <image name="browse_forward.png" width="19" height="17"/>
+        <image name="chess.png" width="32" height="32"/>
+        <image name="equipment.png" width="32" height="32"/>
+        <image name="hero.png" width="32" height="32"/>
         <image name="link_button" width="200" height="33"/>
         <image name="praise.png" width="14" height="14"/>
-        <image name="tab_item_0" width="25" height="25"/>
-        <image name="tab_item_2" width="25" height="25"/>
+        <image name="tools.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="u6x-Eh-0R3"/>

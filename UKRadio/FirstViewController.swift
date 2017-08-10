@@ -12,7 +12,7 @@ class FirstViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var indicator: MBProgressHUD? = nil
-    var itemArray = [[String : String]]()
+    var itemArray = [[String : Any]]()
     var page = 0;
     
 
@@ -23,6 +23,20 @@ class FirstViewController: UIViewController {
         
         updateContent()
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        if let bannerView = Tool.getBannerAd() {
+//            
+//            bannerView.translatesAutoresizingMaskIntoConstraints = true
+//            var rect = bannerView.frame
+//            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+//            rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
+//            bannerView.frame = rect
+//            self.view .addSubview(bannerView)
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,6 +60,7 @@ class FirstViewController: UIViewController {
     func headerRefresh() {
         print("\(#function)")
         
+        self.page = 0
         updateContent()
     }
     
@@ -57,18 +72,50 @@ class FirstViewController: UIViewController {
     
     func updateContent() {
         
-        var urlString = "";
+//        var urlString = "";
+//        var token:[String: Any]! = nil;
+//        if self.page < 1 {
+//            urlString = "http://news.4399.com/gonglue/wzlm/zixun/"
+//            token = ["type": "update"]
+//        } else {
+//            urlString = "http://news.4399.com/gonglue/wzlm/zixun/" + "44038-\(self.page+1).html"
+//            token = ["type": "more"]
+//        }
+//        
+//        let request = HttpRequest(delegate: self)
+//        let b = request.get(urlString, resultSelector: #selector(FirstViewController.requestFinished(_:)), token: token)
+//        
+//        if b == true {
+//            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+//            self.indicator!.labelText = "Loading..."
+//        }
+        
+        
         var token:[String: Any]! = nil;
+        var body = ""
         if self.page < 1 {
-            urlString = "http://news.4399.com/gonglue/wzlm/zixun/"
-            token = ["type": "update"]
+            body = "appid=1158560788&appname=gok&cateid=1&client=iPhone&device=iPhone&jbk=0&market=AppStore&openudid=B17262BB-F8B4-4715-A037-E87D883195DC&sort=cTime&ver=2.0"
+            token = ["k_type": "update"]
         } else {
-            urlString = "http://news.4399.com/gonglue/wzlm/zixun/" + "44038-\(self.page+1).html"
-            token = ["type": "more"]
+            
+            if self.itemArray.count > 0 {
+                let lastItem = self.itemArray.last
+                if let date = lastItem?["cTime"] as? String , date.characters.count > 0{
+                    body = "appid=1158560788&appname=gok&cateid=1&client=iPhone&device=iPhone&jbk=0&market=AppStore&openudid=B17262BB-F8B4-4715-A037-E87D883195DC&pt=\(date)&sort=cTime&ver=2.0"
+                }
+            }
+            token = ["k_type": "more"]
         }
         
+        if body.characters.count == 0 {
+            return
+        }
+        
+        let urlString = "http://api.youlongtang.com/?c=info&a=list"
+        
+        let bodyData = body.data(using: String.Encoding.utf8)
         let request = HttpRequest(delegate: self)
-        let b = request.get(urlString, resultSelector: #selector(FirstViewController.requestFinished(_:)), token: token)
+        let b = request.post(urlString, body: bodyData!, resultSelector: #selector(ToolsViewController.requestFinished(_:)), token: token)
         
         if b == true {
             self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -86,35 +133,62 @@ class FirstViewController: UIViewController {
             indicator.hide(false)
         }
         
+        let jsonString = dict.object(forKey: "k_json") as! String
+        let type = dict.object(forKey: "k_type") as! String
+        if jsonString.characters.count != 0 {
+            
+            if let dict = Tool.parseToDictionary(jsonString) {
+                
+                if type == "update" {
+                    self.itemArray.removeAll()
+                    if let tempArray = dict["data"] as? [[String : Any]] {
+                        self.itemArray = tempArray
+                        self.page = 1;
+                    }
+                }
+                else
+                {
+                    if let tempArray = dict["data"] as? [[String : Any]] {
+                        self.itemArray += tempArray
+                        self.page += 1;
+                    }
+                }
+            }
+            
+        }
+        
+        self.tableView.reloadData()
+        
+   
         //let json = dict.object(forKey: "k_json") as! String
         //if json.characters.count == 0
         //{
-            let data: Data? = dict.object(forKey: "k_data") as? Data
-            
-            if data != nil {
-            
-                let gbkEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
-                let htmlString = String(data: data!, encoding: String.Encoding(rawValue: gbkEncoding)) ?? ""
-                
-                if let array = HttpParser.sharedInstace().parse(htmlString) as? [[String : String]] {
-                
-                    if let type = dict.object(forKey: "type") as? String {
-                        if type == "update" {
-                            self.itemArray.removeAll()
-                            self.itemArray = array
-                            self.page = 1;
-                        }
-                        else
-                        {
-                            self.itemArray += array
-                            self.page += 1;
-                        }
-                    }
-                }
-                
-                self.tableView.reloadData()
-
-            }
+//            let data: Data? = dict.object(forKey: "k_data") as? Data
+//            
+//            if data != nil {
+//            
+//                let gbkEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+//                let htmlString = String(data: data!, encoding: String.Encoding(rawValue: gbkEncoding)) ?? ""
+//                
+//                if let array = HttpParser.sharedInstace().parse(htmlString) as? [[String : String]] {
+//                
+//                    if let type = dict.object(forKey: "type") as? String {
+//                        if type == "update" {
+//                            self.itemArray.removeAll()
+//                            self.itemArray = array
+//                            self.page = 1;
+//                        }
+//                        else
+//                        {
+//                            self.itemArray += array
+//                            self.page += 1;
+//                        }
+//                    }
+//                }
+//                
+//                self.tableView.reloadData()
+//
+//            }
         //}
     }
     
@@ -184,6 +258,8 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
         if let item = self.getItemByIndex(indexPath.row) {
             
             if let url = item["url"] as? String {
+                
+                //self.performSegue(withIdentifier: "go_to_webview_controller", sender: nil)
             
                 let temp = RCWebViewController()
                 temp.hidesBottomBarWhenPushed = true

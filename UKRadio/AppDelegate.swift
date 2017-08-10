@@ -9,15 +9,18 @@
 import UIKit
 import GoogleMobileAds
 
+private let BANNER_ID = "ca-app-pub-2245284781739637/9030643100"
+private let INTERSTITIAL_ID = "ca-app-pub-2245284781739637/8366320703"
+private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+@objc class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
     var bannerView: GADBannerView? = nil
     var interstitial: GADInterstitial? = nil
     var needShowInterstitial = false
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -29,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobClick.setCrashReportEnabled(true)
         //MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
 
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-1207330468801232~2402219186")
+        //GADMobileAds.configure(withApplicationID: "ca-app-pub-1207330468801232~2402219186")
         
         UINavigationBar.appearance().barTintColor = GlobalDefinitions.navigationBarColor
         UINavigationBar.appearance().tintColor = UIColor.color("#fdfefa")//UIColor.white
@@ -76,8 +79,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
         //Request Ads
-        //requestBannerAd()
-        //requestInterstitial()
+        requestBannerAd()
+        requestInterstitial()
         
         //Rate
         let times = Tool.recordLaunchTimes()
@@ -107,15 +110,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.bannerView?.delegate = self
-        self.bannerView?.adUnitID = "ca-app-pub-1207330468801232/3878952383"  //
+        self.bannerView?.adUnitID = BANNER_ID
         
-        self.bannerView?.rootViewController = UIApplication.shared.delegate?.window??.rootViewController
+        self.bannerView?.rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        let request = GADRequest()
+        request.testDevices = ["624b4d7c554c69bc470b39c4ea547cf2"]
         self.bannerView?.load(GADRequest())
     }
     
     func requestInterstitial() {
         
-        self.interstitial = GADInterstitial(adUnitID: "ca-app-pub-1207330468801232/5355685581")
+        self.interstitial = GADInterstitial(adUnitID: INTERSTITIAL_ID)
         self.interstitial?.delegate = self
         self.interstitial?.load(GADRequest())
     }
@@ -129,30 +135,30 @@ extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstiti
         {
             print("go to appstore")
             Tool.recordRate()
-            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1254034178")!)
+            UIApplication.shared.openURL(URL(string: APPSTORE_URL)!)
         }
     
     }
 
     /// Tells the delegate an ad request loaded an ad.
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("adViewDidReceiveAd")
+        print("$$$adViewDidReceiveAd")
         
-        if nil == bannerView.superview {
-            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
-        }
+//        if nil == bannerView.superview {
+//            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+//        }
     }
     
     /// Tells the delegate an ad request failed.
     func adView(_ bannerView: GADBannerView,
                 didFailToReceiveAdWithError error: GADRequestError) {
-        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        print("$$$adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
         
         self.perform(#selector(AppDelegate.requestBannerAd), with: nil, afterDelay: 10)
     }
     
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        print("interstitialDidReceiveAd")
+        print("$$$interstitialDidReceiveAd")
         
         if self.needShowInterstitial == true && ad.isReady == true {
         
@@ -164,7 +170,7 @@ extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstiti
     
     /// Tells the delegate an ad request failed.
     func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
-        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        print("$$$interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
         
         self.perform(#selector(AppDelegate.requestInterstitial), with: nil, afterDelay: 10)
     }

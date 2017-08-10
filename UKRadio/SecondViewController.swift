@@ -12,7 +12,7 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var indicator: MBProgressHUD? = nil
-    var itemArray = [[String : String]]()
+    var itemArray = [[String : Any]]()
     var page = 0;
     
     
@@ -45,6 +45,7 @@ class SecondViewController: UIViewController {
     func headerRefresh() {
         print("\(#function)")
         
+        self.page = 0
         updateContent()
     }
     
@@ -56,18 +57,49 @@ class SecondViewController: UIViewController {
     
     func updateContent() {
         
-        var urlString = "";
+//        var urlString = "";
+//        var token:[String: Any]! = nil;
+//        if self.page < 1 {
+//            urlString = "http://www.anqu.com/yxzji/gonglue/index.shtml"
+//            token = ["type": "update"]
+//        } else {
+//            urlString = "http://www.anqu.com/yxzji/gonglue/list_10169_" + "\(self.page+1).shtml"
+//            token = ["type": "more"]
+//        }
+//        
+//        let request = HttpRequest(delegate: self)
+//        let b = request.get(urlString, resultSelector: #selector(SecondViewController.requestFinished(_:)), token: token)
+//        
+//        if b == true {
+//            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+//            self.indicator!.labelText = "Loading..."
+//        }
+        
         var token:[String: Any]! = nil;
+        var body = ""
         if self.page < 1 {
-            urlString = "http://www.anqu.com/yxzji/gonglue/index.shtml"
-            token = ["type": "update"]
+            body = "appid=1158560788&appname=gok&cateid=2&client=iPhone&device=iPhone&jbk=0&market=AppStore&openudid=B17262BB-F8B4-4715-A037-E87D883195DC&sort=cTime&ver=2.0"
+            token = ["k_type": "update"]
         } else {
-            urlString = "http://www.anqu.com/yxzji/gonglue/list_10169_" + "\(self.page+1).shtml"
-            token = ["type": "more"]
+            
+            if self.itemArray.count > 0 {
+                let lastItem = self.itemArray.last
+                if let date = lastItem?["cTime"] as? String , date.characters.count > 0{
+                    body = "appid=1158560788&appname=gok&cateid=2&client=iPhone&device=iPhone&jbk=0&market=AppStore&openudid=B17262BB-F8B4-4715-A037-E87D883195DC&pt=\(date)&sort=cTime&ver=2.0"
+                }
+            }
+            token = ["k_type": "more"]
         }
         
+        if body.characters.count == 0 {
+            return
+        }
+        
+        let urlString = "http://api.youlongtang.com/?c=info&a=list"
+        
+        let bodyData = body.data(using: String.Encoding.utf8)
         let request = HttpRequest(delegate: self)
-        let b = request.get(urlString, resultSelector: #selector(SecondViewController.requestFinished(_:)), token: token)
+        let b = request.post(urlString, body: bodyData!, resultSelector: #selector(ToolsViewController.requestFinished(_:)), token: token)
         
         if b == true {
             self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -85,36 +117,62 @@ class SecondViewController: UIViewController {
             indicator.hide(false)
         }
         
-        let htmlString = dict.object(forKey: "k_json") as! String
-        if htmlString.characters.count != 0
-        {
-            //let data: Data? = dict.object(forKey: "k_data") as? Data
+        let jsonString = dict.object(forKey: "k_json") as! String
+        let type = dict.object(forKey: "k_type") as! String
+        if jsonString.characters.count != 0 {
             
-            //if data != nil {
+            if let dict = Tool.parseToDictionary(jsonString) {
                 
-                //let gbkEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
-                //let htmlString = String(data: data!, encoding: String.Encoding(rawValue: gbkEncoding)) ?? ""
-                
-                if let array = HttpParser.sharedInstace().parse(forGongLue: htmlString) as? [[String : String]] {
-                    
-                    if let type = dict.object(forKey: "type") as? String {
-                        if type == "update" {
-                            self.itemArray.removeAll()
-                            self.itemArray = array
-                            self.page = 1;
-                        }
-                        else
-                        {
-                            self.itemArray += array
-                            self.page += 1;
-                        }
+                if type == "update" {
+                    self.itemArray.removeAll()
+                    if let tempArray = dict["data"] as? [[String : Any]] {
+                        self.itemArray = tempArray
+                        self.page = 1;
                     }
                 }
-                
-                self.tableView.reloadData()
-                
-            //}
+                else
+                {
+                    if let tempArray = dict["data"] as? [[String : Any]] {
+                        self.itemArray += tempArray
+                        self.page += 1;
+                    }
+                }
+            }
+            
         }
+        
+        self.tableView.reloadData()
+        
+//        let htmlString = dict.object(forKey: "k_json") as! String
+//        if htmlString.characters.count != 0
+//        {
+//            //let data: Data? = dict.object(forKey: "k_data") as? Data
+//            
+//            //if data != nil {
+//                
+//                //let gbkEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+//                //let htmlString = String(data: data!, encoding: String.Encoding(rawValue: gbkEncoding)) ?? ""
+//                
+//                if let array = HttpParser.sharedInstace().parse(forGongLue: htmlString) as? [[String : String]] {
+//                    
+//                    if let type = dict.object(forKey: "type") as? String {
+//                        if type == "update" {
+//                            self.itemArray.removeAll()
+//                            self.itemArray = array
+//                            self.page = 1;
+//                        }
+//                        else
+//                        {
+//                            self.itemArray += array
+//                            self.page += 1;
+//                        }
+//                    }
+//                }
+//                
+//                self.tableView.reloadData()
+//                
+//            //}
+//        }
     }
     
     func getItemByIndex(_ index: Int) -> AnyObject? {
