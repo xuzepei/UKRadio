@@ -160,10 +160,7 @@ class VideoUrlViewController: UIViewController {
     
     func showInterstitial() {
     
-        if Tool.getInterstitial()?.isReady == true {
-            
-            Tool.getInterstitial()?.present(fromRootViewController: self)
-        }
+        Tool.showInterstitial(vc: self)
     
     }
     

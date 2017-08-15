@@ -914,6 +914,7 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.21.0",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/umsdk_4.2.4",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/AMScrollingNavbar",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;
@@ -953,6 +954,7 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.21.0",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/umsdk_4.2.4",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/AMScrollingNavbar",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;

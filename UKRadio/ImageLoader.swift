@@ -20,9 +20,9 @@ class ImageLoader: NSObject {
             return
         }
         
-        if requestFailedUrls.contains(urlString) {
-            return
-        }
+//        if requestFailedUrls.contains(urlString) {
+//            return
+//        }
         
         let request = HttpRequest()
         let b = request.downloadImage(urlString, token: token, result: { (imageData: Data?, token: NSDictionary?, error: Error?) in

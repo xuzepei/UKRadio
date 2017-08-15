@@ -21,6 +21,7 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
     var bannerView: GADBannerView? = nil
     var interstitial: GADInterstitial? = nil
     var needShowInterstitial = false
+    var showTimes = 0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -124,6 +125,21 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
         self.interstitial = GADInterstitial(adUnitID: INTERSTITIAL_ID)
         self.interstitial?.delegate = self
         self.interstitial?.load(GADRequest())
+    }
+    
+    func showInterstitial(vc: UIViewController) {
+        
+        self.showTimes += 1
+        
+        if self.showTimes % 4 == 0 {
+            
+            print("###will show interstitial");
+        
+            if let interstitial = self.interstitial, interstitial.isReady == true {
+                
+                interstitial.present(fromRootViewController: vc)
+            }
+        }
     }
 }
 

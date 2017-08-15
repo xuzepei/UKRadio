@@ -24,16 +24,11 @@ class GongLueWebViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(GongLueWebViewController.refresh))
         
         
-        self.timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(GongLueWebViewController.showAdTimer), userInfo: nil, repeats: false)
+        self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(GongLueWebViewController.showAdTimer), userInfo: nil, repeats: false)
     }
     
     func showAdTimer() {
-        
-        if Tool.getInterstitial()?.isReady == true {
-            
-            Tool.getInterstitial()?.present(fromRootViewController: self)
-        }
-        
+        Tool.showInterstitial(vc: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -222,7 +222,7 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120.0
+        return 87.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -261,10 +261,15 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
                 
                 //self.performSegue(withIdentifier: "go_to_webview_controller", sender: nil)
             
-                let temp = RCWebViewController()
+//                let temp = RCWebViewController()
+//                temp.hidesBottomBarWhenPushed = true
+//                temp.updateContent(url, title: "游戏资讯")
+//                //self.navigationController?.navigationBar.isTranslucent = false
+//                self.navigationController!.pushViewController(temp, animated: true)
+                
+                let temp = GongLueWebViewController()
                 temp.hidesBottomBarWhenPushed = true
                 temp.updateContent(url, title: "游戏资讯")
-                //self.navigationController?.navigationBar.isTranslucent = false
                 self.navigationController!.pushViewController(temp, animated: true)
             }
             

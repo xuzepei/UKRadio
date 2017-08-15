@@ -187,6 +187,18 @@ import GoogleMobileAds
         return nil
     }
     
+    class func showInterstitial(vc: UIViewController) {
+        
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            
+            return appDelegate.showInterstitial(vc:vc)
+        }
+
+        
+        return;
+    }
+    
     class func recordLaunchTimes() -> Int {
     
         var times = 0
