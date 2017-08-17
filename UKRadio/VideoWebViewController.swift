@@ -23,7 +23,7 @@ class VideoWebViewController: UIViewController {
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(VideoWebViewController.refresh))
         
-        self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(VideoWebViewController.showAdTimer), userInfo: nil, repeats: false)
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(VideoWebViewController.showAdTimer), userInfo: nil, repeats: false)
     }
     
     func showAdTimer() {

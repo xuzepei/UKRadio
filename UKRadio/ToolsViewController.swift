@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class ToolsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -239,14 +240,24 @@ class ToolsViewController: UIViewController, UICollectionViewDataSource, UIColle
             
             if let url = item["recommendUrl"] as? String, url.characters.count > 0{
                 
-                let temp = RCWebViewController()
+                //let temp = RCWebViewController()
                 let title = item["recommendName"] as? String
+                //temp.hidesBottomBarWhenPushed = true
+                //temp.updateContent(url, title: title)
+                //self.navigationController!.pushViewController(temp, animated: true)
+                
+                let temp = GongLueWebViewController()
                 temp.hidesBottomBarWhenPushed = true
                 temp.updateContent(url, title: title)
                 self.navigationController!.pushViewController(temp, animated: true)
+                
             } else {
             
                 NSLog("Show rewarded ads");
+                
+                if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+                    GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+                }
             }
             
         }

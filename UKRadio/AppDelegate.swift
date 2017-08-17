@@ -11,6 +11,7 @@ import GoogleMobileAds
 
 private let BANNER_ID = "ca-app-pub-2245284781739637/9030643100"
 private let INTERSTITIAL_ID = "ca-app-pub-2245284781739637/8366320703"
+private let REWARDED_ID = "ca-app-pub-2245284781739637/2970871176"
 private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
 
 @UIApplicationMain
@@ -20,6 +21,7 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
     
     var bannerView: GADBannerView? = nil
     var interstitial: GADInterstitial? = nil
+    var rewaredAd: GADRewardBasedVideoAd? = nil
     var needShowInterstitial = false
     var showTimes = 0
 
@@ -27,7 +29,7 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
         
 
         //UMeng
-        UMAnalyticsConfig.sharedInstance().appKey = "5955af228f4a9d721d000ec5"
+        UMAnalyticsConfig.sharedInstance().appKey = "5995607d7f2c74681e001539"
         UMAnalyticsConfig.sharedInstance().channelId = "App Store"
         MobClick.setLogEnabled(true)
         MobClick.setCrashReportEnabled(true)
@@ -82,6 +84,7 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
         //Request Ads
         requestBannerAd()
         requestInterstitial()
+        requestRewardedAd()
         
         //Rate
         let times = Tool.recordLaunchTimes()
@@ -116,7 +119,7 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
         self.bannerView?.rootViewController = UIApplication.shared.keyWindow?.rootViewController
         
         let request = GADRequest()
-        request.testDevices = ["624b4d7c554c69bc470b39c4ea547cf2"]
+        //request.testDevices = ["624b4d7c554c69bc470b39c4ea547cf2"]
         self.bannerView?.load(GADRequest())
     }
     
@@ -127,11 +130,19 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
         self.interstitial?.load(GADRequest())
     }
     
+    func requestRewardedAd() {
+        
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+                                                    withAdUnitID: REWARDED_ID)
+        
+    }
+    
     func showInterstitial(vc: UIViewController) {
         
         self.showTimes += 1
         
-        if self.showTimes % 4 == 0 {
+        if self.showTimes % 3 == 0 {
             
             print("###will show interstitial");
         
@@ -143,7 +154,7 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
     }
 }
 
-extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstitialDelegate {
+extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstitialDelegate, GADRewardBasedVideoAdDelegate {
     
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
     
@@ -194,6 +205,41 @@ extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstiti
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
         
         self.requestInterstitial()
+    }
+    
+    //MARK: - 
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+        print("Reward based video ad is received.")
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Opened reward based video ad.")
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad started playing.")
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad is closed.")
+        
+        requestRewardedAd();
+    }
+    
+    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad will leave application.")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        print("Reward based video ad failed to load.")
+        
+        requestRewardedAd();
     }
 
 }

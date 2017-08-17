@@ -336,6 +336,16 @@
 			path = Hpple;
 			sourceTree = "<group>";
 		};
+		093535E81F43CBEA00FA74C1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				09FFF9EB1F39A0E6007148A0 /* ToolsViewController.swift */,
+				097751C11F3AD86000058CAC /* ToolsSectionHeaderReusableView.swift */,
+				097751C31F3AE9B000058CAC /* ToolsCollectionViewCell.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		093EC8D01F278B2E00CD3462 /* ZhuangBei */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,9 +386,7 @@
 				09F83FB51F13749E000CD1ED /* Home */,
 				09A092A91F1C4EAF00F2372C /* Heros */,
 				093EC8D01F278B2E00CD3462 /* ZhuangBei */,
-				09FFF9EB1F39A0E6007148A0 /* ToolsViewController.swift */,
-				097751C11F3AD86000058CAC /* ToolsSectionHeaderReusableView.swift */,
-				097751C31F3AE9B000058CAC /* ToolsCollectionViewCell.swift */,
+				093535E81F43CBEA00FA74C1 /* Utility */,
 				09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */,
 				09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */,
 				093FCB4F1EFB53F4000D89C8 /* HttpParser.h */,

@@ -139,7 +139,7 @@ class SecondViewController: UIViewController {
                 }
             }
             
-        }
+        } 
         
         self.tableView.reloadData()
         

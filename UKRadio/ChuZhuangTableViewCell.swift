@@ -38,14 +38,28 @@ class ChuZhuangTableViewCell: UITableViewCell {
         }
         
         self.titleLabel.text = self.item!["title"] as? String
-        self.dateLabel.text = self.item!["cTime"] as? String
-        
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = true
         self.titleLabel.numberOfLines = 0
         self.titleLabel.sizeToFit()
         var rect = self.titleLabel.frame;
         rect.size.width = self.bounds.size.width - 170
         self.titleLabel.frame = rect;
+        
+        
+        if let date = self.item!["cTime"] as? String {
+            if date.characters.count > 9 {
+                
+                let index = date.index(date.startIndex, offsetBy: 10)
+                var shortdate = date.substring(to: index)
+                
+                if let viewCount = self.item!["viewCount"] as? NSNumber{
+                    shortdate.append("      浏览次数：\(viewCount.int16Value)")
+                }
+                
+                self.dateLabel.text = shortdate
+            }
+        }
+        
         
         self.customizedImageView.image = nil;
         
