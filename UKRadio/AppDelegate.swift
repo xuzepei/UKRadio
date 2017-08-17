@@ -9,10 +9,10 @@
 import UIKit
 import GoogleMobileAds
 
-private let BANNER_ID = "ca-app-pub-2245284781739637/9030643100"
-private let INTERSTITIAL_ID = "ca-app-pub-2245284781739637/8366320703"
-private let REWARDED_ID = "ca-app-pub-2245284781739637/2970871176"
-private let APPSTORE_URL = "https://itunes.apple.com/app/id1254034178"
+private let BANNER_ID = "ca-app-pub-1207330468801232/3245192556"
+private let INTERSTITIAL_ID = "ca-app-pub-1207330468801232/6940894983"
+private let REWARDED_ID = "ca-app-pub-1207330468801232/6027268561"
+private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
 
 @UIApplicationMain
 @objc class AppDelegate: UIResponder, UIApplicationDelegate {
