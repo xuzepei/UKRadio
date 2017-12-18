@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0904E49D1FA16B880010408E /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904E49C1FA16B880010408E /* MoreTableViewController.swift */; };
 		0910CE581F05D78D00893C19 /* LaunchScreen~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0910CE571F05D78D00893C19 /* LaunchScreen~ipad.storyboard */; };
 		0910CE5B1F05E50800893C19 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0910CE5A1F05E50800893C19 /* UMMobClick.framework */; };
 		0910CE5D1F05E75600893C19 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0910CE5C1F05E75600893C19 /* CoreTelephony.framework */; };
@@ -94,6 +95,8 @@
 		09BDC6791ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */; };
 		09BDC67A1ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */; };
 		09BDC67C1ED6D00E00864DF7 /* InfiniteAdScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */; };
+		09D0C68E1FA2BFF200941331 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D0C68D1FA2BFF200941331 /* HealthKit.framework */; };
+		09D0C6911FA2C98200941331 /* HealthKitPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D0C6901FA2C98200941331 /* HealthKitPracticeViewController.swift */; };
 		09D69D9F1F3BF28E00D8A5BB /* tools@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D69D9E1F3BF28E00D8A5BB /* tools@2x.png */; };
 		09D69DA11F3BF51C00D8A5BB /* equipment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D69DA01F3BF51B00D8A5BB /* equipment@2x.png */; };
 		09D69DA31F3BF5D200D8A5BB /* hero@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D69DA21F3BF5D200D8A5BB /* hero@2x.png */; };
@@ -121,6 +124,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0904E49C1FA16B880010408E /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		0910CE571F05D78D00893C19 /* LaunchScreen~ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen~ipad.storyboard"; sourceTree = "<group>"; };
 		0910CE5A1F05E50800893C19 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
 		0910CE5C1F05E75600893C19 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -233,6 +237,9 @@
 		09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollAdViewTestViewController.swift; sourceTree = "<group>"; };
 		09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfiniteScrollAdViewTestViewController.xib; sourceTree = "<group>"; };
 		09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteAdScrollView.swift; sourceTree = "<group>"; };
+		09D0C68C1FA2BFF200941331 /* UKRadio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UKRadio.entitlements; sourceTree = "<group>"; };
+		09D0C68D1FA2BFF200941331 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		09D0C6901FA2C98200941331 /* HealthKitPracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitPracticeViewController.swift; sourceTree = "<group>"; };
 		09D69D9E1F3BF28E00D8A5BB /* tools@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tools@2x.png"; sourceTree = "<group>"; };
 		09D69DA01F3BF51B00D8A5BB /* equipment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equipment@2x.png"; sourceTree = "<group>"; };
 		09D69DA21F3BF5D200D8A5BB /* hero@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero@2x.png"; sourceTree = "<group>"; };
@@ -273,6 +280,7 @@
 				0910CE5F1F05E76200893C19 /* libz.tbd in Frameworks */,
 				0910CE5D1F05E75600893C19 /* CoreTelephony.framework in Frameworks */,
 				0910CE5B1F05E50800893C19 /* UMMobClick.framework in Frameworks */,
+				09D0C68E1FA2BFF200941331 /* HealthKit.framework in Frameworks */,
 				09D8B8191F04DE09009919E5 /* GoogleMobileAds.framework in Frameworks */,
 				09346D311EFA4A1900DDC6BE /* libxml2.2.tbd in Frameworks */,
 			);
@@ -310,6 +318,7 @@
 		09346D1D1EFA446E00DDC6BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09D0C68D1FA2BFF200941331 /* HealthKit.framework */,
 				0910CE601F05E78500893C19 /* libsqlite3.0.tbd */,
 				0910CE611F05E78500893C19 /* libsqlite3.tbd */,
 				0910CE5E1F05E76200893C19 /* libz.tbd */,
@@ -376,9 +385,12 @@
 		093F26BC1D94D887006556C4 /* UKRadio */ = {
 			isa = PBXGroup;
 			children = (
+				09D0C68C1FA2BFF200941331 /* UKRadio.entitlements */,
 				097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */,
 				097E94631D98C5D600B25CE2 /* UKRadio-Bridging-Header.h */,
 				093F26BD1D94D887006556C4 /* AppDelegate.swift */,
+				0904E49C1FA16B880010408E /* MoreTableViewController.swift */,
+				09D0C6901FA2C98200941331 /* HealthKitPracticeViewController.swift */,
 				097E94621D98C1DC00B25CE2 /* Tool */,
 				099CB9921F0200DB00470270 /* Basic */,
 				099CB9931F02012A00470270 /* Video */,
@@ -651,9 +663,14 @@
 				TargetAttributes = {
 					093F26B91D94D887006556C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2699D9JM3T;
+						DevelopmentTeam = 86WCPL8Z9L;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -756,6 +773,7 @@
 				09BDC6791ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift in Sources */,
 				09681B701F009E9900DDD83E /* ContentsTableViewCell.swift in Sources */,
 				095F7FA71EFCF7ED00727834 /* UIView+Extension.m in Sources */,
+				09D0C6911FA2C98200941331 /* HealthKitPracticeViewController.swift in Sources */,
 				095F7FA11EFCF7ED00727834 /* MJRefreshConst.m in Sources */,
 				09E790C91EF8D690004C769B /* FSPageContentView.m in Sources */,
 				093F26BE1D94D887006556C4 /* AppDelegate.swift in Sources */,
@@ -789,6 +807,7 @@
 				099CB9951F02014600470270 /* VideoListViewController.swift in Sources */,
 				09A092B61F1C645000F2372C /* HeroCollectionViewCell.swift in Sources */,
 				0960EE451F038042003AE26A /* VideoUrlViewController.swift in Sources */,
+				0904E49D1FA16B880010408E /* MoreTableViewController.swift in Sources */,
 				09681B721F00A7B200DDD83E /* SubcatalogViewController.swift in Sources */,
 				09F83F9F1F1349F4000CD1ED /* GongLueTableViewCell.swift in Sources */,
 				097751C21F3AD86000058CAC /* ToolsSectionHeaderReusableView.swift in Sources */,
@@ -911,10 +930,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UKRadio/UKRadio.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: GAO HUIJUAN (2699D9JM3T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: GAO HUIJUAN (2699D9JM3T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2699D9JM3T;
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -933,11 +953,11 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/HTMLReader",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apps.kinghonor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.healthkittestapp;
 				PRODUCT_MODULE_NAME = UKRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e03cb738-1506-4a0f-906f-3bbed0f3576d";
-				PROVISIONING_PROFILE_SPECIFIER = kinghonor_dis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -951,10 +971,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UKRadio/UKRadio.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: GAO HUIJUAN (2699D9JM3T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: GAO HUIJUAN (2699D9JM3T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2699D9JM3T;
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -973,11 +994,11 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/HTMLReader",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apps.kinghonor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.healthkittestapp;
 				PRODUCT_MODULE_NAME = UKRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e03cb738-1506-4a0f-906f-3bbed0f3576d";
-				PROVISIONING_PROFILE_SPECIFIER = kinghonor_dis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
