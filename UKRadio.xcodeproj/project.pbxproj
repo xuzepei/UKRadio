@@ -100,6 +100,10 @@
 		09BDC6791ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */; };
 		09BDC67A1ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */; };
 		09BDC67C1ED6D00E00864DF7 /* InfiniteAdScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */; };
+		09D563311FECD89300B3BA3C /* CustomNotchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5632F1FECD89300B3BA3C /* CustomNotchViewController.swift */; };
+		09D563321FECD89300B3BA3C /* CustomNotchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09D563301FECD89300B3BA3C /* CustomNotchViewController.xib */; };
+		09D563351FECD98700B3BA3C /* mask2.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D563331FECD98500B3BA3C /* mask2.png */; };
+		09D563361FECD98700B3BA3C /* mask1.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D563341FECD98600B3BA3C /* mask1.png */; };
 		09D69D9F1F3BF28E00D8A5BB /* tools@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D69D9E1F3BF28E00D8A5BB /* tools@2x.png */; };
 		09D69DA11F3BF51C00D8A5BB /* equipment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D69DA01F3BF51B00D8A5BB /* equipment@2x.png */; };
 		09D69DA31F3BF5D200D8A5BB /* hero@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D69DA21F3BF5D200D8A5BB /* hero@2x.png */; };
@@ -245,6 +249,10 @@
 		09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollAdViewTestViewController.swift; sourceTree = "<group>"; };
 		09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfiniteScrollAdViewTestViewController.xib; sourceTree = "<group>"; };
 		09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteAdScrollView.swift; sourceTree = "<group>"; };
+		09D5632F1FECD89300B3BA3C /* CustomNotchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotchViewController.swift; sourceTree = "<group>"; };
+		09D563301FECD89300B3BA3C /* CustomNotchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNotchViewController.xib; sourceTree = "<group>"; };
+		09D563331FECD98500B3BA3C /* mask2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask2.png; sourceTree = "<group>"; };
+		09D563341FECD98600B3BA3C /* mask1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask1.png; sourceTree = "<group>"; };
 		09D69D9E1F3BF28E00D8A5BB /* tools@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tools@2x.png"; sourceTree = "<group>"; };
 		09D69DA01F3BF51B00D8A5BB /* equipment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equipment@2x.png"; sourceTree = "<group>"; };
 		09D69DA21F3BF5D200D8A5BB /* hero@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero@2x.png"; sourceTree = "<group>"; };
@@ -379,6 +387,7 @@
 		093F26BC1D94D887006556C4 /* UKRadio */ = {
 			isa = PBXGroup;
 			children = (
+				09D5632E1FECD86B00B3BA3C /* Notch */,
 				09ACF8AA1FE761B0004C3F45 /* Tailor */,
 				097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */,
 				097E94631D98C5D600B25CE2 /* UKRadio-Bridging-Header.h */,
@@ -547,6 +556,8 @@
 		09ACF8A31FE760C6004C3F45 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				09D563341FECD98600B3BA3C /* mask1.png */,
+				09D563331FECD98500B3BA3C /* mask2.png */,
 				09ACF8A41FE760C6004C3F45 /* IMG_3059.PNG */,
 				09ACF8A51FE760C6004C3F45 /* IMG_3060.PNG */,
 				09ACF8A61FE760C6004C3F45 /* IMG_3061.JPG */,
@@ -564,6 +575,15 @@
 				099714851FE8FC6000D22F12 /* PickerCollectionViewCell.xib */,
 			);
 			name = Tailor;
+			sourceTree = "<group>";
+		};
+		09D5632E1FECD86B00B3BA3C /* Notch */ = {
+			isa = PBXGroup;
+			children = (
+				09D5632F1FECD89300B3BA3C /* CustomNotchViewController.swift */,
+				09D563301FECD89300B3BA3C /* CustomNotchViewController.xib */,
+			);
+			name = Notch;
 			sourceTree = "<group>";
 		};
 		09D8B8161F04DE09009919E5 /* GoogleMobileAdsSdkiOS-7.21.0 */ = {
@@ -707,6 +727,7 @@
 			files = (
 				097751EC1F3AF94700058CAC /* pifupaiqi.png in Resources */,
 				09A092B31F1C5EB400F2372C /* HeroCollectionViewController.xib in Resources */,
+				09D563351FECD98700B3BA3C /* mask2.png in Resources */,
 				09FD2BD41F14CCBF00B021E4 /* ChuZhuangWebViewController.xib in Resources */,
 				097751E41F3AF94700058CAC /* jnkszjb.png in Resources */,
 				09BDC6761ED6BF3300864DF7 /* Main.storyboard in Resources */,
@@ -735,6 +756,7 @@
 				09D69D9F1F3BF28E00D8A5BB /* tools@2x.png in Resources */,
 				097751E31F3AF94700058CAC /* gamevideo.png in Resources */,
 				097793331F01E4AB006126D8 /* WebViewController.xib in Resources */,
+				09D563321FECD89300B3BA3C /* CustomNotchViewController.xib in Resources */,
 				097751E91F3AF94700058CAC /* mfyxhq.png in Resources */,
 				093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */,
 				093EC8D61F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib in Resources */,
@@ -742,6 +764,7 @@
 				09ACF8B01FE7A867004C3F45 /* PickImageViewController.xib in Resources */,
 				093F26C71D94D887006556C4 /* Assets.xcassets in Resources */,
 				09EE10061F132834002EC29D /* RCWebViewController.xib in Resources */,
+				09D563361FECD98700B3BA3C /* mask1.png in Resources */,
 				09D69DA31F3BF5D200D8A5BB /* hero@2x.png in Resources */,
 				097751F01F3AF94700058CAC /* xinshouguodu.png in Resources */,
 				09F83FB41F137154000CD1ED /* my.css in Resources */,
@@ -805,6 +828,7 @@
 				09AB361F1ED41FBF00AB2A5F /* GTMBase64.m in Sources */,
 				09A092AB1F1C4F6B00F2372C /* HerosViewController.swift in Sources */,
 				09FD2BD31F14CCBF00B021E4 /* ChuZhuangWebViewController.swift in Sources */,
+				09D563311FECD89300B3BA3C /* CustomNotchViewController.swift in Sources */,
 				09A092B21F1C5EB400F2372C /* HeroCollectionViewController.swift in Sources */,
 				09FD2BCF1F14B0ED00B021E4 /* ChuZhuangTableViewCell.swift in Sources */,
 				093FCB541EFB6A9D000D89C8 /* ZiXunTableViewCell.swift in Sources */,
@@ -959,7 +983,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -974,6 +998,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1000,7 +1025,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1014,6 +1039,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

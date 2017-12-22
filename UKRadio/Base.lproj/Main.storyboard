@@ -337,10 +337,10 @@
             </objects>
             <point key="canvasLocation" x="-5045" y="-2667"/>
         </scene>
-        <!--Tailor View Controller-->
+        <!--Custom Notch View Controller-->
         <scene sceneID="nOi-ju-avk">
             <objects>
-                <viewController id="OJH-Eg-hld" customClass="TailorViewController" customModule="UKRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OJH-Eg-hld" customClass="CustomNotchViewController" customModule="UKRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UKX-My-grd"/>
                         <viewControllerLayoutGuide type="bottom" id="ucl-PD-a5d"/>
@@ -363,7 +363,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5WT-dO-PCZ"/>
                     <connections>
-                        <outlet property="imageView" destination="FXh-Ti-20H" id="Hrt-DS-q1y"/>
+                        <outlet property="imageView" destination="FXh-Ti-20H" id="V5x-LG-DGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzZ-T6-POq" userLabel="First Responder" sceneMemberID="firstResponder"/>
