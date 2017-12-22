@@ -9,9 +9,9 @@
 import UIKit
 import GoogleMobileAds
 
-private let BANNER_ID = "ca-app-pub-1207330468801232/3245192556"
-private let INTERSTITIAL_ID = "ca-app-pub-1207330468801232/6940894983"
-private let REWARDED_ID = "ca-app-pub-1207330468801232/6027268561"
+private let BANNER_ID = ""
+private let INTERSTITIAL_ID = ""
+private let REWARDED_ID = ""
 private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
 
 @UIApplicationMain
@@ -26,19 +26,11 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
     var showTimes = 0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-
-        //UMeng
-        UMAnalyticsConfig.sharedInstance().appKey = "5995607d7f2c74681e001539"
-        UMAnalyticsConfig.sharedInstance().channelId = "App Store"
-        MobClick.setLogEnabled(true)
-        MobClick.setCrashReportEnabled(true)
-        //MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
 
         //GADMobileAds.configure(withApplicationID: "ca-app-pub-1207330468801232~2402219186")
         
         UINavigationBar.appearance().barTintColor = GlobalDefinitions.navigationBarColor
-        UINavigationBar.appearance().tintColor = UIColor.color("#fdfefa")//UIColor.white
+        UINavigationBar.appearance().tintColor = UIColor.color("#ffffff")//UIColor.white
         //UINavigationBar.appearance().isTranslucent = false
         
         //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: GlobalDefinitions.navigationBarTitleColor, NSFontAttributeName: UIFont.boldSystemFont(ofSize: 22)]
@@ -103,6 +95,10 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
     }
 
     func requestBannerAd() {
+        
+        if BANNER_ID.count == 0 {
+            return
+        }
     
         if nil == self.bannerView {
         
@@ -120,10 +116,14 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
         
         let request = GADRequest()
         //request.testDevices = ["624b4d7c554c69bc470b39c4ea547cf2"]
-        self.bannerView?.load(GADRequest())
+        self.bannerView?.load(request)
     }
     
     func requestInterstitial() {
+        
+        if INTERSTITIAL_ID.count == 0 {
+            return
+        }
         
         self.interstitial = GADInterstitial(adUnitID: INTERSTITIAL_ID)
         self.interstitial?.delegate = self
@@ -131,6 +131,10 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
     }
     
     func requestRewardedAd() {
+        
+        if REWARDED_ID.count == 0 {
+            return
+        }
         
         GADRewardBasedVideoAd.sharedInstance().delegate = self
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
