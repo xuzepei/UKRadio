@@ -136,7 +136,6 @@
 		09D6DE061FEFAA0E00E7F36E /* mask_25.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDD71FEFAA0D00E7F36E /* mask_25.png */; };
 		09D6DE071FEFAA0E00E7F36E /* mask_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDD81FEFAA0D00E7F36E /* mask_1.png */; };
 		09D6DE081FEFAA0E00E7F36E /* mask_42.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDD91FEFAA0D00E7F36E /* mask_42.png */; };
-		09D6DE091FEFAA0E00E7F36E /* mask.psd in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDDA1FEFAA0D00E7F36E /* mask.psd */; };
 		09D6DE0A1FEFAA0E00E7F36E /* mask_41.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDDB1FEFAA0D00E7F36E /* mask_41.png */; };
 		09D6DE0B1FEFAA0E00E7F36E /* mask_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDDC1FEFAA0D00E7F36E /* mask_40.png */; };
 		09D6DE0C1FEFAA0E00E7F36E /* mask_43.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDDD1FEFAA0D00E7F36E /* mask_43.png */; };
@@ -318,7 +317,6 @@
 		09D6DDD71FEFAA0D00E7F36E /* mask_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_25.png; sourceTree = "<group>"; };
 		09D6DDD81FEFAA0D00E7F36E /* mask_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_1.png; sourceTree = "<group>"; };
 		09D6DDD91FEFAA0D00E7F36E /* mask_42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_42.png; sourceTree = "<group>"; };
-		09D6DDDA1FEFAA0D00E7F36E /* mask.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = mask.psd; sourceTree = "<group>"; };
 		09D6DDDB1FEFAA0D00E7F36E /* mask_41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_41.png; sourceTree = "<group>"; };
 		09D6DDDC1FEFAA0D00E7F36E /* mask_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_40.png; sourceTree = "<group>"; };
 		09D6DDDD1FEFAA0D00E7F36E /* mask_43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_43.png; sourceTree = "<group>"; };
@@ -685,7 +683,6 @@
 				09D6DDD71FEFAA0D00E7F36E /* mask_25.png */,
 				09D6DDD81FEFAA0D00E7F36E /* mask_1.png */,
 				09D6DDD91FEFAA0D00E7F36E /* mask_42.png */,
-				09D6DDDA1FEFAA0D00E7F36E /* mask.psd */,
 				09D6DDDB1FEFAA0D00E7F36E /* mask_41.png */,
 				09D6DDDC1FEFAA0D00E7F36E /* mask_40.png */,
 				09D6DDDD1FEFAA0D00E7F36E /* mask_43.png */,
@@ -897,7 +894,6 @@
 				09ACF8B01FE7A867004C3F45 /* PickImageViewController.xib in Resources */,
 				09D6DDEE1FEFAA0E00E7F36E /* mask_39.png in Resources */,
 				09D6DDFC1FEFAA0E00E7F36E /* mask_27.png in Resources */,
-				09D6DE091FEFAA0E00E7F36E /* mask.psd in Resources */,
 				09D6DD981FEF7BE100E7F36E /* preview_bg_2@3x.png in Resources */,
 				09D6DDF51FEFAA0E00E7F36E /* mask_34.png in Resources */,
 				093F26C71D94D887006556C4 /* Assets.xcassets in Resources */,
