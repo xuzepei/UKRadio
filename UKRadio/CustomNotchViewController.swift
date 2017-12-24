@@ -7,87 +7,298 @@
 //
 
 import UIKit
+import Photos
+import GoogleMobileAds
 
-class CustomNotchViewController: UIViewController {
+fileprivate let BUTTON_WIDTH: CGFloat = 114
+fileprivate let BUTTON_HEIGHT: CGFloat = 54
+fileprivate let BUTTON_INTERVAL: CGFloat = 9
+fileprivate let MAX_BG_INDEX: Int = 10
+fileprivate let MAX_BUTTON_NUM: Int = 45
 
+class CustomNotchViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var lineView: UIView!
+    @IBOutlet weak var buttonGroup: UIStackView!
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var imageView: UIImageView!
-    var shouldHideStatusBar = true
+    @IBOutlet weak var selectionView: UIScrollView!
+    var pickedImage: UIImage? = nil
+    var maskImage: UIImage? = nil
+    var clickedPreviewButtonTimes: Int = 0
+    var changeIndex: Int = 0
+    
+    var selectedMark: SelectedMark = SelectedMark(frame: CGRect(x: 0, y:0, width: BUTTON_WIDTH, height: BUTTON_HEIGHT))
+    let previewBgView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+    
+    var shouldHideStatusBar = false
     
     override var prefersStatusBarHidden: Bool {
         return shouldHideStatusBar
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true;
-
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.black
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+  
+        let image = UIImage(named: "bg_0.jpg")!
+        let mask = UIImage(named: "mask_0.png")!
+        self.maskImage = mask
         
-        let image = UIImage(named: "IMG_3059.PNG")!
-        let mask = UIImage(named: "mask1.png")!
-        
-        let cgSourceImage = image.cgImage!
-        let cgMaskImage = mask.cgImage!
+        if let newImage = self.resizeImage(originalImage: image) {
+            
+            self.pickedImage = newImage
+            //加上遮罩
+            if let finalImage = handleImage(originalImage: newImage, maskImage: self.maskImage!) {
+                self.imageView.image = finalImage
+            }
+        }
 
+        initSelectionView()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func initSelectionView() {
+        
+        //self.pageControl.backgroundColor = UIColor.clear
+        
+        self.selectionView.contentSize = CGSize(width: BUTTON_WIDTH * CGFloat(MAX_BUTTON_NUM) + BUTTON_INTERVAL * CGFloat(MAX_BUTTON_NUM + 1), height: self.selectionView.bounds.size.height)
+        self.selectionView.isPagingEnabled = false
+        self.selectionView.showsVerticalScrollIndicator = false
+        self.selectionView.showsHorizontalScrollIndicator = true
+        self.selectionView.scrollsToTop = false
+        //self.selectionView.delegate = self
+        self.selectionView.bouncesZoom = false
+        self.selectionView.bounces = false
+        
+        for index in 0..<MAX_BUTTON_NUM {
+            
+            let button = ChooseButton(frame: CGRect(x: BUTTON_INTERVAL + CGFloat(index) * (BUTTON_WIDTH + BUTTON_INTERVAL), y: (self.selectionView.bounds.size.height - BUTTON_HEIGHT) * 0.5, width: BUTTON_WIDTH, height: BUTTON_HEIGHT))
+            button.tag = index
+            
+            button.clickedEventCallback = { (button) in
+                
+                NSLog("clickedEventCallback:\(button.tag)")
+                
+                NSLog(NSStringFromCGRect(self.selectedMark.frame))
+                self.selectedMark.removeFromSuperview()
+                button.addSubview(self.selectedMark)
+                
+                if let maskImage = UIImage(named: "mask_\(button.tag).png") {
+                    self.maskImage = maskImage
+                    
+                    if let finalImage = self.handleImage(originalImage: self.pickedImage!, maskImage: self.maskImage!) {
+                        self.imageView.image = finalImage
+                    }
+                }
+                
+            }
+            
+            self.selectionView.addSubview(button)
+        }
+    }
+    
+    func authorizeToAlbum(completion:@escaping (Bool)->Void) {
+        
+        if PHPhotoLibrary.authorizationStatus() != .authorized {
+            NSLog("Will request authorization")
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                if status == .authorized {
+                    DispatchQueue.main.async(execute: {
+                        completion(true)
+                    })
+                } else {
+                    DispatchQueue.main.async(execute: {
+                        completion(false)
+                    })
+                }
+            })
+            
+        } else {
+            DispatchQueue.main.async(execute: {
+                completion(true)
+            })
+        }
+    }
+    
+    func handleImage(originalImage: UIImage, maskImage: UIImage) -> UIImage? {
+        
+        let cgSourceImage = originalImage.cgImage!
+        let cgMaskImage = maskImage.cgImage!
+        
         let imageMask = CGImage(maskWidth: cgMaskImage.width, height: cgMaskImage.height, bitsPerComponent: cgMaskImage.bitsPerComponent, bitsPerPixel: cgMaskImage.bitsPerPixel, bytesPerRow: cgMaskImage.bytesPerRow, provider: cgMaskImage.dataProvider!, decode: nil, shouldInterpolate: true)
         
         let cgMaskedImage = cgSourceImage.masking(imageMask!)
         
         let maskedImage = UIImage(cgImage: cgMaskedImage!)
-
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-
-        imageView.backgroundColor = UIColor.red
         
-        
-        
-        //    // 并把它设置成为当前正在使用的context
-        //    UIGraphicsBeginImageContext(size);
-        //
-        //    // 绘制改变大小的图片
-        //    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-        //
-        //    // 从当前context中创建一个改变大小后的图片
-        //    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-        //
-        //    // 使当前的context出堆栈
-        //    UIGraphicsEndImageContext();
-        //
-        //    NSData* data2 = UIImagePNGRepresentation(scaledImage);
-        //    if(data2)
-        //    {
-        //        return [data2 writeToFile:saveSmallImagePath atomically:YES];
-        //    }
-        
-        UIGraphicsBeginImageContextWithOptions(image.size, false, 1)
-        //UIColor.clear.set()
-        //UIGraphicsGetCurrentContext()?.fill(CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-        
-        maskedImage.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        UIGraphicsBeginImageContextWithOptions(originalImage.size, false, 1)
+        UIColor.clear.set()
+        maskedImage.draw(in: CGRect(x: 0, y: 0, width: maskedImage.size.width, height: maskedImage.size.height))
         let finalImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext()
-        imageView.image = finalImage
         
-        if let finalImage = finalImage {
-            
-            let pngImage = UIImage(data: UIImagePNGRepresentation(finalImage)!)
-            
-            UIImageWriteToSavedPhotosAlbum(pngImage!, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
-        }
-
-        //self.perform(#selector(saveImage(image:)), with: nil, afterDelay:3)
+        return finalImage
     }
     
-    func saveImage(image: Any?) {
+    //MARK: - Change
+    
+    @IBAction func clickedChangeButton(_ sender: Any) {
         
-        let newImage = UIImage(contentsOfFile: NSTemporaryDirectory()+"temp.png")
+        self.changeIndex += 1
         
-        if let image = newImage {
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
+        if(self.changeIndex > MAX_BG_INDEX) {
+            self.changeIndex = 0
         }
         
+        if let image = UIImage(named:"bg_\(self.changeIndex).jpg") {
+            if let newImage = self.resizeImage(originalImage: image) {
+                
+                self.pickedImage = newImage
+                //加上遮罩
+                if let finalImage = handleImage(originalImage: newImage, maskImage: self.maskImage!) {
+                    self.imageView.image = finalImage
+                }
+            }
+        }
+    }
+    
+    //MARK: - Album
+    
+    @IBAction func clickedAlbumButton(_ sender: Any) {
+        
+        self.authorizeToAlbum { (authorized) in
+            if authorized == true {
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.allowsEditing = false
+                picker.sourceType = .photoLibrary
+                
+                self.present(picker, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func resizeImage(originalImage: UIImage) -> UIImage? {
+        
+        var screenSize = UIScreen.main.bounds.size
+        screenSize.width *= UIScreen.main.scale
+        screenSize.height *= UIScreen.main.scale
+        
+        //根据屏幕高度，按比例计算出合适的图片宽度，并生成图片
+        let tempImageWidth = screenSize.height * originalImage.size.width / originalImage.size.height
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: tempImageWidth, height: screenSize.height), false, 0.0);
+        originalImage.draw(in: CGRect(x: 0, y: 0, width: tempImageWidth, height: screenSize.height))
+        //            let clippedRect = CGRect(x: (tempImageWidth - screenSize.width) * 0.5, y: 0, width: screenSize.width, height: screenSize.height)
+        //            UIGraphicsGetCurrentContext()?.clip(to: clippedRect)
+        let tempImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        
+        if let tempImage = tempImage {
+            
+            //根据屏幕大小，裁剪图片
+            let newImageX = (tempImage.size.width - screenSize.width) * 0.5
+            let tempImage2 = tempImage.crop(rect: CGRect(x: newImageX, y: 0, width: screenSize.width, height: tempImage.size.height))
+            
+            //生成图片
+            UIGraphicsBeginImageContextWithOptions(screenSize, false, 1)
+            tempImage2.draw(in: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+            let newImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext()
+            
+            return newImage
+        }
+        
+        return nil
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            if let newImage = self.resizeImage(originalImage: pickedImage) {
 
+                self.pickedImage = newImage
+                //加上遮罩
+                if let finalImage = handleImage(originalImage: newImage, maskImage: self.maskImage!) {
+                    self.imageView.image = finalImage
+                }
+            }
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: - Preview
+    @IBAction func clickedPreviewButton(_ sender: Any) {
+        
+        self.clickedPreviewButtonTimes += 1
+        
+        let index = self.clickedPreviewButtonTimes % 3
+        switch index {
+        case 0: do {
+            
+            self.previewBgView.removeFromSuperview()
+            self.selectionView.isHidden = false
+            self.lineView.isHidden = false
+            self.bannerView.isHidden = false
+            }
+        case 1: do {
+            
+            self.previewBgView.backgroundColor = UIColor(patternImage: UIImage(named: "preview_bg_1.png")!)
+            self.view .addSubview(self.previewBgView)
+            self.selectionView.isHidden = true
+            self.lineView.isHidden = true
+            self.bannerView.isHidden = true
+            self.view .bringSubview(toFront: self.buttonGroup)
+            }
+        case 2: do {
+            
+            self.previewBgView.backgroundColor = UIColor(patternImage: UIImage(named: "preview_bg_2.png")!)
+            self.view .addSubview(self.previewBgView)
+            self.selectionView.isHidden = true
+            self.lineView.isHidden = true
+            self.bannerView.isHidden = true
+            self.view .bringSubview(toFront: self.buttonGroup)
+            }
+        default:do {
+            
+            }
+        }
+        
+    }
+    
+    //MARK: - Save
+    @IBAction func clickedSaveButton(_ sender: Any) {
+        
+        self.authorizeToAlbum { (authorized) in
+            if authorized == true {
+                
+                if let finalImage = self.imageView.image {
+                    
+                    if let pngImage = UIImage(data: UIImagePNGRepresentation(finalImage)!) {
+                        UIImageWriteToSavedPhotosAlbum(pngImage, self, #selector(self.image(image:didFinishSavingWithError:contextInfo:)), nil)
+                    }
+                    
+                }
+            }
+        }
+        
     }
     
     @objc func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
@@ -102,21 +313,29 @@ class CustomNotchViewController: UIViewController {
             present(ac, animated: true)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension UIImage {
+    func crop( rect: CGRect) -> UIImage {
+        var rect = rect
+        rect.origin.x*=self.scale
+        rect.origin.y*=self.scale
+        rect.size.width*=self.scale
+        rect.size.height*=self.scale
+        
+        let imageRef = self.cgImage!.cropping(to: rect)
+        let image = UIImage(cgImage: imageRef!, scale: self.scale, orientation: self.imageOrientation)
+        return image
     }
-    */
-
 }
