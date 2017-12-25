@@ -9,6 +9,8 @@
 import UIKit
 import GoogleMobileAds
 
+fileprivate var showParticleEffectTimes: Int = 0
+
 @objc class Tool: NSObject {
     
     static let sharedInstance = Tool()
@@ -32,7 +34,7 @@ import GoogleMobileAds
             
             return String(describing: digest).lowercased()
         }
-
+        
         return ""
     }
     
@@ -69,9 +71,9 @@ import GoogleMobileAds
     }
     
     class func parseToArray(_ jsonString:String?) -> [AnyObject]? {
-    
-        if let data = jsonString?.data(using: String.Encoding.utf8) {
         
+        if let data = jsonString?.data(using: String.Encoding.utf8) {
+            
             do {
                 return try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [AnyObject]
             } catch let error as NSError {
@@ -95,7 +97,7 @@ import GoogleMobileAds
         let networkStatus: Int = reaching!.currentReachabilityStatus().rawValue
         return networkStatus == 1
     }
-
+    
     //MARK: - File Manager
     class func isExistingFile(_ path: String) -> Bool {
         return FileManager.default .fileExists(atPath: path)
@@ -121,11 +123,11 @@ import GoogleMobileAds
             }
         }
         
-//        var suffix = "";
-//        var range = imageUrl.rangeOfString(".", options: NSStringCompareOptions.BackwardsSearch, range: nil, locale: nil)
-//        if let range = range where range.count <= 4 {
-//            suffix = imageUrl.substringFromIndex(range.startIndex)
-//        }
+        //        var suffix = "";
+        //        var range = imageUrl.rangeOfString(".", options: NSStringCompareOptions.BackwardsSearch, range: nil, locale: nil)
+        //        if let range = range where range.count <= 4 {
+        //            suffix = imageUrl.substringFromIndex(range.startIndex)
+        //        }
         
         if let savePath = Tool.getImageLocalPath(imageUrl) {
             return ((try? imageData!.write(to: URL(fileURLWithPath: savePath), options: [.atomic])) != nil)
@@ -141,14 +143,14 @@ import GoogleMobileAds
             let md5String = Tool.md5(imageUrl)
             return directoryPath + "\(md5String)"
         }
-
+        
         return nil
     }
     
     class func getImageFromLocal(_ imageUrl: String?) -> UIImage? {
-    
-        if let imageLocalPath = Tool.getImageLocalPath(imageUrl) {
         
+        if let imageLocalPath = Tool.getImageLocalPath(imageUrl) {
+            
             if FileManager.default.fileExists(atPath: imageLocalPath) {
                 return UIImage(contentsOfFile: imageLocalPath)
             }
@@ -166,10 +168,10 @@ import GoogleMobileAds
     
     
     class func getBannerAd() -> UIView? {
-    
+        
         
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-        
+            
             return appDelegate.bannerView
         }
         
@@ -187,23 +189,22 @@ import GoogleMobileAds
         return nil
     }
     
-    class func showInterstitial(vc: UIViewController) {
-        
+    class func showInterstitial(vc: UIViewController, immediately: Bool = false) {
         
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             
-            return appDelegate.showInterstitial(vc:vc)
+            return appDelegate.showInterstitial(vc:vc, immediately: immediately)
         }
-
+        
         
         return;
     }
     
     class func recordLaunchTimes() -> Int {
-    
+        
         var times = 0
         if let number = UserDefaults.standard.object(forKey: "launch_times") as? NSNumber {
-        
+            
             times = number.intValue + 1
         }
         else
@@ -227,15 +228,15 @@ import GoogleMobileAds
     }
     
     class func toast(message: String) {
-    
+        
         if Tool.recordLaunchTimes() < 30 {
             UIApplication.shared.keyWindow?.rootViewController?.view .makeToast(message, duration: CSToastManager.defaultDuration(), position: CSToastPositionCenter)
         }
-    
+        
     }
     
     class func isOpenAll() -> Bool {
-    
+        
         let comps = NSDateComponents()
         comps.day = 2
         comps.month = 7
@@ -244,12 +245,35 @@ import GoogleMobileAds
         let date = NSCalendar.current.date(from: comps as DateComponents)
         let startDate = Date()
         
-        if startDate .timeIntervalSince(date!) >= 5*24*60*60 {
-        
+        if startDate .timeIntervalSince(date!) >= 4*24*60*60 {
+            
             return true
         }
         
         return false
+    }
+    
+    class func newRateUs() {
+        
+        if let newClass = NSClassFromString("SKStoreReviewController") {
+            
+            if newClass.responds(to: #selector(newClass.requestReview)) == true {
+                newClass.requestReview()
+            }
+        }
+        
+    }
+    
+    class func showParticleEffect() {
+        
+        showParticleEffectTimes += 1
+        
+        if showParticleEffectTimes % 10 == 0 || showParticleEffectTimes == 2 {
+            
+            SnowParticleEffects.show()
+            
+        }
+        
     }
     
 }
@@ -300,7 +324,7 @@ extension UIColor {
         Scanner.init(string: rString).scanHexInt32(&r);
         Scanner.init(string: gString).scanHexInt32(&g);
         Scanner.init(string: bString).scanHexInt32(&b);
-      
+        
         
         return UIColor(red: CGFloat(Double(r)/255.0), green: CGFloat(Double(g)/255.0), blue: CGFloat(Double(b)/255.0), alpha: 1.0)
     }

@@ -11,6 +11,7 @@
 @interface HttpParser : NSObject
 
 + (HttpParser*)sharedInstace;
+- (NSDictionary*)parseToDictionary:(NSString*)jsonString;
 - (NSArray*)parse:(NSString*)httpString;
 - (NSArray*)parseForVideo:(NSString*)httpString;
 - (NSArray*)parseForGongLue:(NSString*)httpString;

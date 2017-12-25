@@ -140,13 +140,24 @@
 		09D6DE0B1FEFAA0E00E7F36E /* mask_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDDC1FEFAA0D00E7F36E /* mask_40.png */; };
 		09D6DE0C1FEFAA0E00E7F36E /* mask_43.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDDD1FEFAA0D00E7F36E /* mask_43.png */; };
 		09D6DE0D1FEFAA0E00E7F36E /* mask_44.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D6DDDE1FEFAA0D00E7F36E /* mask_44.png */; };
-		09D8B8191F04DE09009919E5 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D8B8171F04DE09009919E5 /* GoogleMobileAds.framework */; };
-		09D8B81A1F04DE09009919E5 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 09D8B8181F04DE09009919E5 /* README.txt */; };
 		09DE715C1ED7DF7C0021B0BF /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE715B1ED7DF7C0021B0BF /* ImageLoader.swift */; };
 		09E790C91EF8D690004C769B /* FSPageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E790C51EF8D690004C769B /* FSPageContentView.m */; };
 		09E790CA1EF8D690004C769B /* FSSegmentTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E790C81EF8D690004C769B /* FSSegmentTitleView.m */; };
 		09ED1B2E1EB0863A0045828C /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */; };
 		09EE10061F132834002EC29D /* RCWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09EE10041F132834002EC29D /* RCWebViewController.xib */; };
+		09F375AA1FF07FD800E13129 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F375A81FF07FD800E13129 /* GoogleMobileAds.framework */; };
+		09F375AB1FF07FD800E13129 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 09F375A91FF07FD800E13129 /* README.txt */; };
+		09F375B41FF0811500E13129 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F375AD1FF0811500E13129 /* FirebaseAnalytics.framework */; };
+		09F375B51FF0811500E13129 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F375AE1FF0811500E13129 /* FirebaseCore.framework */; };
+		09F375B61FF0811500E13129 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F375AF1FF0811500E13129 /* FirebaseCoreDiagnostics.framework */; };
+		09F375B71FF0811500E13129 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F375B01FF0811500E13129 /* FirebaseInstanceID.framework */; };
+		09F375B81FF0811500E13129 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F375B11FF0811500E13129 /* FirebaseNanoPB.framework */; };
+		09F375B91FF0811500E13129 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F375B21FF0811500E13129 /* GoogleToolboxForMac.framework */; };
+		09F375BA1FF0811500E13129 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F375B31FF0811500E13129 /* nanopb.framework */; };
+		09F375BE1FF0899C00E13129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09F375BD1FF0899C00E13129 /* GoogleService-Info.plist */; };
+		09F376A21FF0E2E600E13129 /* tick@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F376A11FF0E2E600E13129 /* tick@3x.png */; };
+		09F376A71FF0FADE00E13129 /* SnowParticleEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F376A51FF0FADE00E13129 /* SnowParticleEffects.m */; };
+		09F376A81FF0FADE00E13129 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F376A61FF0FADE00E13129 /* star@2x.png */; };
 		09F83F9F1F1349F4000CD1ED /* GongLueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F83F9D1F1349F4000CD1ED /* GongLueTableViewCell.swift */; };
 		09F83FA01F1349F4000CD1ED /* GongLueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F83F9E1F1349F4000CD1ED /* GongLueTableViewCell.xib */; };
 		09F83FA31F135E60000CD1ED /* GongLueWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F83FA11F135E60000CD1ED /* GongLueWebViewController.swift */; };
@@ -321,8 +332,6 @@
 		09D6DDDC1FEFAA0D00E7F36E /* mask_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_40.png; sourceTree = "<group>"; };
 		09D6DDDD1FEFAA0D00E7F36E /* mask_43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_43.png; sourceTree = "<group>"; };
 		09D6DDDE1FEFAA0D00E7F36E /* mask_44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_44.png; sourceTree = "<group>"; };
-		09D8B8171F04DE09009919E5 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
-		09D8B8181F04DE09009919E5 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		09DE715B1ED7DF7C0021B0BF /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		09E790C41EF8D690004C769B /* FSPageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPageContentView.h; sourceTree = "<group>"; };
 		09E790C51EF8D690004C769B /* FSPageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPageContentView.m; sourceTree = "<group>"; };
@@ -331,6 +340,20 @@
 		09E790C81EF8D690004C769B /* FSSegmentTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSegmentTitleView.m; sourceTree = "<group>"; };
 		09ED1B2D1EB0863A0045828C /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		09EE10041F132834002EC29D /* RCWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCWebViewController.xib; sourceTree = "<group>"; };
+		09F375A81FF07FD800E13129 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		09F375A91FF07FD800E13129 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		09F375AD1FF0811500E13129 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		09F375AE1FF0811500E13129 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		09F375AF1FF0811500E13129 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		09F375B01FF0811500E13129 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		09F375B11FF0811500E13129 /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseNanoPB.framework; sourceTree = "<group>"; };
+		09F375B21FF0811500E13129 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		09F375B31FF0811500E13129 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		09F375BD1FF0899C00E13129 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		09F376A11FF0E2E600E13129 /* tick@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tick@3x.png"; sourceTree = "<group>"; };
+		09F376A41FF0FADE00E13129 /* SnowParticleEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnowParticleEffects.h; sourceTree = "<group>"; };
+		09F376A51FF0FADE00E13129 /* SnowParticleEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnowParticleEffects.m; sourceTree = "<group>"; };
+		09F376A61FF0FADE00E13129 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		09F83F9D1F1349F4000CD1ED /* GongLueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongLueTableViewCell.swift; sourceTree = "<group>"; };
 		09F83F9E1F1349F4000CD1ED /* GongLueTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GongLueTableViewCell.xib; sourceTree = "<group>"; };
 		09F83FA11F135E60000CD1ED /* GongLueWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongLueWebViewController.swift; sourceTree = "<group>"; };
@@ -352,12 +375,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09F375B91FF0811500E13129 /* GoogleToolboxForMac.framework in Frameworks */,
+				09F375B41FF0811500E13129 /* FirebaseAnalytics.framework in Frameworks */,
 				09D6DD941FEF46DC00E7F36E /* MobileCoreServices.framework in Frameworks */,
+				09F375B51FF0811500E13129 /* FirebaseCore.framework in Frameworks */,
+				09F375B81FF0811500E13129 /* FirebaseNanoPB.framework in Frameworks */,
 				0910CE621F05E78500893C19 /* libsqlite3.0.tbd in Frameworks */,
+				09F375B71FF0811500E13129 /* FirebaseInstanceID.framework in Frameworks */,
+				09F375AA1FF07FD800E13129 /* GoogleMobileAds.framework in Frameworks */,
 				0910CE631F05E78500893C19 /* libsqlite3.tbd in Frameworks */,
 				0910CE5F1F05E76200893C19 /* libz.tbd in Frameworks */,
+				09F375BA1FF0811500E13129 /* nanopb.framework in Frameworks */,
+				09F375B61FF0811500E13129 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				0910CE5D1F05E75600893C19 /* CoreTelephony.framework in Frameworks */,
-				09D8B8191F04DE09009919E5 /* GoogleMobileAds.framework in Frameworks */,
 				09346D311EFA4A1900DDC6BE /* libxml2.2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,11 +483,11 @@
 		093F26BC1D94D887006556C4 /* UKRadio */ = {
 			isa = PBXGroup;
 			children = (
-				09D5632E1FECD86B00B3BA3C /* Notch */,
-				09ACF8AA1FE761B0004C3F45 /* Tailor */,
 				097E94671D98F80D00B25CE2 /* GlobalDefinitions.swift */,
 				097E94631D98C5D600B25CE2 /* UKRadio-Bridging-Header.h */,
 				093F26BD1D94D887006556C4 /* AppDelegate.swift */,
+				09D5632E1FECD86B00B3BA3C /* Notch */,
+				09ACF8AA1FE761B0004C3F45 /* Tailor */,
 				097E94621D98C1DC00B25CE2 /* Tool */,
 				099CB9921F0200DB00470270 /* Basic */,
 				099CB9931F02012A00470270 /* Video */,
@@ -518,6 +548,7 @@
 				09531E871FEE5D6B00ACD69E /* change@3x.png */,
 				09531E881FEE5D6C00ACD69E /* preview@3x.png */,
 				09531E8A1FEE5D6E00ACD69E /* save@3x.png */,
+				09F376A11FF0E2E600E13129 /* tick@3x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -577,8 +608,10 @@
 		09AB361A1ED41FBF00AB2A5F /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				09F376A31FF0FADE00E13129 /* ParticleEffects */,
+				09F375AC1FF0811500E13129 /* Firebase-Analytics-4.8.0 */,
+				09F375A71FF07FD800E13129 /* GoogleMobileAdsSdkiOS-7.26.0 */,
 				0910CE641F05EA3C00893C19 /* Toast */,
-				09D8B8161F04DE09009919E5 /* GoogleMobileAdsSdkiOS-7.21.0 */,
 				095F7F8B1EFCF7ED00727834 /* MJRefresh */,
 				09346D261EFA49EA00DDC6BE /* Hpple */,
 				09E790C31EF8D690004C769B /* FSScrollContentView */,
@@ -691,15 +724,6 @@
 			path = mask;
 			sourceTree = "<group>";
 		};
-		09D8B8161F04DE09009919E5 /* GoogleMobileAdsSdkiOS-7.21.0 */ = {
-			isa = PBXGroup;
-			children = (
-				09D8B8171F04DE09009919E5 /* GoogleMobileAds.framework */,
-				09D8B8181F04DE09009919E5 /* README.txt */,
-			);
-			path = "GoogleMobileAdsSdkiOS-7.21.0";
-			sourceTree = "<group>";
-		};
 		09E790C31EF8D690004C769B /* FSScrollContentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +734,40 @@
 				09E790C81EF8D690004C769B /* FSSegmentTitleView.m */,
 			);
 			path = FSScrollContentView;
+			sourceTree = "<group>";
+		};
+		09F375A71FF07FD800E13129 /* GoogleMobileAdsSdkiOS-7.26.0 */ = {
+			isa = PBXGroup;
+			children = (
+				09F375A81FF07FD800E13129 /* GoogleMobileAds.framework */,
+				09F375A91FF07FD800E13129 /* README.txt */,
+			);
+			path = "GoogleMobileAdsSdkiOS-7.26.0";
+			sourceTree = "<group>";
+		};
+		09F375AC1FF0811500E13129 /* Firebase-Analytics-4.8.0 */ = {
+			isa = PBXGroup;
+			children = (
+				09F375BD1FF0899C00E13129 /* GoogleService-Info.plist */,
+				09F375AD1FF0811500E13129 /* FirebaseAnalytics.framework */,
+				09F375AE1FF0811500E13129 /* FirebaseCore.framework */,
+				09F375AF1FF0811500E13129 /* FirebaseCoreDiagnostics.framework */,
+				09F375B01FF0811500E13129 /* FirebaseInstanceID.framework */,
+				09F375B11FF0811500E13129 /* FirebaseNanoPB.framework */,
+				09F375B21FF0811500E13129 /* GoogleToolboxForMac.framework */,
+				09F375B31FF0811500E13129 /* nanopb.framework */,
+			);
+			path = "Firebase-Analytics-4.8.0";
+			sourceTree = "<group>";
+		};
+		09F376A31FF0FADE00E13129 /* ParticleEffects */ = {
+			isa = PBXGroup;
+			children = (
+				09F376A41FF0FADE00E13129 /* SnowParticleEffects.h */,
+				09F376A51FF0FADE00E13129 /* SnowParticleEffects.m */,
+				09F376A61FF0FADE00E13129 /* star@2x.png */,
+			);
+			path = ParticleEffects;
 			sourceTree = "<group>";
 		};
 		09F83FB51F13749E000CD1ED /* Home */ = {
@@ -801,7 +859,7 @@
 				TargetAttributes = {
 					093F26B91D94D887006556C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2699D9JM3T;
+						DevelopmentTeam = 86WCPL8Z9L;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -850,12 +908,14 @@
 				09531E8B1FEE5D6F00ACD69E /* change@3x.png in Resources */,
 				09D6DDFA1FEFAA0E00E7F36E /* mask_37.png in Resources */,
 				09D6DDFE1FEFAA0E00E7F36E /* mask_32.png in Resources */,
+				09F376A21FF0E2E600E13129 /* tick@3x.png in Resources */,
 				09531E8D1FEE5D6F00ACD69E /* album@3x.png in Resources */,
 				09D6DE061FEFAA0E00E7F36E /* mask_25.png in Resources */,
 				09D6DDFD1FEFAA0E00E7F36E /* mask_26.png in Resources */,
 				09D6DDEC1FEFAA0E00E7F36E /* mask_13.png in Resources */,
 				09D6DE071FEFAA0E00E7F36E /* mask_1.png in Resources */,
 				09531E8E1FEE5D6F00ACD69E /* save@3x.png in Resources */,
+				09F376A81FF0FADE00E13129 /* star@2x.png in Resources */,
 				09531E901FEE817F00ACD69E /* btn_bg@3x.png in Resources */,
 				09FD2BCC1F14B06700B021E4 /* ThirdViewController.xib in Resources */,
 				09D6DE0C1FEFAA0E00E7F36E /* mask_43.png in Resources */,
@@ -873,7 +933,6 @@
 				097751ED1F3AF94700058CAC /* praise@3x.png in Resources */,
 				09D6DDFF1FEFAA0E00E7F36E /* mask_24.png in Resources */,
 				09D6DDE81FEFAA0E00E7F36E /* mask_16.png in Resources */,
-				09D8B81A1F04DE09009919E5 /* README.txt in Resources */,
 				09D6DD961FEF7B9300E7F36E /* preview_bg_1@3x.png in Resources */,
 				09D6DDAC1FEF8AAD00E7F36E /* bg_8.jpg in Resources */,
 				09D6DDF31FEFAA0E00E7F36E /* mask_21.png in Resources */,
@@ -893,6 +952,7 @@
 				093EC8D61F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib in Resources */,
 				09ACF8B01FE7A867004C3F45 /* PickImageViewController.xib in Resources */,
 				09D6DDEE1FEFAA0E00E7F36E /* mask_39.png in Resources */,
+				09F375BE1FF0899C00E13129 /* GoogleService-Info.plist in Resources */,
 				09D6DDFC1FEFAA0E00E7F36E /* mask_27.png in Resources */,
 				09D6DD981FEF7BE100E7F36E /* preview_bg_2@3x.png in Resources */,
 				09D6DDF51FEFAA0E00E7F36E /* mask_34.png in Resources */,
@@ -900,6 +960,7 @@
 				09D6DE011FEFAA0E00E7F36E /* mask_18.png in Resources */,
 				09D6DDED1FEFAA0E00E7F36E /* mask_11.png in Resources */,
 				09D6DDF41FEFAA0E00E7F36E /* mask_35.png in Resources */,
+				09F375AB1FF07FD800E13129 /* README.txt in Resources */,
 				09D6DDAB1FEF8AAD00E7F36E /* bg_9.jpg in Resources */,
 				09D6DDA61FEF8AAD00E7F36E /* bg_5.jpg in Resources */,
 				09D6DDE01FEFAA0E00E7F36E /* mask_14.png in Resources */,
@@ -942,6 +1003,7 @@
 				09BDC6791ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift in Sources */,
 				09681B701F009E9900DDD83E /* ContentsTableViewCell.swift in Sources */,
 				095F7FA71EFCF7ED00727834 /* UIView+Extension.m in Sources */,
+				09F376A71FF0FADE00E13129 /* SnowParticleEffects.m in Sources */,
 				095F7FA11EFCF7ED00727834 /* MJRefreshConst.m in Sources */,
 				09E790C91EF8D690004C769B /* FSPageContentView.m in Sources */,
 				093F26BE1D94D887006556C4 /* AppDelegate.swift in Sources */,
@@ -1107,7 +1169,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2699D9JM3T;
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1116,6 +1178,8 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.21.0",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/umsdk_4.2.4",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/AMScrollingNavbar",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.26.0",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/Firebase-Analytics-4.8.0",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;
@@ -1126,6 +1190,7 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/HTMLReader",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.notchfree;
 				PRODUCT_MODULE_NAME = UKRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1149,7 +1214,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2699D9JM3T;
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1158,6 +1223,8 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.21.0",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/umsdk_4.2.4",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/AMScrollingNavbar",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.26.0",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/Firebase-Analytics-4.8.0",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;
@@ -1168,6 +1235,7 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/HTMLReader",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.notchfree;
 				PRODUCT_MODULE_NAME = UKRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";

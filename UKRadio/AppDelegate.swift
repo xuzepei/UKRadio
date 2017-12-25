@@ -9,100 +9,194 @@
 import UIKit
 import GoogleMobileAds
 
-private let BANNER_ID = "ca-app-pub-1207330468801232/4578897747"
-private let INTERSTITIAL_ID = "ca-app-pub-1207330468801232/7340792458"
-private let REWARDED_ID = ""
-private let APP_ID = "ca-app-pub-1207330468801232~2342072055"
-private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
+fileprivate let BANNER_ID = ""
+fileprivate let INTERSTITIAL_ID = "ca-app-pub-1207330468801232/7340792458"
+fileprivate let REWARDED_ID = ""
+fileprivate let APP_ID = "ca-app-pub-1207330468801232~2342072055"
+fileprivate let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
+fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
+
 
 @UIApplicationMain
 @objc class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     
     var bannerView: GADBannerView? = nil
     var interstitial: GADInterstitial? = nil
     var rewaredAd: GADRewardBasedVideoAd? = nil
+    var didEnterBackground = false
     var needShowInterstitial = false
+    var isLaunched = false
     var showTimes = 0
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        //GADMobileAds.configure(withApplicationID: "ca-app-pub-1207330468801232~2402219186")
         
-        UINavigationBar.appearance().barTintColor = GlobalDefinitions.navigationBarColor
-        UINavigationBar.appearance().tintColor = UIColor.color("#ffffff")//UIColor.white
+        FirebaseApp.configure()
+        
+        GADMobileAds.configure(withApplicationID: APP_ID)
+        
+        //UINavigationBar.appearance().barTintColor = GlobalDefinitions.navigationBarColor
+        //UINavigationBar.appearance().tintColor = UIColor.color("#ffffff")//UIColor.white
         //UINavigationBar.appearance().isTranslucent = false
         
         //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: GlobalDefinitions.navigationBarTitleColor, NSFontAttributeName: UIFont.boldSystemFont(ofSize: 22)]
-        UITabBar.appearance().tintColor = GlobalDefinitions.navigationBarColor
-        UITabBar.appearance().barTintColor = UIColor.black
+        //UITabBar.appearance().tintColor = GlobalDefinitions.navigationBarColor
+        //UITabBar.appearance().barTintColor = UIColor.black
         
         //UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.white], for: UIControlState.normal)
         
-        if #available(iOS 10.0, *) {
-            //UITabBar.appearance().unselectedItemTintColor = UIColor.white
-        } else {
-            // Fallback on earlier versions
-        }
+//        if #available(iOS 10.0, *) {
+//            //UITabBar.appearance().unselectedItemTintColor = UIColor.white
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
         // set up your background color view
-        let colorView = UIView()
-        colorView.backgroundColor = UIColor.color("#24c180")//GlobalDefinitions.tableViewCellSelectedColor
-        UITableViewCell.appearance().selectedBackgroundView = colorView
+//        let colorView = UIView()
+//        colorView.backgroundColor = UIColor.color("#24c180")//GlobalDefinitions.tableViewCellSelectedColor
+//        UITableViewCell.appearance().selectedBackgroundView = colorView
         
+        self.isLaunched = true
         
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
-        self.needShowInterstitial = true
+        NSLog("applicationDidEnterBackground")
+        self.didEnterBackground = true
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        //Request Ads
-        requestBannerAd()
-        requestInterstitial()
-        requestRewardedAd()
-        
-        //Rate
-        let times = Tool.recordLaunchTimes()
-        if times % 20 == 0 && Tool.isRated() == false {
-        
-            self.needShowInterstitial = false
-            
-            let alertView = UIAlertView(title: "感谢您的使用", message: "程序猿很苦逼，请到AppStore给一个5星好评, 支持一下，不甚感激！", delegate: self, cancelButtonTitle: "残忍拒绝", otherButtonTitles: "欣然接受")
-            alertView.show()
+        if isLaunched == true {
+            self.isLaunched = false
+        }
+        else if self.didEnterBackground == true
+        {
+            self.didEnterBackground = false
+            self.needShowInterstitial = true
         }
         
+        getAppInfo()
+        rate()
+        getAd()
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    //MARK: - App Info
+    
+    func getAppInfo() {
+        
+        let request = HttpRequest(delegate: self)
+        let b = request.get(APP_INFO_URL, resultSelector: #selector(requestFinished(_:)), token: nil)
+        if b == true {
+        }
+        
+    }
+    
+    func requestFinished(_ dict: NSDictionary) {
+        
+        if let jsonString = Tool.decrypt(dict.object(forKey: "k_json") as! String) {
+            if let info = HttpParser.sharedInstace().parse(toDictionary: jsonString) as NSDictionary? {
+                
+                UserDefaults.standard.set(info, forKey: "app_info")
+                UserDefaults.standard.synchronize()
+                
+                doAlert()
+            }
+        }
+    }
+    
+    func doAlert()
+    {
+        if let info = UserDefaults.standard.dictionary(forKey: "app_info") as NSDictionary? {
+            
+            var title = ""
+            if let temp = info["title"] as! String?, temp.count > 0{
+                title = temp
+            }
+            
+            var message = ""
+            if let temp = info["message"] as! String?, temp.count > 0{
+                message = temp
+            }
+            
+            var noButton = NSLocalizedString("Cancel", comment: "")
+            if let temp = info["b0_name"] as! String?, temp.count > 0{
+                noButton = temp
+            }
+            
+            var yesButton = NSLocalizedString("OK", comment: "")
+            if let temp = info["b1_name"] as! String?, temp.count > 0{
+                yesButton = temp
+            }
+            
+            if message.count > 0 {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let action1 = UIAlertAction(title: noButton, style: .default) { (action:UIAlertAction) in
+                    print("You've pressed noButton");
+                }
+                
+                let action2 = UIAlertAction(title: yesButton, style: .default) { (action:UIAlertAction) in
+                    print("You've pressed yesButton");
+                    
+                    if let link = info["link"] as! String?, link.count > 0 {
+                        UIApplication.shared.openURL(URL(string: link)!)
+                    }
 
+                }
+                
+                if noButton.count > 0 {
+                    alertController.addAction(action1)
+                }
+                
+                if yesButton.count > 0 {
+                    alertController.addAction(action2)
+                }
+                
+                if let temp = UIApplication.shared.delegate!.window as? UIWindow {
+                    temp.rootViewController?.present(alertController, animated: true, completion: nil)
+                }
+            }
+            
+            
+            
+        }
+    }
+    
+    
+    //MARK: - AD
+    func getAd() {
+        
+        NSLog("getAD");
+        
+        self.requestInterstitial()
+    }
+    
     func requestBannerAd() {
         
         if BANNER_ID.count == 0 {
             return
         }
-    
-        if nil == self.bannerView {
         
+        if nil == self.bannerView {
+            
             if UIDevice.current.userInterfaceIdiom == .pad {
                 self.bannerView = GADBannerView(adSize: kGADAdSizeLeaderboard)
             } else {
@@ -143,18 +237,69 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
         
     }
     
-    func showInterstitial(vc: UIViewController) {
+    func showInterstitial(vc: UIViewController, immediately: Bool = false) {
+        
+        if Tool.isOpenAll() == false {
+            return
+        }
         
         self.showTimes += 1
         
-        if self.showTimes % 3 == 0 {
+        if self.showTimes % 6 == 0  || immediately == true {
             
             print("###will show interstitial");
-        
+            
             if let interstitial = self.interstitial, interstitial.isReady == true {
                 
+                self.showTimes = 0
                 interstitial.present(fromRootViewController: vc)
             }
+        }
+    }
+    
+    //MARK: - Rate
+    func rate() {
+        
+        if Tool.isOpenAll() == false {
+            return
+        }
+        
+        let times = Tool.recordLaunchTimes()
+        
+        if times % 10 == 0 && false == Tool.isRated() {
+            
+            self.needShowInterstitial = false
+            
+            let title = NSLocalizedString("Notch Free", comment: "")
+            let message = NSLocalizedString("If you enjoy using Notch Free, please give it a good rating and a review on AppStore. Thanks a lot.", comment: "")
+            let noButton = NSLocalizedString("NO", comment: "")
+            let yesButton = NSLocalizedString("OK", comment: "")
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: noButton, style: .default) { (action:UIAlertAction) in
+                NSLog("You've pressed noButton");
+            }
+            
+            let action2 = UIAlertAction(title: yesButton, style: .default) { (action:UIAlertAction) in
+                
+                NSLog("go to appstore")
+                Tool.recordRate()
+                UIApplication.shared.openURL(URL(string: APPSTORE_URL)!)
+            }
+            
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            
+            if let temp = UIApplication.shared.delegate!.window as? UIWindow {
+                temp.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
+            
+        }
+            
+        else if times % 5 == 0 && false == Tool.isRated() {
+            
+            self.needShowInterstitial = false
+            Tool.newRateUs()
         }
     }
 }
@@ -162,23 +307,23 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
 extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstitialDelegate, GADRewardBasedVideoAdDelegate {
     
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
-    
+        
         if (buttonIndex != alertView.cancelButtonIndex)
         {
             print("go to appstore")
             Tool.recordRate()
             UIApplication.shared.openURL(URL(string: APPSTORE_URL)!)
         }
-    
+        
     }
-
+    
     /// Tells the delegate an ad request loaded an ad.
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("$$$adViewDidReceiveAd")
         
-//        if nil == bannerView.superview {
-//            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
-//        }
+        //        if nil == bannerView.superview {
+        //            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+        //        }
     }
     
     /// Tells the delegate an ad request failed.
@@ -193,10 +338,10 @@ extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstiti
         print("$$$interstitialDidReceiveAd")
         
         if self.needShowInterstitial == true && ad.isReady == true {
-        
+            
             self.needShowInterstitial = false
             ad.present(fromRootViewController: (UIApplication.shared.delegate?.window??.rootViewController)!)
-        
+            
         }
     }
     
@@ -246,6 +391,6 @@ extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstiti
         
         requestRewardedAd();
     }
-
+    
 }
 

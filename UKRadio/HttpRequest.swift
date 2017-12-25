@@ -79,7 +79,10 @@ open class HttpRequest: NSObject{
 
                 self.dataTask = nil
                 self.isRequesting = false
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
 
                 if (self.delegate?.responds(to: self.resultSelector)) != false {
 

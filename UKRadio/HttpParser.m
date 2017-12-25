@@ -22,6 +22,31 @@
     return sharedInstance;
 }
 
+- (NSDictionary*)parseToDictionary:(NSString*)jsonString
+{
+    if(0 == [jsonString length])
+        return nil;
+    
+    NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    if(nil == data)
+        return nil;
+    
+    NSError* error = nil;
+    NSJSONSerialization* json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    if(error)
+    {
+        NSLog(@"parse errror:%@",[error localizedDescription]);
+        return nil;
+    }
+    
+    if([json isKindOfClass:[NSDictionary class]])
+    {
+        return (NSDictionary *)json;
+    }
+    
+    return nil;
+}
+
 - (NSArray*)parse:(NSString*)httpString
 {
     if(0 == httpString.length)

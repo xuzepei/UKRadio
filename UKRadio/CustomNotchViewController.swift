@@ -43,6 +43,10 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        initBannerView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(requestBannerAd), name: NSNotification.Name(rawValue: "REFRESH_BANNER_AD_NOTIFICATION"), object: nil)
         
         self.navigationController?.isNavigationBarHidden = true;
         self.view.backgroundColor = UIColor.black
@@ -91,6 +95,8 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
                 
                 NSLog("clickedEventCallback:\(button.tag)")
                 
+                Tool.showInterstitial(vc: self)
+                
                 NSLog(NSStringFromCGRect(self.selectedMark.frame))
                 self.selectedMark.removeFromSuperview()
                 button.addSubview(self.selectedMark)
@@ -100,6 +106,8 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
                     
                     if let finalImage = self.handleImage(originalImage: self.pickedImage!, maskImage: self.maskImage!) {
                         self.imageView.image = finalImage
+                        
+                        Tool.showParticleEffect()
                     }
                 }
                 
@@ -132,6 +140,33 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
+    func goToSettings() {
+        
+        let title = NSLocalizedString("Tip", comment: "")
+        let message = NSLocalizedString("This app requires permission to access Photos, please kindly set in Settings (Settings -> Notch Free -> Photos)", comment: "")
+        let noButton = NSLocalizedString("Cancel", comment: "")
+        let yesButton = NSLocalizedString("OK", comment: "")
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action1 = UIAlertAction(title: noButton, style: .default) { (action:UIAlertAction) in
+            NSLog("You've pressed noButton");
+        }
+        
+        let action2 = UIAlertAction(title: yesButton, style: .default) { (action:UIAlertAction) in
+            
+            if let settingsURL = URL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!) as URL? {
+                UIApplication.shared.openURL(settingsURL)
+            }
+        }
+        
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+        
+        if let temp = UIApplication.shared.delegate!.window as? UIWindow {
+            temp.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     func handleImage(originalImage: UIImage, maskImage: UIImage) -> UIImage? {
         
         let cgSourceImage = originalImage.cgImage!
@@ -156,6 +191,8 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func clickedChangeButton(_ sender: Any) {
         
+        Tool.showInterstitial(vc: self)
+        
         self.changeIndex += 1
         
         if(self.changeIndex > MAX_BG_INDEX) {
@@ -169,6 +206,8 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
                 //加上遮罩
                 if let finalImage = handleImage(originalImage: newImage, maskImage: self.maskImage!) {
                     self.imageView.image = finalImage
+                    
+                    Tool.showParticleEffect()
                 }
             }
         }
@@ -180,12 +219,17 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
         
         self.authorizeToAlbum { (authorized) in
             if authorized == true {
+                
+                Tool.showInterstitial(vc: self)
+                
                 let picker = UIImagePickerController()
                 picker.delegate = self
                 picker.allowsEditing = false
                 picker.sourceType = .photoLibrary
                 
                 self.present(picker, animated: true, completion: nil)
+            } else {
+                self.goToSettings()
             }
         }
     }
@@ -232,6 +276,8 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
                 //加上遮罩
                 if let finalImage = handleImage(originalImage: newImage, maskImage: self.maskImage!) {
                     self.imageView.image = finalImage
+                    
+                    Tool.showParticleEffect()
                 }
             }
             
@@ -296,6 +342,8 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
                     }
                     
                 }
+            } else {
+                self.goToSettings()
             }
         }
         
@@ -308,12 +356,31 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         } else {
+            
+            Tool.showInterstitial(vc: self, immediately: true)
+            
             let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         }
     }
     
+    //MARK: - AD
+    
+    func initBannerView() {
+        
+        bannerView.adSize = kGADAdSizeSmartBannerPortrait
+        bannerView.adUnitID = GlobalDefinitions.BANNER_ID
+        bannerView.rootViewController = self
+        
+        requestBannerAd()
+    }
+    
+    func requestBannerAd() {
+        
+        NSLog("$$$Banner: requestBannerAd")
+        bannerView.load(GADRequest())
+    }
     /*
      // MARK: - Navigation
      
@@ -323,6 +390,24 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
      // Pass the selected object to the new view controller.
      }
      */
+    
+}
+
+extension CustomNotchViewController: GADBannerViewDelegate {
+    
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        NSLog("$$$Banner: adViewDidReceiveAd")
+
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+        NSLog("$$$Banner: didFailToReceiveAdWithError: \(error.localizedDescription)")
+        
+        self.perform(#selector(CustomNotchViewController.requestBannerAd), with: nil, afterDelay: 5)
+    }
     
 }
 

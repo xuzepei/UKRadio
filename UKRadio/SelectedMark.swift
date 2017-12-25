@@ -9,6 +9,8 @@
 import UIKit
 
 class SelectedMark: UIView {
+    
+    let tick = UIImage(named:"tick.png")
 
     override init(frame: CGRect) {
         
@@ -18,8 +20,8 @@ class SelectedMark: UIView {
         self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = 5.0
         self.layer.masksToBounds = true
-        self.layer.borderWidth = 3.0
-        self.layer.borderColor = UIColor.yellow.cgColor
+        //self.layer.borderWidth = 3.0
+        //self.layer.borderColor = UIColor.yellow.cgColor
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,6 +33,11 @@ class SelectedMark: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         
+        if let tick = self.tick {
+            
+            tick.draw(in: CGRect(x: (self.bounds.size.width - tick.size.width) * 0.5, y: (self.bounds.size.height - tick.size.height) * 0.5, width: tick.size.width, height: tick.size.height))
+            
+        }
         
     }
     
