@@ -28,6 +28,11 @@ class ChooseButton: UIView {
     
     override func draw(_ rect: CGRect) {
         // Drawing code
+        
+        if let image = UIImage(named: "selection_btn_\(self.tag).png") {
+            image.draw(in: self.bounds)
+        }
+
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

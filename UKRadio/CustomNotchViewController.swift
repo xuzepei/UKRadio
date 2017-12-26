@@ -16,6 +16,8 @@ fileprivate let BUTTON_INTERVAL: CGFloat = 9
 fileprivate let MAX_BG_INDEX: Int = 10
 fileprivate let MAX_BUTTON_NUM: Int = 45
 
+fileprivate var buttonIndex: Int = 0
+
 class CustomNotchViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var lineView: UIView!
@@ -64,8 +66,54 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
                 self.imageView.image = finalImage
             }
         }
+        
+//        try! FileManager.default.removeItem(at: URL(fileURLWithPath: NSTemporaryDirectory() + "/images/", isDirectory: true))
+//        makeButtonImages()
 
         initSelectionView()
+    }
+    
+    func makeButtonImages() {
+        
+        let directoryPath = NSTemporaryDirectory() + "/images/"
+        if Tool.isExistingFile(directoryPath) == false {
+            
+            do {
+                try FileManager.default.createDirectory(atPath: directoryPath, withIntermediateDirectories: false, attributes: nil)
+            } catch {
+                return
+            }
+        }
+        
+        if buttonIndex < MAX_BUTTON_NUM {
+            let image = UIImage(named: "bg_0.jpg")!
+            let mask = UIImage(named: "mask_\(buttonIndex).png")!
+            
+            if let newImage = self.resizeImage(originalImage: image) {
+                
+                //加上遮罩
+                if let finalImage = handleImage(originalImage: newImage, maskImage: mask) {
+                    
+                    let buttonImage = finalImage.crop(rect: CGRect(x: 0, y: 0, width: 1125, height: 533))
+                    
+                    //生成图片
+                    UIGraphicsBeginImageContextWithOptions(CGSize(width:342, height:162), false, 1)
+                    buttonImage.draw(in: CGRect(x: 0, y: 0, width: 342, height: 162))
+                    let newImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext()
+                    
+                    if let buttonImageData = UIImagePNGRepresentation(newImage!)! as? NSData {
+                        self.imageView.image = finalImage
+                        buttonImageData.write(to: URL(fileURLWithPath: NSTemporaryDirectory()+"/images/selection_btn_\(buttonIndex).png"), atomically: true)
+                    }
+                    
+                }
+            }
+            
+            NSLog("buttonIndex:\(buttonIndex), finished.")
+            buttonIndex += 1
+            self.perform(#selector(makeButtonImages), with: nil, afterDelay: 1)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,13 +139,19 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
             let button = ChooseButton(frame: CGRect(x: BUTTON_INTERVAL + CGFloat(index) * (BUTTON_WIDTH + BUTTON_INTERVAL), y: (self.selectionView.bounds.size.height - BUTTON_HEIGHT) * 0.5, width: BUTTON_WIDTH, height: BUTTON_HEIGHT))
             button.tag = index
             
+            if index == 0 {
+                self.selectedMark.removeFromSuperview()
+                button.addSubview(self.selectedMark)
+            }
+
+            
             button.clickedEventCallback = { (button) in
                 
                 NSLog("clickedEventCallback:\(button.tag)")
                 
                 Tool.showInterstitial(vc: self)
                 
-                NSLog(NSStringFromCGRect(self.selectedMark.frame))
+                //NSLog(NSStringFromCGRect(self.selectedMark.frame))
                 self.selectedMark.removeFromSuperview()
                 button.addSubview(self.selectedMark)
                 
