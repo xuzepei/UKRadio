@@ -200,6 +200,32 @@ fileprivate var showParticleEffectTimes: Int = 0
         return;
     }
     
+    class func recordSaveTimes() {
+        
+        var times = 0
+        if let number = UserDefaults.standard.object(forKey: "save_times") as? NSNumber {
+            
+            times = number.intValue + 1
+        }
+        else
+        {
+            times = 1
+        }
+        
+        UserDefaults.standard.set(times, forKey: "save_times")
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func getSaveTimes() -> Int {
+        
+        var times = 0
+        if let number = UserDefaults.standard.object(forKey: "save_times") as? NSNumber {
+            times = number.intValue
+        }
+        
+        return times
+    }
+    
     class func recordLaunchTimes() -> Int {
         
         var times = 0
@@ -238,8 +264,8 @@ fileprivate var showParticleEffectTimes: Int = 0
     class func isOpenAll() -> Bool {
         
         let comps = NSDateComponents()
-        comps.day = 2
-        comps.month = 7
+        comps.day = 27
+        comps.month = 12
         comps.year = 2017
         
         let date = NSCalendar.current.date(from: comps as DateComponents)

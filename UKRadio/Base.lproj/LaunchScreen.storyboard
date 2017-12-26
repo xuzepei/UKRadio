@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,23 +21,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpK-aD-sDp">
-                                <rect key="frame" x="200.66666666666666" y="328.66666666666669" width="13.333333333333343" height="79"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="66"/>
-                                <color key="textColor" red="0.24900811985877369" green="0.9824078111141471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_l.png" translatesAutoresizingMaskIntoConstraints="NO" id="fAV-oR-efg">
+                                <rect key="frame" x="157" y="204" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="a2Y-Tz-fMw"/>
+                                    <constraint firstAttribute="height" constant="100" id="oK2-oA-3Zr"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✂️ Notch Free ✂️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhQ-0n-Mwz">
+                                <rect key="frame" x="127" y="321" width="160" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="EC1-tG-IOK"/>
+                                    <constraint firstAttribute="height" constant="21" id="eCA-1t-oMi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="YpK-aD-sDp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="EeL-Cb-rfu"/>
-                            <constraint firstItem="YpK-aD-sDp" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Jln-I8-7Qf"/>
+                            <constraint firstItem="fAV-oR-efg" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="184" id="H0Z-3o-DJZ"/>
+                            <constraint firstItem="rhQ-0n-Mwz" firstAttribute="top" secondItem="fAV-oR-efg" secondAttribute="bottom" constant="17" id="QOn-UW-FJ8"/>
+                            <constraint firstItem="fAV-oR-efg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="np4-9x-88I"/>
+                            <constraint firstItem="rhQ-0n-Mwz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zL3-Dt-rjc"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.724637681159422" y="374.18478260869568"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_l.png" width="100" height="100"/>
+    </resources>
 </document>

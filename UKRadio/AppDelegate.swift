@@ -13,7 +13,7 @@ fileprivate let BANNER_ID = ""
 fileprivate let INTERSTITIAL_ID = "ca-app-pub-1207330468801232/7340792458"
 fileprivate let REWARDED_ID = ""
 fileprivate let APP_ID = "ca-app-pub-1207330468801232~2342072055"
-fileprivate let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
+fileprivate let APPSTORE_URL = "https://itunes.apple.com/app/id1329377896"
 fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
 
 
@@ -215,6 +215,10 @@ fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
     }
     
     func requestInterstitial() {
+        
+        if Tool.isOpenAll() == false {
+            return
+        }
         
         if INTERSTITIAL_ID.count == 0 {
             return

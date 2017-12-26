@@ -13,7 +13,7 @@ import GoogleMobileAds
 fileprivate let BUTTON_WIDTH: CGFloat = 114
 fileprivate let BUTTON_HEIGHT: CGFloat = 54
 fileprivate let BUTTON_INTERVAL: CGFloat = 9
-fileprivate let MAX_BG_INDEX: Int = 10
+fileprivate let MAX_BG_INDEX: Int = 16
 fileprivate let MAX_BUTTON_NUM: Int = 45
 
 fileprivate var buttonIndex: Int = 0
@@ -406,16 +406,26 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
     @objc func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             // we got back an error!
-            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            let ac = UIAlertController(title: "Tip", message: "Failed:" + error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default){ (action:UIAlertAction) in
+                
+            })
             present(ac, animated: true)
         } else {
             
-            Tool.showInterstitial(vc: self, immediately: true)
+            Tool.recordSaveTimes()
             
-            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
+            if Tool.getSaveTimes() > 3 {
+                Tool.showInterstitial(vc: self, immediately: true)
+            } else {
+            
+                let ac = UIAlertController(title: "Tip", message: "New wallpaper has been saved to your Photos. For using it, please kindly go to Settings -> Wallpaper.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default){ (action:UIAlertAction) in
+                    
+                })
+                present(ac, animated: true)
+                
+            }
         }
     }
     
