@@ -13,7 +13,7 @@ import GoogleMobileAds
 fileprivate let BUTTON_WIDTH: CGFloat = 114
 fileprivate let BUTTON_HEIGHT: CGFloat = 54
 fileprivate let BUTTON_INTERVAL: CGFloat = 9
-fileprivate let MAX_BG_INDEX: Int = 16
+fileprivate let MAX_BG_INDEX: Int = 20
 fileprivate let MAX_BUTTON_NUM: Int = 45
 
 fileprivate var buttonIndex: Int = 0
