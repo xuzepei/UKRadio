@@ -86,6 +86,8 @@ fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
         }
         else if self.didEnterBackground == true
         {
+            self.perform(#selector(checkNetwork), with: nil, afterDelay: 10)
+            
             self.didEnterBackground = false
             self.needShowInterstitial = true
         }
@@ -97,6 +99,35 @@ fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    //MARK: - Network Checking
+    func checkNetwork() {
+        
+        if Tool.isOpenAll() == false {
+            return
+        }
+        
+        if Tool.isReachableViaInternet() == false {
+            let alertController = UIAlertController(title: "Tip", message: "To get more wallpapers, turn on WLAN for this app in Setting - Apps Using WLAN & Cellular", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "NO", style: .default, handler: { (action) in
+                
+            }))
+            
+            alertController.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (action) in
+                
+                if UIApplication.shared.canOpenURL(URL(string: "prefs:root=WIFI")!) == true {
+                    UIApplication.shared.open(URL(string: "prefs:root=WIFI")!, options: [:], completionHandler: nil)
+                } else if UIApplication.shared.canOpenURL(URL(string: "App-Prefs:root=WIFI")!) == true {
+                    UIApplication.shared.open(URL(string: "App-Prefs:root=WIFI")!, options: [:], completionHandler: nil)
+                }
+            }))
+            
+            if let temp = UIApplication.shared.delegate!.window as? UIWindow {
+                temp.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
+            
+        }
     }
     
     //MARK: - App Info

@@ -419,11 +419,21 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
                 Tool.showInterstitial(vc: self, immediately: true)
             } else {
             
-                let ac = UIAlertController(title: "Tip", message: "New wallpaper has been saved to your Photos. For using it, please kindly go to Settings -> Wallpaper.", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .default){ (action:UIAlertAction) in
+                let alertController = UIAlertController(title: "Tip", message: "New wallpaper has been saved to your Photos. For using it, please kindly go to Settings -> Wallpaper.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "NO", style: .default){ (action:UIAlertAction) in
                     
                 })
-                present(ac, animated: true)
+                
+                alertController.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (action) in
+                    
+                    if UIApplication.shared.canOpenURL(URL(string: "prefs:root=")!) == true {
+                        UIApplication.shared.open(URL(string: "prefs:root=")!, options: [:], completionHandler: nil)
+                    } else if UIApplication.shared.canOpenURL(URL(string: "App-Prefs:root=")!) == true {
+                        UIApplication.shared.open(URL(string: "App-Prefs:root=")!, options: [:], completionHandler: nil)
+                    }
+                }))
+                
+                present(alertController, animated: true)
                 
             }
         }
