@@ -20,7 +20,6 @@
 		092BD49D1FF3E94700B66A1A /* bg_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 092BD4871FF3E94700B66A1A /* bg_4.jpg */; };
 		092BD49E1FF3E94700B66A1A /* bg_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 092BD4881FF3E94700B66A1A /* bg_0.jpg */; };
 		092BD49F1FF3E94700B66A1A /* bg_20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 092BD4891FF3E94700B66A1A /* bg_20.jpg */; };
-		092BD4A01FF3E94700B66A1A /* bg_10_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 092BD48A1FF3E94700B66A1A /* bg_10_.jpg */; };
 		092BD4A11FF3E94700B66A1A /* bg_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 092BD48B1FF3E94700B66A1A /* bg_1.jpg */; };
 		092BD4A21FF3E94700B66A1A /* bg_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 092BD48C1FF3E94700B66A1A /* bg_3.jpg */; };
 		092BD4A31FF3E94700B66A1A /* bg_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 092BD48D1FF3E94700B66A1A /* bg_2.jpg */; };
@@ -197,7 +196,6 @@
 		092BD4871FF3E94700B66A1A /* bg_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_4.jpg; sourceTree = "<group>"; };
 		092BD4881FF3E94700B66A1A /* bg_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_0.jpg; sourceTree = "<group>"; };
 		092BD4891FF3E94700B66A1A /* bg_20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_20.jpg; sourceTree = "<group>"; };
-		092BD48A1FF3E94700B66A1A /* bg_10_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_10_.jpg; sourceTree = "<group>"; };
 		092BD48B1FF3E94700B66A1A /* bg_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_1.jpg; sourceTree = "<group>"; };
 		092BD48C1FF3E94700B66A1A /* bg_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_3.jpg; sourceTree = "<group>"; };
 		092BD48D1FF3E94700B66A1A /* bg_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_2.jpg; sourceTree = "<group>"; };
@@ -432,7 +430,6 @@
 				092BD4871FF3E94700B66A1A /* bg_4.jpg */,
 				092BD4881FF3E94700B66A1A /* bg_0.jpg */,
 				092BD4891FF3E94700B66A1A /* bg_20.jpg */,
-				092BD48A1FF3E94700B66A1A /* bg_10_.jpg */,
 				092BD48B1FF3E94700B66A1A /* bg_1.jpg */,
 				092BD48C1FF3E94700B66A1A /* bg_3.jpg */,
 				092BD48D1FF3E94700B66A1A /* bg_2.jpg */,
@@ -796,7 +793,7 @@
 				TargetAttributes = {
 					093F26B91D94D887006556C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2699D9JM3T;
+						DevelopmentTeam = 86WCPL8Z9L;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -881,7 +878,6 @@
 				09B55CB61FF1E36E00A012C6 /* selection_btn_24.png in Resources */,
 				09B55CB01FF1E36E00A012C6 /* selection_btn_19.png in Resources */,
 				09D6DE0C1FEFAA0E00E7F36E /* mask_43.png in Resources */,
-				092BD4A01FF3E94700B66A1A /* bg_10_.jpg in Resources */,
 				092BD49C1FF3E94700B66A1A /* bg_18.jpg in Resources */,
 				09D6DDE41FEFAA0E00E7F36E /* mask_29.png in Resources */,
 				09B55CCB1FF1E36E00A012C6 /* selection_btn_43.png in Resources */,
@@ -1115,7 +1111,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2699D9JM3T;
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1160,7 +1156,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2699D9JM3T;
+				DEVELOPMENT_TEAM = 86WCPL8Z9L;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
