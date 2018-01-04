@@ -25,6 +25,12 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var selectionView: UIScrollView!
+    
+    @IBOutlet weak var changeLabel: UILabel!
+    @IBOutlet weak var albumLabel: UILabel!
+    @IBOutlet weak var previewLabel: UILabel!
+    @IBOutlet weak var saveLabel: UILabel!
+    
     var pickedImage: UIImage? = nil
     var maskImage: UIImage? = nil
     var clickedPreviewButtonTimes: Int = 0
@@ -45,6 +51,11 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.changeLabel.text = NSLocalizedString("Change", comment: "")
+        self.albumLabel.text = NSLocalizedString("Album", comment: "")
+        self.previewLabel.text = NSLocalizedString("Preview", comment: "")
+        self.saveLabel.text = NSLocalizedString("Save", comment: "")
     
         initBannerView()
         

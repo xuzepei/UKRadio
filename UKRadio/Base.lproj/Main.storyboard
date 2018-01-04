@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EQJ-54-kNO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EQJ-54-kNO">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -56,7 +55,6 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jF2-9I-ass" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="605" width="414" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="caC-1Q-cOs"/>
                                 </constraints>
@@ -160,10 +158,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="5WT-dO-PCZ"/>
                     <connections>
+                        <outlet property="albumLabel" destination="oXD-RE-yi9" id="USM-bR-RWs"/>
                         <outlet property="bannerView" destination="jF2-9I-ass" id="t7e-Lk-gtn"/>
                         <outlet property="buttonGroup" destination="WkY-DQ-t9Q" id="bwU-Ij-uIA"/>
+                        <outlet property="changeLabel" destination="QlD-rI-0Hb" id="qm2-U3-Tfa"/>
                         <outlet property="imageView" destination="FXh-Ti-20H" id="V5x-LG-DGh"/>
                         <outlet property="lineView" destination="hTm-At-t3a" id="fS2-ih-7Q8"/>
+                        <outlet property="previewLabel" destination="MNI-zu-IPd" id="ZCE-5c-HnF"/>
+                        <outlet property="saveLabel" destination="Gn4-n8-6ZE" id="B5Z-Um-YIp"/>
                         <outlet property="selectionView" destination="VxV-uP-iuy" id="tfq-hA-53g"/>
                     </connections>
                 </viewController>

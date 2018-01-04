@@ -13,7 +13,7 @@ fileprivate let BANNER_ID = ""
 fileprivate let INTERSTITIAL_ID = "ca-app-pub-1207330468801232/7340792458"
 fileprivate let REWARDED_ID = ""
 fileprivate let APP_ID = "ca-app-pub-1207330468801232~2342072055"
-fileprivate let APPSTORE_URL = "https://itunes.apple.com/app/id1329377896"
+fileprivate let APPSTORE_URL = "https://itunes.apple.com/app/id1329377896?action=write-review"
 fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
 
 
@@ -86,7 +86,7 @@ fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
         }
         else if self.didEnterBackground == true
         {
-            self.perform(#selector(checkNetwork), with: nil, afterDelay: 10)
+            self.perform(#selector(checkNetwork), with: nil, afterDelay: 20)
             
             self.didEnterBackground = false
             self.needShowInterstitial = true
@@ -280,7 +280,7 @@ fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
         
         self.showTimes += 1
         
-        if self.showTimes % 6 == 0  || immediately == true {
+        if self.showTimes % 10 == 0  || immediately == true {
             
             print("###will show interstitial");
             
