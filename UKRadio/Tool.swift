@@ -264,14 +264,14 @@ fileprivate var showParticleEffectTimes: Int = 0
     class func isOpenAll() -> Bool {
         
         let comps = NSDateComponents()
-        comps.day = 27
-        comps.month = 12
-        comps.year = 2017
+        comps.day = 5
+        comps.month = 1
+        comps.year = 2018
         
         let date = NSCalendar.current.date(from: comps as DateComponents)
         let startDate = Date()
         
-        if startDate .timeIntervalSince(date!) >= 4*24*60*60 {
+        if startDate .timeIntervalSince(date!) > 2*24*60*60 {
             
             return true
         }
