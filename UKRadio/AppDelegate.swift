@@ -13,7 +13,7 @@ fileprivate let BANNER_ID = ""
 fileprivate let INTERSTITIAL_ID = "ca-app-pub-1207330468801232/7340792458"
 fileprivate let REWARDED_ID = ""
 fileprivate let APP_ID = "ca-app-pub-1207330468801232~2342072055"
-fileprivate let APPSTORE_URL = "https://itunes.apple.com/app/id1329377896?action=write-review"
+fileprivate let APPSTORE_URL = "https://itunes.apple.com/app/id1332207536?action=write-review"
 fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
 
 
@@ -109,17 +109,24 @@ fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
         }
         
         if Tool.isReachableViaInternet() == false {
-            let alertController = UIAlertController(title: "Tip", message: "To get more wallpapers, turn on WLAN for this app in Setting - Apps Using WLAN & Cellular", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "NO", style: .default, handler: { (action) in
+            let alertController = UIAlertController(title: "提示", message: "获取更多壁纸需要开启网络，请在手机系统中 设置 -> 剪刘海 -> 无线数据 中开启。", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "取消", style: .default, handler: { (action) in
                 
             }))
             
-            alertController.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (action) in
+            alertController.addAction(UIAlertAction(title: "设置", style: .default, handler: { (action) in
                 
-                if UIApplication.shared.canOpenURL(URL(string: "prefs:root=WIFI")!) == true {
-                    UIApplication.shared.open(URL(string: "prefs:root=WIFI")!, options: [:], completionHandler: nil)
-                } else if UIApplication.shared.canOpenURL(URL(string: "App-Prefs:root=WIFI")!) == true {
-                    UIApplication.shared.open(URL(string: "App-Prefs:root=WIFI")!, options: [:], completionHandler: nil)
+//                if UIApplication.shared.canOpenURL(URL(string: "prefs:root=WIFI")!) == true {
+////                    UIApplication.shared.open(URL(string: "prefs:root=WIFI")!, options: [:], completionHandler: nil)
+//                    UIApplication.shared.openURL(URL(string: "prefs:root=WIFI")!)
+//                } else if UIApplication.shared.canOpenURL(URL(string: "App-Prefs:root=WIFI")!) == true {
+//                    //UIApplication.shared.open(URL(string: "App-Prefs:root=WIFI")!, options: [:], completionHandler: nil)
+//
+//                    UIApplication.shared.openURL(URL(string: "App-Prefs:root=WIFI")!)
+//                }
+                
+                if let settingsURL = URL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!) as URL? {
+                    UIApplication.shared.openURL(settingsURL)
                 }
             }))
             

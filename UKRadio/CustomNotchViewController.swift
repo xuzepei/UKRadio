@@ -52,10 +52,10 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.changeLabel.text = NSLocalizedString("Change", comment: "")
-        self.albumLabel.text = NSLocalizedString("Album", comment: "")
-        self.previewLabel.text = NSLocalizedString("Preview", comment: "")
-        self.saveLabel.text = NSLocalizedString("Save", comment: "")
+        self.changeLabel.text = NSLocalizedString("切换", comment: "")
+        self.albumLabel.text = NSLocalizedString("相册", comment: "")
+        self.previewLabel.text = NSLocalizedString("预览", comment: "")
+        self.saveLabel.text = NSLocalizedString("保存", comment: "")
     
         initBannerView()
         
@@ -207,10 +207,10 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
     
     func goToSettings() {
         
-        let title = NSLocalizedString("Tip", comment: "")
-        let message = NSLocalizedString("This app requires permission to access Photos, please kindly set in Settings (Settings -> Notch Free -> Photos)", comment: "")
-        let noButton = NSLocalizedString("Cancel", comment: "")
-        let yesButton = NSLocalizedString("OK", comment: "")
+        let title = NSLocalizedString("提示", comment: "")
+        let message = NSLocalizedString("需要开启相册访问权限,请在手机系统 设置 -> 剪刘海 -> 照片 中开启。", comment: "")
+        let noButton = NSLocalizedString("取消", comment: "")
+        let yesButton = NSLocalizedString("设置", comment: "")
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action1 = UIAlertAction(title: noButton, style: .default) { (action:UIAlertAction) in
@@ -417,8 +417,8 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
     @objc func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             // we got back an error!
-            let ac = UIAlertController(title: "Tip", message: "Failed:" + error.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default){ (action:UIAlertAction) in
+            let ac = UIAlertController(title: "提示", message: "Failed:" + error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "好的", style: .default){ (action:UIAlertAction) in
                 
             })
             present(ac, animated: true)
@@ -430,17 +430,20 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
                 Tool.showInterstitial(vc: self, immediately: true)
             } else {
             
-                let alertController = UIAlertController(title: "Tip", message: "New wallpaper has been saved to your Photos. For using it, please kindly go to Settings -> Wallpaper.", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "NO", style: .default){ (action:UIAlertAction) in
+                let alertController = UIAlertController(title: "提示", message: "新的壁纸已经保存在您的系统相册中了, 请到系统 设置-> 墙纸 -> 选取新的墙纸 中使用，便可以看到刘海效果了.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "取消", style: .default){ (action:UIAlertAction) in
                     
                 })
                 
-                alertController.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (action) in
+                alertController.addAction(UIAlertAction(title: "设置", style: .default, handler: { (action) in
                     
                     if UIApplication.shared.canOpenURL(URL(string: "prefs:root=")!) == true {
-                        UIApplication.shared.open(URL(string: "prefs:root=")!, options: [:], completionHandler: nil)
+//                        UIApplication.shared.open(URL(string: "prefs:root=")!, options: [:], completionHandler: nil)
+                       UIApplication.shared.openURL(URL(string: "prefs:root=WIFI")!)
+                        
                     } else if UIApplication.shared.canOpenURL(URL(string: "App-Prefs:root=")!) == true {
-                        UIApplication.shared.open(URL(string: "App-Prefs:root=")!, options: [:], completionHandler: nil)
+//                        UIApplication.shared.open(URL(string: "App-Prefs:root=")!, options: [:], completionHandler: nil)
+                        UIApplication.shared.openURL(URL(string: "App-Prefs:root=WIFI")!)
                     }
                 }))
                 
