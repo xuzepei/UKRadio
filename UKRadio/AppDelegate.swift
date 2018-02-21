@@ -94,7 +94,7 @@ fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
         
         getAppInfo()
         rate()
-        getAd()
+        //getAd()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

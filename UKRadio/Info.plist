@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
@@ -36,9 +36,9 @@
 	<key>NSHumanReadableCopyright</key>
 	<string></string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>保存新的壁纸到相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>请从相册中选择一张照片或壁纸</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UILaunchStoryboardName~ipad</key>
