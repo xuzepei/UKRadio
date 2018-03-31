@@ -109,7 +109,7 @@ fileprivate let APP_INFO_URL = "http://appdream.sinaapp.com/notch/info.php"
         }
         
         if Tool.isReachableViaInternet() == false {
-            let alertController = UIAlertController(title: "提示", message: "获取更多壁纸需要开启网络，请在手机系统中 设置 -> 剪刘海 -> 无线数据 中开启。", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "提示", message: "获取更多壁纸需要开启网络，请在手机系统中 设置 -> MagicNotch -> 无线数据 中开启。", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "取消", style: .default, handler: { (action) in
                 
             }))

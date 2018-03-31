@@ -208,7 +208,7 @@ class CustomNotchViewController: UIViewController, UIImagePickerControllerDelega
     func goToSettings() {
         
         let title = NSLocalizedString("提示", comment: "")
-        let message = NSLocalizedString("需要开启相册访问权限,请在手机系统 设置 -> 剪刘海 -> 照片 中开启。", comment: "")
+        let message = NSLocalizedString("需要开启相册访问权限,请在手机系统 设置 -> MagicNotch -> 照片 中开启。", comment: "")
         let noButton = NSLocalizedString("取消", comment: "")
         let yesButton = NSLocalizedString("设置", comment: "")
         
