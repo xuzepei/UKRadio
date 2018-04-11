@@ -129,10 +129,10 @@ extension WebViewController: UIWebViewDelegate {
     func webViewDidFinishLoad(_ webView: UIWebView) {
         self.indicator?.stopAnimating()
         
-        webView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('ins')[0].outerHTML = ''")
-//        webView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('ins')[1].outerHTML = ''")
-//        webView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('ins')[2].outerHTML = ''")
-//        webView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('ins')[3].outerHTML = ''")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementsByClassName('fixed-btn')[0].outerHTML = ''")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementsByClassName('mar-t50')[0].outerHTML = ''")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementsByClassName('container logo-search')[0].outerHTML = ''")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementsByClassName('container navigation')[0].outerHTML = ''")
 //        webView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('ins')[0].outerHTML = ''")
     }
 

@@ -42,10 +42,12 @@ class VideoListViewController: UIViewController {
     
     func loadContents() {
         
-        let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getVideoMainList&BigID=21"
+        let urlString = "http://www.gembo.cn/app/3d/controller2018.php?action=getVideoList&BigID=21"
         
         let request = HttpRequest(delegate: self)
-        let b = request.post(urlString, resultSelector: #selector(VideoListViewController.requestFinished(_:)), token: nil)
+        
+        let bodyData = "gid=556".data(using: .utf8)!
+        let b = request.post(urlString, resultSelector: #selector(VideoListViewController.requestFinished(_:)), token: ["k_body": bodyData])
         
         if b == true {
             self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)

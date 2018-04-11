@@ -56,7 +56,7 @@ class WebSiteTableViewController: UITableViewController {
         self.itemArray.removeAll()
         self.itemArray.append(["name":"Python 2.7中文参考文档","url":"http://docs.pythontab.com/python/python2.7/"])
         self.itemArray.append(["name":"Python 3.5中文参考文档","url":"http://docs.pythontab.com/python/python3.5/"])
-        self.itemArray.append(["name":"Python 菜鸟中文教程","url":"http://www.runoob.com/python/python-tutorial.html"])
+        self.itemArray.append(["name":"廖雪峰Python教程","url":"https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0"])
         self.itemArray.append(["name":"Python 进阶学习","url":"http://docs.pythontab.com/interpy/"])
     
     }

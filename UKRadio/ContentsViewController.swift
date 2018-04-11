@@ -58,10 +58,10 @@ class ContentsViewController: UIViewController {
     
     func loadContents() {
         
-        let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getBaseMainList&BigID=21"
+        let urlString = "http://www.runoob.com/python3/python3-tutorial.html"
         
         let request = HttpRequest(delegate: self)
-        let b = request.post(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
+        let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
         
         if b == true {
             self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -77,12 +77,11 @@ class ContentsViewController: UIViewController {
             indicator.hide(false)
         }
         
-        if let data = dict.object(forKey: "k_data") as? Data {
+        if let htmlString = dict.object(forKey: "k_json") as? String {
             
-            let htmlString = String(data: data, encoding: String.Encoding.utf8) ?? ""
+            //let htmlString = String(data: data, encoding: String.Encoding.utf8) ?? ""
             
-            if let array = Tool.parseToArray(htmlString) as? [[String: Any]]{
-                
+            if let array = HttpParser.sharedInstace().parse(htmlString) as? [[String: Any]]{
                 
                 self.itemArray.removeAll()
                 self.itemArray = array
@@ -114,14 +113,23 @@ class ContentsViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         
-        if segue.destination is SubcatalogViewController {
+        if segue.destination is WebViewController {
             
             if let selectedCell = sender as? UITableViewCell {
                 
                 let indexPath = self.tableView.indexPath(for: selectedCell)!
+
                 if let item = self.getItemByIndex(indexPath.row) as? [String: Any] {
-                    let temp = segue.destination as! SubcatalogViewController
-                    temp.loadContents(item: item)
+                    let temp = segue.destination as! WebViewController
+                    
+                    if let url = item["url"] as? String {
+
+                        let title = item["title"] as? String ?? "Python学习"
+                        
+                        temp.hidesBottomBarWhenPushed = true
+                        temp.updateContent(url, title: title)
+                    }
+                    
                 }
             }
         }
