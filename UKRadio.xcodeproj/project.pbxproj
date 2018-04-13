@@ -16,6 +16,8 @@
 		0910CE671F05EA3C00893C19 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CE661F05EA3C00893C19 /* UIView+Toast.m */; };
 		0910CE6A1F05F61C00893C19 /* WebSiteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910CE691F05F61C00893C19 /* WebSiteTableViewController.swift */; };
 		0910CE721F0624AC00893C19 /* WebSiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910CE701F0624AC00893C19 /* WebSiteViewController.swift */; };
+		0925B1812080FE5200AE22A5 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0925B17F2080FE5200AE22A5 /* GoogleMobileAds.framework */; };
+		0925B1822080FE5200AE22A5 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0925B1802080FE5200AE22A5 /* README.txt */; };
 		093349551ECD8B64008897B3 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093349541ECD8B64008897B3 /* HttpRequest.swift */; };
 		09346CC51EF9F88200DDC6BE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09346CC31EF9F88200DDC6BE /* FirstViewController.swift */; };
 		09346CC61EF9F88200DDC6BE /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09346CC41EF9F88200DDC6BE /* FirstViewController.xib */; };
@@ -60,8 +62,6 @@
 		09BDC6791ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */; };
 		09BDC67A1ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */; };
 		09BDC67C1ED6D00E00864DF7 /* InfiniteAdScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */; };
-		09D8B8191F04DE09009919E5 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D8B8171F04DE09009919E5 /* GoogleMobileAds.framework */; };
-		09D8B81A1F04DE09009919E5 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 09D8B8181F04DE09009919E5 /* README.txt */; };
 		09DE715C1ED7DF7C0021B0BF /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE715B1ED7DF7C0021B0BF /* ImageLoader.swift */; };
 		09E790C91EF8D690004C769B /* FSPageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E790C51EF8D690004C769B /* FSPageContentView.m */; };
 		09E790CA1EF8D690004C769B /* FSSegmentTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E790C81EF8D690004C769B /* FSSegmentTitleView.m */; };
@@ -80,6 +80,8 @@
 		0910CE661F05EA3C00893C19 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		0910CE691F05F61C00893C19 /* WebSiteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSiteTableViewController.swift; sourceTree = "<group>"; };
 		0910CE701F0624AC00893C19 /* WebSiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSiteViewController.swift; sourceTree = "<group>"; };
+		0925B17F2080FE5200AE22A5 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		0925B1802080FE5200AE22A5 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		093349541ECD8B64008897B3 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		09346CC31EF9F88200DDC6BE /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		09346CC41EF9F88200DDC6BE /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
@@ -148,8 +150,6 @@
 		09BDC6771ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollAdViewTestViewController.swift; sourceTree = "<group>"; };
 		09BDC6781ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfiniteScrollAdViewTestViewController.xib; sourceTree = "<group>"; };
 		09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteAdScrollView.swift; sourceTree = "<group>"; };
-		09D8B8171F04DE09009919E5 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
-		09D8B8181F04DE09009919E5 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		09DE715B1ED7DF7C0021B0BF /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		09E790C41EF8D690004C769B /* FSPageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPageContentView.h; sourceTree = "<group>"; };
 		09E790C51EF8D690004C769B /* FSPageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPageContentView.m; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 				0910CE5F1F05E76200893C19 /* libz.tbd in Frameworks */,
 				0910CE5D1F05E75600893C19 /* CoreTelephony.framework in Frameworks */,
 				0910CE5B1F05E50800893C19 /* UMMobClick.framework in Frameworks */,
-				09D8B8191F04DE09009919E5 /* GoogleMobileAds.framework in Frameworks */,
+				0925B1812080FE5200AE22A5 /* GoogleMobileAds.framework in Frameworks */,
 				09346D311EFA4A1900DDC6BE /* libxml2.2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +203,15 @@
 				0910CE701F0624AC00893C19 /* WebSiteViewController.swift */,
 			);
 			name = Sites;
+			sourceTree = "<group>";
+		};
+		0925B17E2080FE5200AE22A5 /* GoogleMobileAdsSdkiOS-7.30.0 */ = {
+			isa = PBXGroup;
+			children = (
+				0925B17F2080FE5200AE22A5 /* GoogleMobileAds.framework */,
+				0925B1802080FE5200AE22A5 /* README.txt */,
+			);
+			path = "GoogleMobileAdsSdkiOS-7.30.0";
 			sourceTree = "<group>";
 		};
 		09346D1D1EFA446E00DDC6BE /* Frameworks */ = {
@@ -348,9 +357,9 @@
 		09AB361A1ED41FBF00AB2A5F /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				0925B17E2080FE5200AE22A5 /* GoogleMobileAdsSdkiOS-7.30.0 */,
 				0910CE641F05EA3C00893C19 /* Toast */,
 				0910CE591F05E50800893C19 /* umsdk_4.2.4 */,
-				09D8B8161F04DE09009919E5 /* GoogleMobileAdsSdkiOS-7.21.0 */,
 				095F7F8B1EFCF7ED00727834 /* MJRefresh */,
 				09346D261EFA49EA00DDC6BE /* Hpple */,
 				09E790C31EF8D690004C769B /* FSScrollContentView */,
@@ -370,15 +379,6 @@
 				09AB36211ED434D600AB2A5F /* RCEncryption.m */,
 			);
 			path = DES;
-			sourceTree = "<group>";
-		};
-		09D8B8161F04DE09009919E5 /* GoogleMobileAdsSdkiOS-7.21.0 */ = {
-			isa = PBXGroup;
-			children = (
-				09D8B8171F04DE09009919E5 /* GoogleMobileAds.framework */,
-				09D8B8181F04DE09009919E5 /* README.txt */,
-			);
-			path = "GoogleMobileAdsSdkiOS-7.21.0";
 			sourceTree = "<group>";
 		};
 		09E790C31EF8D690004C769B /* FSScrollContentView */ = {
@@ -434,9 +434,9 @@
 				TargetAttributes = {
 					093F26B91D94D887006556C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 86WCPL8Z9L;
+						DevelopmentTeam = 2699D9JM3T;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -466,7 +466,6 @@
 				09BDC6761ED6BF3300864DF7 /* Main.storyboard in Resources */,
 				09346CC61EF9F88200DDC6BE /* FirstViewController.xib in Resources */,
 				0910CE581F05D78D00893C19 /* LaunchScreen~ipad.storyboard in Resources */,
-				09D8B81A1F04DE09009919E5 /* README.txt in Resources */,
 				09346CCA1EF9FDF500DDC6BE /* SecondViewController.xib in Resources */,
 				097793331F01E4AB006126D8 /* WebViewController.xib in Resources */,
 				093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */,
@@ -474,6 +473,7 @@
 				093FCB551EFB6A9D000D89C8 /* ZiXunTableViewCell.xib in Resources */,
 				09BDC67A1ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.xib in Resources */,
 				095F7F9F1EFCF7ED00727834 /* MJRefresh.bundle in Resources */,
+				0925B1822080FE5200AE22A5 /* README.txt in Resources */,
 				095F7FA41EFCF7ED00727834 /* more@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,9 +643,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 86WCPL8Z9L;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 2699D9JM3T;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -653,6 +653,7 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.21.0",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/umsdk_4.2.4",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.30.0",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;
@@ -665,8 +666,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.pythonlearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "052414dc-17e9-4926-982e-5af37771647a";
+				PROVISIONING_PROFILE_SPECIFIER = python_dis;
 				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -680,9 +681,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 86WCPL8Z9L;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 2699D9JM3T;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -690,6 +691,7 @@
 					"$(PROJECT_DIR)/UKRadio/ThirdParty",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.21.0",
 					"$(PROJECT_DIR)/UKRadio/ThirdParty/umsdk_4.2.4",
+					"$(PROJECT_DIR)/UKRadio/ThirdParty/GoogleMobileAdsSdkiOS-7.30.0",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = UKRadio/Info.plist;
@@ -702,8 +704,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.pythonlearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "052414dc-17e9-4926-982e-5af37771647a";
+				PROVISIONING_PROFILE_SPECIFIER = python_dis;
 				SWIFT_OBJC_BRIDGING_HEADER = "UKRadio/UKRadio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
