@@ -334,7 +334,6 @@
                                         <connections>
                                             <outlet property="titleLabel" destination="hZ0-EN-SFW" id="BrV-ua-rNj"/>
                                             <outlet property="videoImageView" destination="sb9-Hh-gh3" id="bgu-cS-ozn"/>
-                                            <segue destination="VPR-tb-MCN" kind="show" id="Lbv-Mh-uFH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -364,7 +363,7 @@
         <!--Video Subcatalog View Controller-->
         <scene sceneID="vI1-cV-FYV">
             <objects>
-                <viewController id="VPR-tb-MCN" customClass="VideoSubcatalogViewController" customModule="UKRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc_videosubcatalog" id="VPR-tb-MCN" customClass="VideoSubcatalogViewController" customModule="UKRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FQc-ku-gfa"/>
                         <viewControllerLayoutGuide type="bottom" id="DIL-A8-HoR"/>
@@ -394,7 +393,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="5PR-db-wYv" kind="show" id="3Bb-hG-BTA"/>
+                                            <segue destination="U9w-Oz-j33" kind="show" id="afq-C8-Q68"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -433,7 +432,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" tag="110" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBe-CM-hGN">
-                                <rect key="frame" x="88" y="219" width="200" height="33"/>
+                                <rect key="frame" x="88" y="175" width="200" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="CXF-0P-BYd"/>
                                     <constraint firstAttribute="height" constant="33" id="IqJ-z3-oPO"/>
@@ -445,7 +444,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="111" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yg7-Yu-QNH">
-                                <rect key="frame" x="87" y="282" width="200" height="33"/>
+                                <rect key="frame" x="87" y="238" width="200" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="4bX-z2-faN"/>
                                     <constraint firstAttribute="width" constant="200" id="DeO-du-TBZ"/>
@@ -457,7 +456,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="112" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1VO-aU-XMb">
-                                <rect key="frame" x="87" y="345" width="200" height="33"/>
+                                <rect key="frame" x="87" y="301" width="200" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="4V1-yr-S6F"/>
                                     <constraint firstAttribute="width" constant="200" id="jfh-xH-QZl"/>
@@ -469,7 +468,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="113" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Z-mI-ln9">
-                                <rect key="frame" x="87" y="408" width="200" height="33"/>
+                                <rect key="frame" x="87" y="364" width="200" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="4eH-iR-YTb"/>
                                     <constraint firstAttribute="width" constant="200" id="nSD-ez-cbm"/>
@@ -481,7 +480,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="114" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKX-P0-3dS">
-                                <rect key="frame" x="87" y="471" width="200" height="33"/>
+                                <rect key="frame" x="87" y="427" width="200" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Jq2-Vz-FtY"/>
                                     <constraint firstAttribute="height" constant="33" id="acR-bX-dRb"/>
@@ -493,7 +492,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="115" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWQ-8Y-gkt">
-                                <rect key="frame" x="87" y="534" width="200" height="33"/>
+                                <rect key="frame" x="87" y="490" width="200" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="k9d-Ry-oS4"/>
                                     <constraint firstAttribute="height" constant="33" id="rrS-1z-sze"/>
@@ -505,14 +504,14 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Njs-dd-od6">
-                                <rect key="frame" x="177" y="104" width="20" height="20"/>
+                                <rect key="frame" x="177" y="60" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="OLN-da-Pik"/>
                                     <constraint firstAttribute="height" constant="20" id="don-w7-aMW"/>
                                 </constraints>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频地址：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ct0-ry-aDM">
-                                <rect key="frame" x="87" y="173" width="125" height="21"/>
+                                <rect key="frame" x="87" y="129" width="125" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="2Ev-wN-X1d"/>
                                     <constraint firstAttribute="height" constant="21" id="moi-JP-DL7"/>
@@ -555,12 +554,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JhJ-fv-kma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="-1788.7556221889056"/>
+            <point key="canvasLocation" x="1638" y="-1281"/>
         </scene>
         <!--Video Web View Controller-->
         <scene sceneID="Xd1-U9-9fg">
             <objects>
-                <viewController id="U9w-Oz-j33" customClass="VideoWebViewController" customModule="UKRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoWebViewController" id="U9w-Oz-j33" customClass="VideoWebViewController" customModule="UKRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GRw-Uj-vFN"/>
                         <viewControllerLayoutGuide type="bottom" id="7p1-sp-g3y"/>
@@ -570,14 +569,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KA8-po-rtM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="-44" width="375" height="711"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="U9w-Oz-j33" id="7XG-C2-AOa"/>
                                 </connections>
                             </webView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tPa-Fp-N85">
-                                <rect key="frame" x="169" y="347.5" width="37" height="37"/>
+                                <rect key="frame" x="169" y="325.5" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -714,6 +713,6 @@
         <image name="tab_video" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="u6x-Eh-0R3"/>
+        <segue reference="afq-C8-Q68"/>
     </inferredMetricsTieBreakers>
 </document>

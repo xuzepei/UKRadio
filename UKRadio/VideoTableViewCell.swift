@@ -34,7 +34,7 @@ class VideoTableViewCell: UITableViewCell {
         }
         
         
-        self.titleLabel.text = self.item!["title"] as? String
+        self.titleLabel.text = self.item!["name"] as? String
         
         self.videoImageView.image = Tool.isOpenAll() ? UIImage(named: "logo") : nil
         

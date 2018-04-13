@@ -5,7 +5,7 @@
 import UIKit
 
 class VideoListViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var indicator: MBProgressHUD? = nil
     var itemArray = [[String : Any]]()
@@ -42,12 +42,10 @@ class VideoListViewController: UIViewController {
     
     func loadContents() {
         
-        let urlString = "http://www.gembo.cn/app/3d/controller2018.php?action=getVideoList&BigID=21"
+        let urlString = "http://appdream.sinaapp.com/api/python.php"
         
         let request = HttpRequest(delegate: self)
-        
-        let bodyData = "gid=556".data(using: .utf8)!
-        let b = request.post(urlString, resultSelector: #selector(VideoListViewController.requestFinished(_:)), token: ["k_body": bodyData])
+        let b = request.get(urlString, resultSelector: #selector(VideoListViewController.requestFinished(_:)), token: nil)
         
         if b == true {
             self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -65,13 +63,16 @@ class VideoListViewController: UIViewController {
         
         if let data = dict.object(forKey: "k_data") as? Data {
             
-            let htmlString = String(data: data, encoding: String.Encoding.utf8) ?? ""
+            var htmlString = String(data: data, encoding: String.Encoding.utf8) ?? ""
+            htmlString = Tool.decrypt(htmlString) ?? ""
             
-            if let array = Tool.parseToArray(htmlString) as? [[String: Any]]{
+            if let dict = Tool.parseToDictionary(htmlString) {
                 
+                if let array = dict["list"] as? [[String : Any]] {
+                    self.itemArray.removeAll()
+                    self.itemArray = array
+                }
                 
-                self.itemArray.removeAll()
-                self.itemArray = array
             }
             
             self.tableView.reloadData()
@@ -162,25 +163,40 @@ extension VideoListViewController: UITableViewDataSource, UITableViewDelegate {
         
         if let item = self.getItemByIndex(indexPath.row) {
             
-            //            if let url = item["url"] as? String {
-            //
-            //                if let temp = RCWebViewController(true) {
-            //                    temp.hidesBottomBarWhenPushed = true
-            //                    temp.updateContent(url, title: "游戏资讯")
-            //                    self.navigationController!.pushViewController(temp, animated: true)
-            //                }
-            //            }
-            //            RCWebViewController* temp = [[RCWebViewController alloc] init:YES];
-            //            temp.hidesBottomBarWhenPushed = YES;
-            //            [temp updateContent:urlString title:self.titleLabel.text];
-            //
-            //            UINavigationController* naviController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-            //            [naviController pushViewController:temp animated:YES];
+            let type = item["typeId"] as! NSString
+            
+            if type.isEqual(to: "1") == true {
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let temp = storyboard.instantiateViewController(withIdentifier: "vc_videosubcatalog") as! VideoSubcatalogViewController
+                //temp.hidesBottomBarWhenPushed = true
+                temp.loadContents(item: item as? [String : Any])
+                self.navigationController!.pushViewController(temp, animated: true)
+                
+            } else {
+                if let url = item["url"] as? String {
+                    
+                    let title = item["name"] as! String
+                    
+//                    if let temp = RCWebViewController(true) {
+//                        temp.hidesBottomBarWhenPushed = true
+//                        temp.updateContent(url, title: title)
+//                        self.navigationController!.pushViewController(temp, animated: true)
+//                    }
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let temp = storyboard.instantiateViewController(withIdentifier: "VideoWebViewController") as! VideoWebViewController
+                    temp.hidesBottomBarWhenPushed = true
+                    temp.updateContent(url, title: title)
+                    self.navigationController!.pushViewController(temp, animated: true)
+                    
+                }
+            }
+            
+
             
         }
         
-        //self .performSegueWithIdentifier("go_to_second", sender: nil)
-        
-}
-
+    }
+    
 }

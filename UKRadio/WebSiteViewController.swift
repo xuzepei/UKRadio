@@ -29,7 +29,7 @@ class WebSiteViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(WebSiteViewController.refresh))
         
         
-        self.timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(WebSiteViewController.showAdTimer), userInfo: nil, repeats: false)
+        self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(WebSiteViewController.showAdTimer), userInfo: nil, repeats: false)
     }
     
     func showAdTimer() {

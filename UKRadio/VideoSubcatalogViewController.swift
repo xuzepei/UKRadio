@@ -53,7 +53,9 @@ class VideoSubcatalogViewController: UIViewController {
     
     func initTableView() {
         
-        self.tableView.addHeader(withTarget: self, action: #selector(VideoSubcatalogViewController.headerRefresh))
+        if self.tableView != nil {
+            self.tableView.addHeader(withTarget: self, action: #selector(VideoSubcatalogViewController.headerRefresh))
+        }
     }
     
     func headerRefresh() {
@@ -63,20 +65,30 @@ class VideoSubcatalogViewController: UIViewController {
     func loadContents(item: [String: Any]?) {
         
         self.item = item
-        self.title = self.item?["title"] as? String
-        let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getVideoList&BigID=21"
+        self.title = self.item?["name"] as? String
         
-        let gid = self.item?["id"] ?? ""
-        let bodyString = "gid=\(gid)"
-        let token = ["k_body": bodyString.data(using: String.Encoding.utf8)]
-        
-        let request = HttpRequest(delegate: self)
-        let b = request.post(urlString, resultSelector: #selector(VideoSubcatalogViewController.requestFinished(_:)), token: token)
-        
-        if b == true {
-            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
-            self.indicator!.labelText = "Loading..."
+        if let array = self.item?["urls"] as? [[String : Any]] {
+            self.itemArray.removeAll()
+            self.itemArray = array
         }
+
+        if self.tableView != nil {
+            self.tableView.reloadData()
+        }
+        
+//        let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getVideoList&BigID=21"
+//
+//        let gid = self.item?["id"] ?? ""
+//        let bodyString = "gid=\(gid)"
+//        let token = ["k_body": bodyString.data(using: String.Encoding.utf8)]
+//
+//        let request = HttpRequest(delegate: self)
+//        let b = request.post(urlString, resultSelector: #selector(VideoSubcatalogViewController.requestFinished(_:)), token: token)
+//
+//        if b == true {
+//            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+//            self.indicator!.labelText = "Loading..."
+//        }
     }
     
     func requestFinished(_ dict: NSDictionary) {
@@ -122,17 +134,17 @@ class VideoSubcatalogViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.destination is VideoUrlViewController {
+        if segue.destination is VideoWebViewController {
             
             if let selectedCell = sender as? UITableViewCell {
                 
                 let indexPath = self.tableView.indexPath(for: selectedCell)!
                 if let item = self.getItemByIndex(indexPath.row) as? [String: Any] {
-                    let temp = segue.destination as! VideoUrlViewController
+                    let temp = segue.destination as! VideoWebViewController
                     
                     if let url = item["url"] as? String {
 
-                        let title = item["title"] as? String ?? "Python"
+                        let title = item["name"] as? String ?? "Python教程"
                         
                         temp.hidesBottomBarWhenPushed = true
                         temp.updateContent(url, title: title)
@@ -168,7 +180,7 @@ extension VideoSubcatalogViewController: UITableViewDataSource, UITableViewDeleg
         
         if let temp =  cell as? UITableViewCell {
             
-            var text = item["title"] as? String
+            var text = item["name"] as? String
             text = text?.replacingOccurrences(of: " ", with: "")
             temp.textLabel?.text = text
         }
@@ -189,18 +201,18 @@ extension VideoSubcatalogViewController: UITableViewDataSource, UITableViewDeleg
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //        if let item = self.getItemByIndex(indexPath.row) {
-        //
-        //            if let gid = item["id"] as? String {
-        //                let url = "http://www.gembo.cn/app/3d/show_edu_content.php?id=\(gid)"
-        //                let title = item["title"] as? String ?? "Python"
-        //                if let temp = RCWebViewController(true) {
-        //                    temp.hidesBottomBarWhenPushed = true
-        //                    temp.updateContent(url, title: title, fromLocal: true)
-        //                    self.navigationController!.pushViewController(temp, animated: true)
-        //                }
-        //            }
-        //        }
+//                if let item = self.getItemByIndex(indexPath.row) {
+//        
+//                    if let url = item["url"] as? String {
+//                        
+//                        let title = item["name"] as! String
+//                        if let temp = RCWebViewController(true) {
+//                            temp.hidesBottomBarWhenPushed = true
+//                            temp.updateContent(url, title: title)
+//                            self.navigationController!.pushViewController(temp, animated: true)
+//                        }
+//                    }
+//                }
     }
     
 }
