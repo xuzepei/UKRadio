@@ -14,13 +14,41 @@ class ContentsViewController: UIViewController {
     var indicator: MBProgressHUD? = nil
     var itemArray = [[String : Any]]()
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //NotificationCenter.default.addObserver(self, selector: #selector(adLoaded), name: .BannerLoaded, object: nil)
         
         initTableView()
         loadContents()
+    }
+    
+    func adLoaded() {
+        
+        if let bannerView = Tool.getBannerAd() {
+            
+            if bannerView.superview == nil {
+                
+                UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+                arrangeBanner();
+            }
+        }
+    }
+    
+    func arrangeBanner () {
+        
+        if let bannerView = Tool.getBannerAd() {
+            
+            bannerView.translatesAutoresizingMaskIntoConstraints = true
+            var rect = bannerView.frame
+            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            rect.origin.y = (self.tabBarController?.tabBar.frame.origin.y)! - rect.size.height
+            bannerView.frame = rect
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,14 +57,11 @@ class ContentsViewController: UIViewController {
         self.title = "基础知识"
         
         if let bannerView = Tool.getBannerAd() {
-        
-            bannerView.translatesAutoresizingMaskIntoConstraints = true
-            var rect = bannerView.frame
-            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
-            rect.origin.y = (self.tabBarController?.tabBar.frame.origin.y)! - rect.size.height
-            bannerView.frame = rect
-        
+                UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
         }
+        
+        self.perform(#selector(arrangeBanner), with: nil, afterDelay: 0.3)
+        //arrangeBanner()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

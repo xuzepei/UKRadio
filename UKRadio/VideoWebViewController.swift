@@ -35,20 +35,34 @@ class VideoWebViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.title = self.titleString
+    func arrangeBanner () {
         
         if let bannerView = Tool.getBannerAd() {
             
             bannerView.translatesAutoresizingMaskIntoConstraints = true
             var rect = bannerView.frame
             rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
-            rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
-            bannerView.frame = rect
             
+            if Tool.isIphoneX() == true {
+                rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height - GlobalDefinitions.OFFSET_BOTTOM_IPHONX
+            } else {
+                rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
+            }
+            
+            bannerView.frame = rect
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.title = self.titleString
+        
+        if let bannerView = Tool.getBannerAd() {
+            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+        }
+        
+        arrangeBanner()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

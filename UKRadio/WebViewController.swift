@@ -16,8 +16,14 @@ class WebViewController: UIViewController {
     var titleString: String? = nil
     var timer: Timer? = nil
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //NotificationCenter.default.addObserver(self, selector: #selector(adLoaded), name: .BannerLoaded, object: nil)
 
         self.updateContent(self.urlString, title: self.title)
 
@@ -25,6 +31,35 @@ class WebViewController: UIViewController {
         
         
         self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(WebViewController.showAdTimer), userInfo: nil, repeats: false)
+    }
+    
+    func adLoaded() {
+        if let bannerView = Tool.getBannerAd() {
+            
+            if bannerView.superview == nil {
+                
+                UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+                arrangeBanner();
+            }
+        }
+    }
+    
+    func arrangeBanner () {
+        
+        if let bannerView = Tool.getBannerAd() {
+            
+            bannerView.translatesAutoresizingMaskIntoConstraints = true
+            var rect = bannerView.frame
+            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            
+            if Tool.isIphoneX() == true {
+                rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height - GlobalDefinitions.OFFSET_BOTTOM_IPHONX
+            } else {
+                rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
+            }
+            
+            bannerView.frame = rect
+        }
     }
     
     func showAdTimer() {
@@ -42,14 +77,10 @@ class WebViewController: UIViewController {
         self.title = self.titleString
         
         if let bannerView = Tool.getBannerAd() {
-            
-            bannerView.translatesAutoresizingMaskIntoConstraints = true
-            var rect = bannerView.frame
-            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
-            rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height
-            bannerView.frame = rect
-            
+            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
         }
+        
+        arrangeBanner()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

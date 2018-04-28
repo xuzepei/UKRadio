@@ -27,6 +27,18 @@ class WebSiteTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    func arrangeBanner () {
+        
+        if let bannerView = Tool.getBannerAd() {
+            
+            bannerView.translatesAutoresizingMaskIntoConstraints = true
+            var rect = bannerView.frame
+            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            rect.origin.y = (self.tabBarController?.tabBar.frame.origin.y)! - rect.size.height
+            bannerView.frame = rect
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -36,14 +48,10 @@ class WebSiteTableViewController: UITableViewController {
         self.title = "学习资源"
         
         if let bannerView = Tool.getBannerAd() {
-            
-            bannerView.translatesAutoresizingMaskIntoConstraints = true
-            var rect = bannerView.frame
-            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
-            rect.origin.y = (self.tabBarController?.tabBar.frame.origin.y)! - rect.size.height
-            bannerView.frame = rect
-            
+            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
         }
+        
+        self.perform(#selector(arrangeBanner), with: nil, afterDelay: 0.3)
     }
 
     override func didReceiveMemoryWarning() {

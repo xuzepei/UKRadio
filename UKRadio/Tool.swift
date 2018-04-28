@@ -231,6 +231,16 @@ class Tool {
         return false
     }
     
+    class func isIphoneX() -> Bool {
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone {
+            if UIScreen.main.bounds.size.height == 812 {
+               return true
+            }
+        }
+        
+        return false
+    }
+    
 }
 
 

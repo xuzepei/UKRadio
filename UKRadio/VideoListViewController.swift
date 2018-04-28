@@ -17,10 +17,28 @@ class VideoListViewController: UIViewController {
         loadContents()
     }
     
+    func arrangeBanner () {
+        
+        if let bannerView = Tool.getBannerAd() {
+            
+            bannerView.translatesAutoresizingMaskIntoConstraints = true
+            var rect = bannerView.frame
+            rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
+            rect.origin.y = (self.tabBarController?.tabBar.frame.origin.y)! - rect.size.height
+            bannerView.frame = rect
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.title = "视频教程"
+        
+        if let bannerView = Tool.getBannerAd() {
+            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+        }
+        
+        self.perform(#selector(arrangeBanner), with: nil, afterDelay: 0.3)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

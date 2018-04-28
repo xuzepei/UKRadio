@@ -247,6 +247,7 @@
                         <outlet property="forwardButton" destination="j2D-jN-aqZ" id="1uE-Oa-qI5"/>
                         <outlet property="indicator" destination="8wx-sN-Mth" id="DCf-xf-mfo"/>
                         <outlet property="toolbar" destination="gro-nz-Odu" id="GnL-OU-psw"/>
+                        <outlet property="toolbarToBottom" destination="MJm-k8-gbV" id="ddt-Ev-Mni"/>
                         <outlet property="webView" destination="u8O-G8-bFe" id="QrS-Ck-SOm"/>
                     </connections>
                 </viewController>

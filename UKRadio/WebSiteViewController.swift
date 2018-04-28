@@ -13,7 +13,7 @@ class WebSiteViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var toolbar: UIToolbar!
-    
+    @IBOutlet weak var toolbarToBottom: NSLayoutConstraint!
     @IBOutlet weak var backwardButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     
@@ -41,20 +41,41 @@ class WebSiteViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.title = self.titleString
+    func arrangeBanner () {
         
         if let bannerView = Tool.getBannerAd() {
             
             bannerView.translatesAutoresizingMaskIntoConstraints = true
             var rect = bannerView.frame
             rect.origin.x = (self.view.bounds.size.width - rect.size.width)/2.0
-            rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height - 44
-            bannerView.frame = rect
             
+            if Tool.isIphoneX() == true {
+                rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height - self.toolbar.bounds.size.height - GlobalDefinitions.OFFSET_BOTTOM_IPHONX
+            } else {
+                rect.origin.y = UIScreen.main.bounds.size.height - rect.size.height - self.toolbar.bounds.size.height
+            }
+            
+            bannerView.frame = rect
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.title = self.titleString
+        
+        if Tool.isIphoneX() == true {
+            
+            self.toolbarToBottom.constant = GlobalDefinitions.OFFSET_BOTTOM_IPHONX
+        } else {
+            self.toolbarToBottom.constant = 0
+        }
+        
+        if let bannerView = Tool.getBannerAd() {
+            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+        }
+        
+        arrangeBanner()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

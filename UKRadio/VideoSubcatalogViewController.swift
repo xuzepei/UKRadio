@@ -21,13 +21,7 @@ class VideoSubcatalogViewController: UIViewController {
         initTableView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let item = self.item {
-            self.title = item["title"] as? String
-        }
-        
+    func arrangeBanner() {
         if let bannerView = Tool.getBannerAd() {
             
             bannerView.translatesAutoresizingMaskIntoConstraints = true
@@ -37,6 +31,20 @@ class VideoSubcatalogViewController: UIViewController {
             bannerView.frame = rect
             
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let item = self.item {
+            self.title = item["title"] as? String
+        }
+        
+        if let bannerView = Tool.getBannerAd() {
+            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+        }
+        
+        self.perform(#selector(arrangeBanner), with: nil, afterDelay: 0.3)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

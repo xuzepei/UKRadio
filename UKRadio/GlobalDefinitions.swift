@@ -14,5 +14,11 @@ class GlobalDefinitions: NSObject {
     static let navigationBarTitleColor = UIColor.white;
     static let tableViewCellSelectedColor = UIColor(red: 0, green: 0, blue: 1.0, alpha: 1.0)
     static let secretKey = "20180411"
+    static let OFFSET_BOTTOM_IPHONX:CGFloat = 34.0
+    
+}
 
+extension Notification.Name {
+    
+    static let BannerLoaded = Notification.Name("BannerLoaded")
 }

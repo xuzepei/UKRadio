@@ -138,7 +138,18 @@ extension AppDelegate: UIAlertViewDelegate, GADBannerViewDelegate, GADInterstiti
         print("adViewDidReceiveAd")
         
         if nil == bannerView.superview {
-            UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(bannerView)
+            
+//            if let vc = UIApplication.shared.keyWindow?.rootViewController {
+//                
+//                var rect = bannerView.frame
+//                rect.origin.x = (vc.view.bounds.size.width - rect.size.width)/2.0
+//                rect.origin.y = (vc.tabBarController?.tabBar.frame.origin.y)! - rect.size.height
+//                bannerView.frame = rect
+//                
+//                vc.view.addSubview(bannerView)
+//            }
+
+            NotificationCenter.default.post(name: .BannerLoaded, object: nil)
         }
     }
     
