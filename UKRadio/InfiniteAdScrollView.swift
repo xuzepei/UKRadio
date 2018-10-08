@@ -31,7 +31,7 @@ class AdView: UIView, AdViewProtocol {
         
         if self.item != nil {
         
-            self.imageUrl = self.item!.object(forKey: "picurl") as? String
+            self.imageUrl = self.item!.object(forKey: "url") as? String
             
             if let imageUrl = self.imageUrl {
             
@@ -69,6 +69,14 @@ class AdView: UIView, AdViewProtocol {
         
             image.draw(in: self.bounds)
         
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        
+        if let delegate = self.delegate {
+            delegate.clickedAd(self.item!)
         }
     }
 
@@ -126,7 +134,7 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         for i in 0..<3 {
         
             let adView = AdView(frame: CGRect(x: AD_WIDTH * CGFloat(i), y: 0, width: AD_WIDTH, height: AD_HEIGHT))
-            //adView.delegate = self
+            adView.delegate = self
             self.adViews.append(adView)
         
         }
@@ -172,7 +180,7 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         
     }
     
-    func updateContent(_ items: [AnyObject]?) {
+    func updateContent(_ items: [Any]?) {
     
         self.itemArray.removeAllObjects()
         
@@ -187,6 +195,10 @@ class InfiniteAdScrollView: UIView, UIScrollViewDelegate {
         self.rearrageAdViews()
     }
     
+    func clickedAd(_ token: AnyObject){
+        
+        print("\(token.description)")
+    }
     
     func changePage() {
     

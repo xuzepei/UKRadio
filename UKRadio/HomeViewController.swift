@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     var titleView: FSSegmentTitleView? = nil
     var navigationBarHeight: CGFloat = 0.0
     var tabBarHeight: CGFloat = 0.0
+    var adScrollView: InfiniteAdScrollView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,23 @@ class HomeViewController: UIViewController {
         self.tabBarHeight = self.tabBarController!.tabBar.bounds.height
         
         initViewSize()
-        initSegmentView()
-        initPageView()
+//        initSegmentView()
+//        initPageView()
+        
+        //for test
+        initAdScrollView()
+    }
+    
+    func initAdScrollView() {
+        
+        if self.adScrollView == nil {
+            
+            self.adScrollView = InfiniteAdScrollView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 260))
+            self.view.addSubview(self.adScrollView!)
+        }
+        
+        self.adScrollView?.updateContent([["url":"http://pic.pptbz.com/201506/2015070581208537.JPG"],["url":"http://pic1a.nipic.com/2009-01-07/20091713417344_2.jpg"],["url":"http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg"],["url":"http://img12.3lian.com/gaoqing02/01/58/85.jpg"],["url":"http://5b0988e595225.cdn.sohucs.com/images/20170913/089d5ddc894f47009a31d895efa906e3.jpeg"]])
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
