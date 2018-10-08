@@ -25,6 +25,7 @@
 		09346D2E1EFA49EA00DDC6BE /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 09346D2A1EFA49EA00DDC6BE /* TFHppleElement.m */; };
 		09346D2F1EFA49EA00DDC6BE /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 09346D2C1EFA49EA00DDC6BE /* XPathQuery.m */; };
 		09346D311EFA4A1900DDC6BE /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 09346D301EFA4A1900DDC6BE /* libxml2.2.tbd */; };
+		0937A65C216B986000941AB0 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0937A65B216B986000941AB0 /* ImageScrollView.swift */; };
 		093EC8D21F278BC700CD3462 /* ZhuangBeiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EC8D11F278BC700CD3462 /* ZhuangBeiViewController.swift */; };
 		093EC8D51F278FE400CD3462 /* ZhuangBeiCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EC8D31F278FE400CD3462 /* ZhuangBeiCollectionViewController.swift */; };
 		093EC8D61F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 093EC8D41F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib */; };
@@ -147,6 +148,7 @@
 		09346D2B1EFA49EA00DDC6BE /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		09346D2C1EFA49EA00DDC6BE /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		09346D301EFA4A1900DDC6BE /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		0937A65B216B986000941AB0 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		093EC8D11F278BC700CD3462 /* ZhuangBeiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZhuangBeiViewController.swift; sourceTree = "<group>"; };
 		093EC8D31F278FE400CD3462 /* ZhuangBeiCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZhuangBeiCollectionViewController.swift; sourceTree = "<group>"; };
 		093EC8D41F278FE400CD3462 /* ZhuangBeiCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhuangBeiCollectionViewController.xib; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				093349541ECD8B64008897B3 /* HttpRequest.swift */,
 				09DE715B1ED7DF7C0021B0BF /* ImageLoader.swift */,
 				09BDC67B1ED6D00E00864DF7 /* InfiniteAdScrollView.swift */,
+				0937A65B216B986000941AB0 /* ImageScrollView.swift */,
 			);
 			name = Tool;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				09E790CA1EF8D690004C769B /* FSSegmentTitleView.m in Sources */,
 				0910CE671F05EA3C00893C19 /* UIView+Toast.m in Sources */,
 				093349551ECD8B64008897B3 /* HttpRequest.swift in Sources */,
+				0937A65C216B986000941AB0 /* ImageScrollView.swift in Sources */,
 				097E94611D98C1C700B25CE2 /* Tool.swift in Sources */,
 				09346D2D1EFA49EA00DDC6BE /* TFHpple.m in Sources */,
 				09AB36221ED434D600AB2A5F /* RCEncryption.m in Sources */,
