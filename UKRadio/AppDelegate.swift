@@ -29,10 +29,10 @@ private let APPSTORE_URL = "https://itunes.apple.com/app/id1272769033"
         
 
         //UMeng
-        UMAnalyticsConfig.sharedInstance().appKey = "5995607d7f2c74681e001539"
-        UMAnalyticsConfig.sharedInstance().channelId = "App Store"
-        MobClick.setLogEnabled(true)
-        MobClick.setCrashReportEnabled(true)
+//        UMAnalyticsConfig.sharedInstance().appKey = "5995607d7f2c74681e001539"
+//        UMAnalyticsConfig.sharedInstance().channelId = "App Store"
+//        MobClick.setLogEnabled(true)
+//        MobClick.setCrashReportEnabled(true)
         //MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
 
         //GADMobileAds.configure(withApplicationID: "ca-app-pub-1207330468801232~2402219186")

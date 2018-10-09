@@ -34,6 +34,7 @@
 		093F26CA1D94D887006556C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093F26C81D94D887006556C4 /* LaunchScreen.storyboard */; };
 		093FCB511EFB53F4000D89C8 /* HttpParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 093FCB501EFB53F4000D89C8 /* HttpParser.m */; };
 		093FCB541EFB6A9D000D89C8 /* ZiXunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093FCB521EFB6A9D000D89C8 /* ZiXunTableViewCell.swift */; };
+		0957712A216CFEE700BD20D0 /* GKFadeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09577129216CFEE700BD20D0 /* GKFadeNavigationController.m */; };
 		09593D191EF9060600241A13 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09593D181EF9060600241A13 /* HomeViewController.swift */; };
 		095F7F9F1EFCF7ED00727834 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 095F7F8D1EFCF7ED00727834 /* MJRefresh.bundle */; };
 		095F7FA01EFCF7ED00727834 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095F7F901EFCF7ED00727834 /* MJRefreshBaseView.m */; };
@@ -160,6 +161,8 @@
 		093FCB4F1EFB53F4000D89C8 /* HttpParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpParser.h; sourceTree = "<group>"; };
 		093FCB501EFB53F4000D89C8 /* HttpParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpParser.m; sourceTree = "<group>"; };
 		093FCB521EFB6A9D000D89C8 /* ZiXunTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZiXunTableViewCell.swift; sourceTree = "<group>"; };
+		09577128216CFEE600BD20D0 /* GKFadeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKFadeNavigationController.h; sourceTree = "<group>"; };
+		09577129216CFEE700BD20D0 /* GKFadeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKFadeNavigationController.m; sourceTree = "<group>"; };
 		09593D181EF9060600241A13 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		095F7F8D1EFCF7ED00727834 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		095F7F8E1EFCF7ED00727834 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
@@ -467,6 +470,8 @@
 		097E94621D98C1DC00B25CE2 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				09577128216CFEE600BD20D0 /* GKFadeNavigationController.h */,
+				09577129216CFEE700BD20D0 /* GKFadeNavigationController.m */,
 				095F7FA81EFD029700727834 /* RCWebViewController.h */,
 				095F7FA91EFD029F00727834 /* RCWebViewController.m */,
 				09EE10041F132834002EC29D /* RCWebViewController.xib */,
@@ -756,6 +761,7 @@
 				09593D191EF9060600241A13 /* HomeViewController.swift in Sources */,
 				097E94681D98F80D00B25CE2 /* GlobalDefinitions.swift in Sources */,
 				099CB9971F02023400470270 /* VideoTableViewCell.swift in Sources */,
+				0957712A216CFEE700BD20D0 /* GKFadeNavigationController.m in Sources */,
 				09BDC6791ED6CD0D00864DF7 /* InfiniteScrollAdViewTestViewController.swift in Sources */,
 				09681B701F009E9900DDD83E /* ContentsTableViewCell.swift in Sources */,
 				095F7FA71EFCF7ED00727834 /* UIView+Extension.m in Sources */,

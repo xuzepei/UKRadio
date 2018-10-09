@@ -10,17 +10,28 @@ import UIKit
 
 class ContentsViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    let headerHeight: CGFloat = 0
+    let navbarHeight: CGFloat = 64
+    
+    var navigationBarVisibility: GKFadeNavigationControllerNavigationBarVisibility = .hidden
+    
+    var tableView: UITableView = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height), style: .plain)
     var indicator: MBProgressHUD? = nil
     var itemArray = [[String : Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
+        if let navigationController =  self.navigationController as? GKFadeNavigationController {
+            navigationController.setNeedsNavigationBarVisibilityUpdate(animated: false)
+        }
         
         initTableView()
         loadContents()
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.navigationController!.navigationBar.alpha = 1 - (self.tableView.contentOffset.y / (self.tableView.contentSize.height - self.tableView.frame.size.height));
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +49,13 @@ class ContentsViewController: UIViewController {
             self.view .addSubview(bannerView)
         
         }
+        
+        //self.tableView.deselectRow(at: self.tableView.indexPathForSelectedRow ?? nil, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.setNeedsStatusBarAppearanceUpdate()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,22 +70,48 @@ class ContentsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateNavigationBarVisibilityStatus(navigationBarVisibility: GKFadeNavigationControllerNavigationBarVisibility) {
+        
+        if self.navigationBarVisibility != navigationBarVisibility {
+            self.navigationBarVisibility = navigationBarVisibility
+            
+            if let navigationController =  self.navigationController as? GKFadeNavigationController {
+                
+                if let topViewController = navigationController.topViewController {
+                    navigationController.setNeedsNavigationBarVisibilityUpdate(animated: true)
+                }
+                
+            }
+        }
+    }
+    
     func initTableView() {
         
-        self.tableView.addHeader(withTarget: self, action: #selector(ContentsViewController.loadContents))
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.backgroundColor = UIColor.red
+        self.view.addSubview(self.tableView)
+        
+        self.tableView.register(ContentsTableViewCell.self, forCellReuseIdentifier: "contents_cell")
+//        self.tableView.register(UINib(nibName: "ContentsTableViewCell", bundle: nil), forCellReuseIdentifier: "contents_cell")
+        
+        //self.tableView.addHeader(withTarget: self, action: #selector(ContentsViewController.loadContents))
     }
     
     func loadContents() {
         
-        let urlString = "http://www.gembo.cn/app/3d/edu_controller.php?action=getBaseMainList&BigID=21"
+        self.itemArray = [["title":"1"],["title":"2"],["title":"3"],["title":"4"],["title":"5"],["title":"6"],["title":"7"],["title":"8"],["title":"9"],["title":"10"],["title":"11"],["title":"12"],["title":"13"],["title":"14"],["title":"15"],["title":"16"],["title":"17"],["title":"18"]]
+        return
         
-//        let request = HttpRequest(delegate: self)
-//        let b = request.post(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
-//        
-//        if b == true {
-//            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
-//            self.indicator!.labelText = "Loading..."
-//        }
+        let urlString = "http://www.runoob.com/python3/python3-tutorial.html"
+        
+        let request = HttpRequest(delegate: self)
+        let b = request.get(urlString, resultSelector: #selector(ContentsViewController.requestFinished(_:)), token: nil)
+        
+        if b == true {
+            self.indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+            self.indicator!.labelText = "Loading..."
+        }
     }
     
     func requestFinished(_ dict: NSDictionary) {
@@ -78,15 +122,14 @@ class ContentsViewController: UIViewController {
             indicator.hide(false)
         }
         
-        if let data = dict.object(forKey: "k_data") as? Data {
+        if let htmlString = dict.object(forKey: "k_json") as? String {
             
-            let htmlString = String(data: data, encoding: String.Encoding.utf8) ?? ""
+            //let htmlString = String(data: data, encoding: String.Encoding.utf8) ?? ""
             
-            if let array = Tool.parseToArray(htmlString) as? [[String: Any]]{
-                
+            if let array = HttpParser.sharedInstace().parse(htmlString) as? [[String: Any]]{
                 
                 self.itemArray.removeAll()
-                self.itemArray = array
+                self.itemArray = [["title":"1"],["title":"2"],["title":"3"],["title":"4"],["title":"5"],["title":"6"],["title":"7"],["title":"8"],["title":"9"],["title":"10"],["title":"11"],["title":"12"],["title":"13"],["title":"14"],["title":"15"],["title":"16"],["title":"17"],["title":"18"]]
             }
             
             self.tableView.reloadData()
@@ -132,7 +175,7 @@ class ContentsViewController: UIViewController {
     
 }
 
-extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
+extension ContentsViewController: UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, GKFadeNavigationControllerDelegate{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -147,7 +190,7 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cellId = "contents_cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryType.none;
         
         let item = itemArray[indexPath.row]
         
@@ -157,13 +200,8 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
         
         //cell.selectionStyle = UITableViewCellSelectionStyle.gray
         
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
-        if indexPath.row & 1 == 0 {
-            cell.backgroundColor = UIColor(red: 227/255.0, green: 227/255.0, blue: 227/255.0, alpha: 227/255.0)
-        }
-        else{
+
             cell.backgroundColor = UIColor.white
-        }
         
         
         return cell
@@ -172,6 +210,31 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    func preferredNavigationBarVisibility() -> GKFadeNavigationControllerNavigationBarVisibility
+    {
+        return self.navigationBarVisibility
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var offsetY = headerHeight - scrollView.contentOffset.y
+        
+        NSLog("scrollView.contentOffset.:\(scrollView.contentOffset.y)")
+        
+        NSLog("offsetY:\(offsetY)")
+        
+        NSLog("offsetY - navbarHeight:\(offsetY - navbarHeight)")
+        
+        if (offsetY - navbarHeight) < 24 {
+
+            NSLog(".visible")
+            self.updateNavigationBarVisibilityStatus(navigationBarVisibility: .visible)
+        } else {
+            NSLog(".hidden")
+            self.updateNavigationBarVisibilityStatus(navigationBarVisibility: .hidden)
+        }
         
     }
     

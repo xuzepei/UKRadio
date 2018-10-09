@@ -130,7 +130,7 @@ class ImageScrollView: UIView, UIScrollViewDelegate {
     
     func rearrageAdViews() {
         
-        print("\(#function)")
+        //print("\(#function)")
         
         for subView in self.scrollView.subviews {
             

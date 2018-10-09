@@ -13,4 +13,5 @@
 #import "RCWebViewController.h"
 #import "UMMobClick/MobClick.h"
 #import "UIView+Toast.h"
+#import "GKFadeNavigationController.h"
 
