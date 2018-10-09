@@ -11,27 +11,33 @@ import UIKit
 class ContentsViewController: UIViewController {
     
     let headerHeight: CGFloat = 0
-    let navbarHeight: CGFloat = 64
+    let navbarHeight: CGFloat = 44
+    var previousValue: CGFloat = 0
+    
+    let titleView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88))
     
     var navigationBarVisibility: GKFadeNavigationControllerNavigationBarVisibility = .hidden
     
-    var tableView: UITableView = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height), style: .plain)
+    var tableView: UITableView = UITableView(frame: CGRect(x: 0, y: 88, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height), style: .plain)
     var indicator: MBProgressHUD? = nil
     var itemArray = [[String : Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.blue
 
-        if let navigationController =  self.navigationController as? GKFadeNavigationController {
-            navigationController.setNeedsNavigationBarVisibilityUpdate(animated: false)
-        }
+//        if let navigationController =  self.navigationController as? GKFadeNavigationController {
+//            navigationController.setNeedsNavigationBarVisibilityUpdate(animated: false)
+//        }
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+
         
         initTableView()
         loadContents()
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        self.navigationController!.navigationBar.alpha = 1 - (self.tableView.contentOffset.y / (self.tableView.contentSize.height - self.tableView.frame.size.height));
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,13 +95,19 @@ class ContentsViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.backgroundColor = UIColor.red
+        self.tableView.backgroundColor = UIColor.clear
+        self.tableView.separatorStyle = .none
+        self.tableView.showsVerticalScrollIndicator = false
         self.view.addSubview(self.tableView)
         
         self.tableView.register(ContentsTableViewCell.self, forCellReuseIdentifier: "contents_cell")
 //        self.tableView.register(UINib(nibName: "ContentsTableViewCell", bundle: nil), forCellReuseIdentifier: "contents_cell")
         
         //self.tableView.addHeader(withTarget: self, action: #selector(ContentsViewController.loadContents))
+        
+        self.titleView.backgroundColor = UIColor.yellow
+        self.titleView.alpha = 0.5
+        //self.view .addSubview(titleView)
     }
     
     func loadContents() {
@@ -183,7 +195,7 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
+        return 90.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -201,7 +213,7 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate, UI
         //cell.selectionStyle = UITableViewCellSelectionStyle.gray
         
 
-            cell.backgroundColor = UIColor.white
+        cell.layer.backgroundColor = UIColor.clear.cgColor
         
         
         return cell
@@ -219,7 +231,7 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate, UI
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        var offsetY = headerHeight - scrollView.contentOffset.y
+        var offsetY = scrollView.contentOffset.y
         
         NSLog("scrollView.contentOffset.:\(scrollView.contentOffset.y)")
         
@@ -227,14 +239,38 @@ extension ContentsViewController: UITableViewDataSource, UITableViewDelegate, UI
         
         NSLog("offsetY - navbarHeight:\(offsetY - navbarHeight)")
         
-        if (offsetY - navbarHeight) < 24 {
-
-            NSLog(".visible")
-            self.updateNavigationBarVisibilityStatus(navigationBarVisibility: .visible)
-        } else {
-            NSLog(".hidden")
-            self.updateNavigationBarVisibilityStatus(navigationBarVisibility: .hidden)
+        
+        
+        if self.previousValue < offsetY {
+            //向上滚动，offsetY变大
+            if offsetY >= -44 && offsetY <= 0 {
+                let temp: Double = (Double)(navbarHeight + offsetY)
+                self.titleView.alpha = min(1.0,CGFloat(fabs(temp)/44.0))
+            }
+            
+        } else
+        {
+            //向下滚动，offsetY变小
+            self.titleView.alpha = max(0.0, (self.titleView.alpha - (self.previousValue - offsetY) / 44.0))
         }
+        
+        self.previousValue = offsetY
+        
+//        if temp > 0 {
+//            self.titleView.alpha = max(1.0,CGFloat(fabs(temp)/44.0))
+//        } else {
+//            self.titleView.alpha = min(1.0,CGFloat(fabs(temp)/44.0))
+//        }
+
+        
+//        if (offsetY - navbarHeight) < 24 {
+//
+//            NSLog(".visible")
+//            self.updateNavigationBarVisibilityStatus(navigationBarVisibility: .visible)
+//        } else {
+//            NSLog(".hidden")
+//            self.updateNavigationBarVisibilityStatus(navigationBarVisibility: .hidden)
+//        }
         
     }
     
