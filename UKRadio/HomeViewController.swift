@@ -31,6 +31,8 @@ class HomeViewController: UIViewController {
         
         //for test
         initAdScrollView()
+        
+        initLayers()
     }
     
     func initAdScrollView() {
@@ -45,6 +47,16 @@ class HomeViewController: UIViewController {
         }
         
         self.adScrollView?.updateContent([["url":"http://pic.pptbz.com/201506/2015070581208537.JPG"],["url":"http://pic1a.nipic.com/2009-01-07/20091713417344_2.jpg"],["url":"http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg"],["url":"http://img12.3lian.com/gaoqing02/01/58/85.jpg"],["url":"http://5b0988e595225.cdn.sohucs.com/images/20170913/089d5ddc894f47009a31d895efa906e3.jpeg"]])
+        
+    }
+    
+    func initLayers() {
+        
+        let imageLayer = ImageLayer()
+        imageLayer.frame = CGRect(x: 0, y: 400, width: 100, height: 120)
+        imageLayer.updateContent(image: UIImage(named: "fuwen"), title: "Lorem ipsum dolor", fontSize: 18)
+
+        self.view.layer.addSublayer(imageLayer)
         
     }
     
