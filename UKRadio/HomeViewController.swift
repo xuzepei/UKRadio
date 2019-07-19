@@ -52,11 +52,11 @@ class HomeViewController: UIViewController {
     
     func initLayers() {
         
-        let imageLayer = ImageLayer()
-        imageLayer.frame = CGRect(x: 0, y: 400, width: 100, height: 120)
-        imageLayer.updateContent(image: UIImage(named: "fuwen"), title: "Lorem ipsum dolor", fontSize: 18)
-
-        self.view.layer.addSublayer(imageLayer)
+//        let imageLayer = ImageLayer()
+//        imageLayer.frame = CGRect(x: 0, y: 400, width: 100, height: 120)
+//        imageLayer.updateContent(image: UIImage(named: "fuwen"), title: "Lorem ipsum dolor", fontSize: 18)
+//
+//        self.view.layer.addSublayer(imageLayer)
         
     }
     
